@@ -132,39 +132,26 @@ const masterSidebar = `
     <div id="section-institutional" class="flex flex-col gap-1.5 institutional-element">
       <div class="px-2.5 flex items-center justify-between">
         <span class="font-label-caps text-[10px] font-bold text-slate-500 uppercase tracking-wider">Institutional & Ops</span>
-        <span class="px-1.5 py-0.2 rounded bg-blue-50 text-blue-800 text-[10px] font-mono font-semibold">TPO</span>
       </div>
       <nav class="flex flex-col gap-0.5">
-        <a href="#/cohort-skills" data-route="cohort-skills" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500 group-hover:text-brand-navy">grid_view</span>
-            <span>Cohort Skill Dashboard</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">81.4%</span>
+        <a href="#/cohort-skills" data-route="cohort-skills" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500 group-hover:text-brand-navy">grid_view</span>
+          <span>Cohort Skill Dashboard</span>
         </a>
 
-        <a href="#/drive-management" data-route="drive-management" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">calendar_month</span>
-            <span>Campus Drive Management</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-blue-50 text-blue-800 font-bold">3 Active</span>
+        <a href="#/drive-management" data-route="drive-management" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">calendar_month</span>
+          <span>Campus Drive Management</span>
         </a>
 
-        <a href="#/talent-discovery" data-route="talent-discovery" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">person_search</span>
-            <span>Talent Discovery & Rules</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-100 text-slate-700 font-bold">142 Pool</span>
+        <a href="#/talent-discovery" data-route="talent-discovery" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">person_search</span>
+          <span>Talent Discovery & Rules</span>
         </a>
 
-        <a href="#/fairness-accreditation" data-route="fairness-accreditation" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">balance</span>
-            <span>Fairness & Accreditation</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-amber-50 text-amber-800 font-bold">NAAC 5.2</span>
+        <a href="#/fairness-accreditation" data-route="fairness-accreditation" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">balance</span>
+          <span>Fairness & Accreditation</span>
         </a>
       </nav>
     </div>
@@ -176,55 +163,36 @@ const masterSidebar = `
     <div id="section-student" class="flex flex-col gap-1.5">
       <div class="px-2.5 flex items-center justify-between">
         <span class="font-label-caps text-[10px] font-bold text-slate-500 uppercase tracking-wider">Student Candidate View</span>
-        <span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] font-mono font-semibold">Ananya S.</span>
       </div>
       <nav class="flex flex-col gap-0.5">
-        <a href="#/skill-profile" data-route="skill-profile" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">psychology</span>
-            <span>Student Skill Profile</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">Verified</span>
+        <a href="#/skill-profile" data-route="skill-profile" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">psychology</span>
+          <span>Student Skill Profile</span>
         </a>
 
-        <a href="#/target-gaps" data-route="target-gaps" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">stacked_bar_chart</span>
-            <span>Target Companies & Gaps</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-100 text-slate-700 font-bold">4 Targets</span>
+        <a href="#/target-gaps" data-route="target-gaps" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">stacked_bar_chart</span>
+          <span>Target Companies & Gaps</span>
         </a>
 
-        <a href="#/mock-reports" data-route="mock-reports" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">assignment_turned_in</span>
-            <span>Mock Drive Reports</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">92% High</span>
+        <a href="#/mock-reports" data-route="mock-reports" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">assignment_turned_in</span>
+          <span>Mock Drive Reports</span>
         </a>
 
-        <a href="#/learning-path" data-route="learning-path" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">alt_route</span>
-            <span>Learning Roadmap</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-blue-50 text-blue-800 font-bold">Sprint 2</span>
+        <a href="#/learning-path" data-route="learning-path" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">alt_route</span>
+          <span>Learning Roadmap</span>
         </a>
 
-        <a href="#/my-drives" data-route="my-drives" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">verified_user</span>
-            <span>My Drives & Eligibility</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">4 Applied</span>
+        <a href="#/my-drives" data-route="my-drives" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">verified_user</span>
+          <span>My Drives & Eligibility</span>
         </a>
 
-        <a href="#/privacy-consent" data-route="privacy-consent" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">shield</span>
-            <span>Privacy & DPDP Policy</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">DPDP ✓</span>
+        <a href="#/privacy-consent" data-route="privacy-consent" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">shield</span>
+          <span>Privacy & DPDP Policy</span>
         </a>
       </nav>
     </div>
