@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"outline-variant":"#c6c6cd","on-primary-fixed-variant":"#3f465c","on-tertiary-fixed-variant":"#004395","primary-container":"#131b2e","on-primary-container":"#7c839b","secondary-fixed":"#dde1ff","surface-tint":"#565e74","inverse-on-surface":"#eef0ff","on-tertiary-fixed":"#001a42","surface-container-low":"#f2f3ff","on-surface":"#151b2d","surface-container":"#eaedff","on-surface-variant":"#45464d","surface-dim":"#d4d9f2","on-background":"#151b2d","surface-container-highest":"#dce1fb","surface-bright":"#faf8ff","inverse-primary":"#bec6e0","on-tertiary-container":"#3980f4","primary-fixed-dim":"#bec6e0","surface-container-high":"#e3e7ff","on-secondary-fixed-variant":"#173bab","on-secondary-container":"#00217a","tertiary-fixed-dim":"#adc6ff","surface-container-lowest":"#ffffff","surface":"#faf8ff","background":"#faf8ff","surface-variant":"#dce1fb","on-tertiary":"#ffffff","on-secondary-fixed":"#001453","tertiary-container":"#001a42","primary":"#000000","on-primary-fixed":"#131b2e","on-error-container":"#93000a","on-secondary":"#ffffff","outline":"#76777d","tertiary":"#000000","secondary-container":"#708cfd","primary-fixed":"#dae2fd","error-container":"#ffdad6","error":"#ba1a1a","secondary-fixed-dim":"#b8c4ff","on-error":"#ffffff","inverse-surface":"#2a3043","secondary":"#3755c3","on-primary":"#ffffff","tertiary-fixed":"#d8e2ff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter":"1rem","space-xl":"1.5rem","margin-md":"1.5rem","space-lg":"1rem","margin":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","margin-lg":"2rem","gutter-lg":"1.5rem","space-md":"0.75rem"},fontFamily:{"headline-lg-mobile":["Hanken Grotesk"],"label-md":["JetBrains Mono"],"label-sm":["JetBrains Mono"],"display-lg-mobile":["Hanken Grotesk"],"body-lg":["Hanken Grotesk"],"headline-md":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"display-lg":["Hanken Grotesk"],"body-sm":["Hanken Grotesk"]},fontSize:{"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.025em","fontWeight":"500"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.035em","fontWeight":"500"}],"display-lg-mobile":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["1rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"headline-md":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-sm":["1.125rem",{"lineHeight":"1.5rem","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.025em","fontWeight":"700"}],"body-sm":["0.75rem",{"lineHeight":"1rem","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-lowest shrink-0"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-sm text-headline-sm"><span class="material-symbols-outlined text-secondary">shield_lock</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-tight">Proofpoint</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Placement Intelligence</span></div></div><div class="px-space-md py-space-sm"><div class="h-[1px] w-full bg-surface-container-high mb-space-sm"></div></div><nav class="px-space-md space-y-space-md flex-1" data-active-classes="bg-primary-container text-on-primary font-semibold rounded-lg shadow-sm"><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant/70">Student Operations</div><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="skill-profile" href="#"><span>Skill Profile</span></a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="target-companies-and-gaps" href="#"><span>Target Companies &amp; Gaps</span></a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="mock-drive-reports" href="#"><span>Mock Drive Reports</span></a><a aria-current="page" class="flex items-center px-space-sm py-space-sm transition-all bg-primary-container text-on-primary font-semibold rounded-lg shadow-sm" data-path="learning-roadmap" href="#"><span>Learning Roadmap</span></a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="my-drives-and-eligibility" href="#"><span>My Drives &amp; Eligibility</span></a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="privacy-and-consent" href="#"><span>Privacy &amp; Consent</span></a></div><div class="space-y-space-xs pt-space-xs"><div class="px-space-sm py-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant/70">Institutional &amp; T&amp;P</div><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="cohort-heatmap" href="#"><span>Cohort Heatmap</span></a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="predictive-alerts" href="#"><span>Predictive Alerts</span></a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="drive-calendar" href="#"><span>Drive Calendar</span></a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="rule-engine" href="#"><span>Rule Engine</span></a><a class="flex items-center px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="fairness-and-accreditation" href="#"><span>Fairness &amp; Accreditation</span></a></div></nav></div><div class="p-space-md shrink-0 bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Proofpoint Audit Log Sync</span></div><span class="font-label-sm text-label-sm text-on-surface font-semibold">0s ago</span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-gutter-lg flex items-center justify-between gap-space-lg"><div class="flex-1 max-w-xl"><div class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl bg-surface-container-low text-on-surface-variant focus-within:bg-surface-container-lowest transition-colors"><span class="material-symbols-outlined text-[18px]">search</span><input class="w-full bg-transparent border-0 outline-none font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant" placeholder="Search cohort, skills matrix, company drives, agent logs..." readonly="" type="text"/><kbd class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-surface-container-high text-on-surface-variant">⌘K</kbd></div></div><div class="flex items-center gap-space-lg"><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></button><div class="h-6 w-[1px] bg-surface-container-high"></div><div class="flex items-center gap-space-sm px-space-xs py-space-xs rounded-lg border border-outline-variant/30 bg-surface-container-low"><button class="px-space-sm py-space-xs rounded text-xs font-medium font-body-sm bg-surface-container-lowest text-on-surface shadow-sm" type="button">Student: Ananya S.</button><button class="px-space-sm py-space-xs rounded text-xs font-medium font-body-sm text-on-surface-variant hover:text-on-surface" type="button">Dean Vance</button></div><div class="flex items-center gap-space-md"><div class="text-right hidden sm:block"><div class="font-headline-sm text-headline-sm leading-tight text-on-surface">Ananya Sharma</div><div class="font-label-sm text-label-sm text-secondary tracking-wider uppercase">CS Senior · Student View</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-gutter-lg py-gutter-lg flex-1 bg-background"><div class="flex flex-col w-full space-y-space-xl">
+<!-- Top Breadcrumb & Status Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<nav class="flex items-center gap-space-xs font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant">
+<span>Student Operations</span>
+<span class="text-outline-variant">/</span>
+<span>Adaptive Remediation</span>
+<span class="text-outline-variant">/</span>
+<span class="text-secondary font-semibold">Personal Learning Path</span>
+</nav>
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-[3px] rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>
+        Deterministic Proof Engine v5.4
+      </span>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-[3px] rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+        Synthesized: 2 hrs ago
+      </span>
+</div>
+</div>
+<!-- Hero Diagnostic Synthesis Banner -->
+<section class="relative overflow-hidden rounded-xl bg-primary-container text-on-primary shadow-xl">
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-secondary/15 blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/4 -bottom-20 w-64 h-64 rounded-full bg-secondary-container/10 blur-2xl pointer-events-none"></div>
+<div class="relative p-space-xl sm:p-gutter-lg flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-lowest/10 text-secondary-fixed text-label-sm font-label-sm tracking-wider uppercase">
+<span class="material-symbols-outlined text-[15px]">auto_awesome</span>
+          AI Diagnostic Synthesis
+        </span>
+<span class="px-space-sm py-space-xs rounded bg-secondary-container/30 text-on-primary text-label-sm font-label-sm tracking-wide">
+          Target: SDE-1 / Backend Engineer
+        </span>
+<span class="px-space-sm py-space-xs rounded bg-surface-container-lowest/10 text-outline-variant text-label-sm font-label-sm">
+          Origin: Proctored Mock Drive #4
+        </span>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="max-w-3xl space-y-space-xs">
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-primary">
+            Remediation Roadmap: Mock Drive #4 Deficit &amp; Target Company Gap Closure
+          </h1>
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+            This adaptive path was synthesized directly from your FinTech SDE Mock Drive diagnostic report 
+            <span class="text-on-primary font-medium">(-15 Marks lost: SQL latency cutoff and DAG node ordering)</span> 
+            and your active Google &amp; Microsoft SDE-1 Skill Gap profiles. Complete actionable tasks to produce verifiable cryptographic proof, update your skill badges, and unlock drive retake clearance.
+          </p>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<div class="px-space-md py-space-sm rounded-lg bg-surface-container-lowest/10 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-primary-container uppercase">Projected Gain</span>
+<span class="font-headline-md text-headline-md text-secondary-fixed font-bold">+14 Pts</span>
+</div>
+<div class="px-space-md py-space-sm rounded-lg bg-surface-container-lowest/10 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-primary-container uppercase">Retake Clearance</span>
+<span class="font-headline-md text-headline-md text-on-primary font-bold">2 / 5 Steps</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Grid: Roadmap Timeline (2/3) + Tracker & Oversight (1/3) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg">
+<!-- Left Column: Visual Stepped Evidence Roadmap (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col space-y-space-lg">
+<div class="flex items-center justify-between pb-space-xs">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+            Proof Remediation Pipeline
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Deterministic sequence: every node requires reproducible evidence or automated AST verification.
+          </p>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary px-space-sm py-space-xs rounded bg-surface-container font-medium">
+          Loop ID: #RM-2025-0941
+        </span>
+</div>
+<!-- Timeline Container -->
+<div class="relative flex flex-col space-y-space-lg pl-6 sm:pl-8 before:absolute before:left-3 sm:before:left-4 before:top-4 before:bottom-6 before:w-[2px] before:bg-surface-container-high">
+<!-- Step 1: Completed -->
+<div class="relative group">
+<!-- Step Marker -->
+<div class="absolute -left-6 sm:-left-8 top-1.5 w-7 h-7 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center">
+<span class="w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<!-- Step Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-wrap items-start justify-between gap-space-sm mb-space-xs">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-surface-container text-on-surface-variant font-medium">
+                    STEP 01
+                  </span>
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-surface-container-high text-secondary font-medium tracking-wide uppercase">
+                    Root Cause Logged
+                  </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">· 2d ago</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                  Identify Weakness: SQL &amp; Problem Solving
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Diagnostic penalty identified from Mock Drive #4 Machine Coding Task #2.
+                </p>
+</div>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-[3px] rounded-lg bg-surface-container-low font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[14px]">verified</span>
+                REMED-SQL-0941
+              </span>
+</div>
+<!-- Evidence Box -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low text-on-surface font-body-sm space-y-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="uppercase tracking-wider">Static AST Diagnostic Telemetry</span>
+<span class="text-error font-medium">-8 Marks Incurred</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface font-mono leading-relaxed bg-surface-container-lowest p-space-sm rounded">
+                Unindexed nested query triggered full table scan on 2.4M rows. Runtime: 418ms vs 120ms benchmark cutoff. AST analyzer recommended Composite B-Tree index on (account_id, txn_timestamp DESC).
+              </p>
+</div>
+</div>
+</div>
+<!-- Step 2: In Progress -->
+<div class="relative group">
+<!-- Step Marker -->
+<div class="absolute -left-6 sm:-left-8 top-1.5 w-7 h-7 rounded-full bg-primary-container shadow-md flex items-center justify-center">
+<span class="w-3 h-3 rounded-full bg-secondary-container animate-ping"></span>
+<span class="absolute w-3 h-3 rounded-full bg-secondary"></span>
+</div>
+<!-- Step Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-md transition-shadow">
+<div class="flex flex-wrap items-start justify-between gap-space-sm mb-space-xs">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-primary-container text-on-primary font-medium">
+                    STEP 02
+                  </span>
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-secondary-fixed text-on-secondary-container font-medium tracking-wide uppercase">
+                    In Progress (50%)
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                  Complete 2 SQL Optimization Drill Sets
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Interactive query tuning drills targeting execution plan debugging, EXPLAIN ANALYZE interpretation, and partition filtering.
+                </p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-secondary font-semibold font-mono">1 of 2 Sets Cleared</span>
+</div>
+</div>
+<!-- Progress Meter Bar -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden mt-space-sm mb-space-md">
+<div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 50%;"></div>
+</div>
+<!-- Drills Breakdown -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mb-space-md">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Drill 1: Indexing &amp; SARGable Predicates</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono">PASSED</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[16px]">radio_button_unchecked</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Drill 2: Window Partitions &amp; Latency</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">NEXT UP</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary/90 transition-colors font-body-sm text-body-sm font-medium shadow-sm" type="button">
+<span>Start Practice Drills (Set 2: Window Functions)</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<button class="font-label-sm text-label-sm text-secondary hover:underline" type="button">
+                View Benchmark Specs &amp; Rubric →
+              </button>
+</div>
+</div>
+</div>
+<!-- Step 3: Active Task / Ready For Submission -->
+<div class="relative group">
+<!-- Step Marker -->
+<div class="absolute -left-6 sm:-left-8 top-1.5 w-7 h-7 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center">
+<span class="w-3.5 h-3.5 rounded-full bg-on-surface-variant/40"></span>
+</div>
+<!-- Step Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-wrap items-start justify-between gap-space-sm mb-space-xs">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-surface-container text-on-surface-variant font-medium">
+                    STEP 03
+                  </span>
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-surface-container-high text-on-surface font-medium tracking-wide uppercase">
+                    Ready for Evidence Submission
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                  Build SQL Mini Project: High-Throughput Ledger
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Build a high-throughput read-heavy transaction analytics pipeline with partition pruning and Redis cache integration to generate deterministic commit telemetry.
+                </p>
+</div>
+<span class="font-label-sm text-label-sm px-space-sm py-[2px] rounded bg-surface-container-low text-secondary font-mono">
+                Req: &lt;100ms Query SLA
+              </span>
+</div>
+<!-- Project Specs Specs Checklist -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low space-y-space-sm">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+                Automated Verification Criteria (Proofpoint Proctored AST)
+              </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm text-body-sm font-body-sm text-on-surface">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px] mt-0.5">terminal</span>
+<span>Public GitHub Repo with automated GitHub Actions CI</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px] mt-0.5">speed</span>
+<span>Execution benchmarks under 100ms across 10M synthetic rows</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px] mt-0.5">dataset</span>
+<span>PostgreSQL 16 declarative table partition scheme</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px] mt-0.5">lock_clock</span>
+<span>Proof synthesizer hooks into git commit SHA hash</span>
+</div>
+</div>
+</div>
+<!-- CTA Actions -->
+<div class="flex flex-wrap items-center gap-space-sm mt-space-md pt-space-xs">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary hover:bg-on-surface font-body-sm text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">cloud_upload</span>
+<span>Upload to GitHub &amp; Submit Evidence</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container transition-colors font-body-sm text-body-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">description</span>
+<span>View Project Spec &amp; Proctor Test Cases</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant/80 mt-space-sm">
+              Note: Automated Proof Synthesizer will inspect AST complexity and commit hashes upon push.
+            </p>
+</div>
+</div>
+<!-- Step 4: Pending Verification / Unlockable Milestone -->
+<div class="relative group opacity-85 hover:opacity-100 transition-opacity">
+<!-- Step Marker -->
+<div class="absolute -left-6 sm:-left-8 top-1.5 w-7 h-7 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-[16px]">lock</span>
+</div>
+<!-- Step Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex flex-wrap items-start justify-between gap-space-sm mb-space-xs">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-surface-container text-on-surface-variant font-medium">
+                    STEP 04
+                  </span>
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-surface-container-low text-on-surface-variant font-medium tracking-wide uppercase">
+                    Pending Verification
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-space-xs">
+                  New Cryptographic Proof Added / Skill Verified
+                  <span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Automated validation of SQL Mini Project. Upgrades SQL skill badge from <strong class="text-on-surface">"Claimed"</strong> to <strong class="text-secondary font-semibold">"Verified"</strong> (SHA-256 tamper-proof credential).
+                </p>
+</div>
+<span class="font-label-sm text-label-sm px-space-sm py-[2px] rounded bg-surface-container text-on-surface-variant font-mono">
+                Awaiting Step 3 Hook
+              </span>
+</div>
+<!-- Unlock Impact Banner -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+</div>
+<div>
+<div class="font-body-sm text-body-sm text-on-surface font-medium">
+                    Unlocks +12% Google SDE-1 match score
+                  </div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">
+                    Removes eligibility block on Uber, Salesforce &amp; Oracle drives.
+                  </div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono bg-surface-container-lowest px-space-sm py-[2px] rounded">
+                SHA-256 Sig Ready
+              </span>
+</div>
+</div>
+</div>
+<!-- Step 5: Retake Mock Drive (Final Milestone) -->
+<div class="relative group opacity-85 hover:opacity-100 transition-opacity">
+<!-- Step Marker -->
+<div class="absolute -left-6 sm:-left-8 top-1.5 w-7 h-7 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-[16px]">flag</span>
+</div>
+<!-- Step Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex flex-wrap items-start justify-between gap-space-sm mb-space-xs">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-surface-container text-on-surface-variant font-medium">
+                    STEP 05 · FINAL MILESTONE
+                  </span>
+<span class="font-label-sm text-label-sm px-space-xs py-[2px] rounded bg-secondary-fixed text-on-secondary-container font-medium tracking-wide uppercase">
+                    Loop Goal
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                  Retake Mock Drive: FinTech SDE Round #2
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Re-evaluation of FinTech SDE Mock Drive Round #2 (Machine Coding) and Section 2 Data Tier. Clearing this will boost overall aggregate score from 78 to projected 92+.
+                </p>
+</div>
+<div class="px-space-sm py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-mono">
+                Projected: 92/100
+              </div>
+</div>
+<!-- Unlock Criteria Notice -->
+<div class="mt-space-md p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[16px]">info</span>
+<span>Unlocks automatically once Step 4 cryptographic proof is verified.</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono">Locked</span>
+</div>
+<div class="mt-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<button class="cursor-not-allowed opacity-60 inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-medium" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">replay</span>
+<span>Start Mock Drive Retake</span>
+</button>
+<button class="font-label-sm text-label-sm text-secondary hover:underline" type="button">
+                View Available Retake Slots (Wed / Fri) →
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Convergence Tracker & Mentor Oversight (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col space-y-space-lg">
+<!-- Live Skill Gap & Industry Demand Convergence Tracker -->
+<section class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+            Gap &amp; Demand Convergence
+          </h2>
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Live delta against Tier-1 SDE hire bar (top 10% accepted cohorts).
+        </p>
+<!-- Overall Radial/Metric Summary Card -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-center justify-between">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Overall Gap Closure</div>
+<div class="font-display-lg text-headline-lg font-bold text-on-surface">68%</div>
+<div class="font-label-sm text-label-sm text-secondary font-mono font-medium">+24% this week</div>
+</div>
+<!-- Inline Radial SVG Chart -->
+<div class="w-16 h-16 relative flex items-center justify-center shrink-0">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="68, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-label-sm text-label-sm font-bold text-on-surface font-mono">68%</span>
+</div>
+</div>
+<!-- Target Gap Metrics List -->
+<div class="space-y-space-md">
+<!-- Skill Item 1 -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">SQL &amp; Complex Indexing</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono font-semibold">72% / 90% Bar</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 72%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Status: In Remediation</span>
+<span class="text-secondary font-medium">18% Delta</span>
+</div>
+</div>
+<!-- Skill Item 2 -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">DAG &amp; Topological Sort</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">76% / 88% Bar</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 76%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Status: Queued Next</span>
+<span>12% Delta</span>
+</div>
+</div>
+<!-- Skill Item 3 -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">OpenTelemetry &amp; Tracing</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">54% / 82% Bar</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-surface-tint h-full rounded-full" style="width: 54%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Status: Sprint 2 Planned</span>
+<span>28% Delta</span>
+</div>
+</div>
+</div>
+<!-- Comparative Cohort Sparkline / Benchmark -->
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Benchmark vs Top 10% Hired Cohorts</span>
+<span class="text-secondary font-semibold font-mono">P78 Rank</span>
+</div>
+<!-- Sparkline representation -->
+<div class="h-10 w-full flex items-end gap-1 pt-2">
+<div class="flex-1 bg-surface-container-high rounded-t" style="height: 35%;"></div>
+<div class="flex-1 bg-surface-container-high rounded-t" style="height: 48%;"></div>
+<div class="flex-1 bg-surface-container-high rounded-t" style="height: 60%;"></div>
+<div class="flex-1 bg-surface-container-high rounded-t" style="height: 52%;"></div>
+<div class="flex-1 bg-secondary rounded-t" style="height: 72%;"></div>
+<div class="flex-1 bg-primary rounded-t" style="height: 88%;"></div>
+<div class="flex-1 bg-surface-container-high rounded-t" style="height: 94%;"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant pt-1">
+<span>Entry</span>
+<span class="text-secondary font-medium">Your Proof: 72%</span>
+<span>Hire Bar: 90%</span>
+</div>
+</div>
+</section>
+<!-- Faculty Mentor Oversight & Guidance -->
+<section class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+            Institutional Oversight
+          </h2>
+<span class="material-symbols-outlined text-secondary text-[20px]">school</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold">
+              KR
+            </div>
+<div>
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface leading-tight">Prof. K. Ramanathan</div>
+<div class="font-label-sm text-label-sm text-secondary">T&amp;P Faculty Mentor · Systems Lead</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            "Endorsed this remediation path for Ananya. The diagnostic AST findings on nested scans reflect standard production pitfalls. Clear Step 3 by Tuesday to guarantee eligibility before the Uber portal closes."
+          </p>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">event_available</span>
+<span>Office Hours: <strong>Wednesday, 3:00 PM (Lab 4B)</strong></span>
+</div>
+</div>
+<!-- Mentor Actions -->
+<div class="flex flex-col gap-space-xs">
+<button class="w-full flex items-center justify-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-body-sm text-body-sm font-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+<span>Request 1:1 Code Review</span>
+</button>
+<button class="w-full flex items-center justify-center gap-space-xs px-space-md py-space-xs rounded-lg text-secondary hover:bg-surface-container-low font-body-sm text-body-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Download Learning Roadmap PDF</span>
+</button>
+</div>
+</section>
+<!-- Cryptographic Verification Integrity Card -->
+<section class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">gavel</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Integrity Protocol</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Proofpoint Placement Intelligence uses reproducible AST sandbox execution and tamper-evident SHA-256 signatures recognized by institutional placement accreditation.
+        </p>
+<div class="mt-space-sm pt-space-sm font-label-sm text-label-sm text-on-surface-variant font-mono flex items-center justify-between">
+<span>ROOT_NODE: #941B-PROOF-SEC</span>
+<span class="text-secondary font-semibold">VERIFIED VALID</span>
+</div>
+</section>
+</div>
+</div>
+</div></main></div>
+</body></html>

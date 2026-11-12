@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-error-container":"#93000a","on-primary":"#ffffff","secondary":"#3755c3","surface-bright":"#faf8ff","on-tertiary-fixed-variant":"#004395","tertiary":"#000000","secondary-container":"#708cfd","on-primary-container":"#7c839b","primary-fixed-dim":"#bec6e0","outline-variant":"#c6c6cd","surface-container":"#eaedff","surface-container-highest":"#dce1fb","error-container":"#ffdad6","inverse-surface":"#2a3043","on-primary-fixed":"#131b2e","secondary-fixed-dim":"#b8c4ff","surface":"#faf8ff","on-secondary":"#ffffff","error":"#ba1a1a","on-tertiary":"#ffffff","surface-variant":"#dce1fb","background":"#faf8ff","on-tertiary-fixed":"#001a42","on-surface-variant":"#45464d","surface-tint":"#565e74","surface-container-high":"#e3e7ff","primary-container":"#1e3a8a","on-tertiary-container":"#3980f4","on-error":"#ffffff","on-background":"#151b2d","on-surface":"#151b2d","secondary-fixed":"#dde1ff","surface-dim":"#d4d9f2","tertiary-fixed":"#d8e2ff","primary-fixed":"#dae2fd","on-secondary-container":"#00217a","primary":"#0f172a","on-secondary-fixed-variant":"#173bab","on-secondary-fixed":"#001453","surface-container-lowest":"#ffffff","inverse-primary":"#bec6e0","surface-container-low":"#f8fafc","tertiary-container":"#001a42","outline":"#76777d","inverse-on-surface":"#eef0ff","tertiary-fixed-dim":"#adc6ff","on-primary-fixed-variant":"#3f465c","status-verified":"#059669","status-verified-bg":"#ecfdf5","status-claimed":"#d97706","status-claimed-bg":"#fef3c7","brand-navy":"#1e3a8a","brand-blue":"#2563eb"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-lg":"2rem","space-md":"0.75rem","gutter":"1rem","gutter-lg":"1.5rem","space-xl":"1.5rem","margin-md":"1.5rem","margin":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1rem","gutter-md":"1.5rem"},fontFamily:{"display-lg":["Hanken Grotesk"],"body-lg":["Hanken Grotesk"],"headline-md":["Hanken Grotesk"],"body-sm":["Hanken Grotesk"],"label-md":["JetBrains Mono"],"headline-lg-mobile":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"label-sm":["JetBrains Mono"],"label-code":["JetBrains Mono"],"label-caps":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"display-lg-mobile":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"],"headline-xl":["Hanken Grotesk"]},fontSize:{"display-lg":["3rem",{lineHeight:"3.5rem",letterSpacing:"-0.025em",fontWeight:"700"}],"body-lg":["1rem",{lineHeight:"1.5rem",fontWeight:"400"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["0.75rem",{lineHeight:"1rem",fontWeight:"400"}],"label-md":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.025em",fontWeight:"500"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],"label-code":["12px",{lineHeight:"16px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",fontWeight:"600"}],"label-sm":["0.6875rem",{lineHeight:"0.875rem",letterSpacing:"0.035em",fontWeight:"500"}],"body-md":["0.875rem",{lineHeight:"1.25rem",fontWeight:"400"}],"display-lg-mobile":["2rem",{lineHeight:"2.5rem",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-lg":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-xl":["2rem",{lineHeight:"2.5rem",letterSpacing:"-0.02em",fontWeight:"700"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-16 z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-b border-slate-200 flex items-center justify-between px-gutter-md shadow-[0_1px_8px_rgba(15,23,42,0.06)]"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-navy via-slate-900 to-blue-900 text-on-primary flex items-center justify-center font-headline-md text-headline-md tracking-tight font-bold shadow-sm shadow-blue-900/30">P</div><div class="flex flex-col"><span class="font-headline-md text-headline-md text-on-surface tracking-tight leading-none font-bold">Proofpoint</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mt-0.5">Placement Intelligence</span></div></div></div><div class="flex-1 max-w-md mx-space-xl hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-brand-navy text-base pointer-events-none">search</span><input class="w-full h-9 pl-9 pr-space-md bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded border border-slate-200 focus:outline-none focus:border-brand-navy focus:bg-surface-container-lowest transition-all placeholder:text-outline" placeholder="Search cohort, skills matrix, company drives, agent logs (Cmd+K)..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center bg-slate-100 p-0.5 rounded border border-slate-200"></div><div class="relative flex items-center"><button class="p-1.5 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-colors relative"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></button><div class="hidden sm:flex items-center ml-1 px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 gap-1"></div></div><div class="h-5 w-px bg-slate-200"></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-slate-300" src="https://lh3.googleusercontent.com/aida/ALJJyrDXlmiPclp1UtZvItpEkpqdBYw6_XA_cwBbbplhlhlB5beBa9gsRizQGwZLdsadPMfI8AZBgl1iG6R9jmSs6fyeCvXO28MIGwTIuPf12ngQEObf0W2lPTVWw6HjCaAFwFNZtHQDo4TrZumVUvFjiiak8B87A39NQc1_EUM4dNLmXD6UfvSNxmqn2ztyaYSIawRjhCxdKNWRYiJ7qmlXH3AKVOjG_l91js-L5UB99Qyn"/><div class="hidden xl:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-tight">Dr. Aris Vance</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Dean of Career Placements</span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-64 bg-surface-container-lowest border-r border-slate-200 z-40 flex flex-col justify-between overflow-y-auto"><div class="p-space-md flex flex-col gap-space-lg"><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider font-semibold">Student Operations</span><nav class="flex flex-col gap-0.5"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded transition-all bg-brand-navy text-on-primary font-semibold shadow-sm shadow-blue-950/20" data-path="skill-profile" href="#"><span class="material-symbols-outlined text-lg">psychology</span>Skill Profile</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="target-companies-and-gaps" href="#"><span class="material-symbols-outlined text-lg">stacked_bar_chart</span>Target Companies &amp; Gaps</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="mock-drive-reports" href="#"><span class="material-symbols-outlined text-lg">assignment_turned_in</span>Mock Drive Reports</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="learning-roadmap" href="#"><span class="material-symbols-outlined text-lg">alt_route</span>Learning Roadmap</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="my-drives-and-eligibility" href="#"><span class="material-symbols-outlined text-lg">verified_user</span>My Drives &amp; Eligibility</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="privacy-and-consent" href="#"><span class="material-symbols-outlined text-lg">shield</span>Privacy &amp; Consent</a></nav></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider font-semibold">Institutional &amp; T&amp;P</span><nav class="flex flex-col gap-0.5"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="cohort-heatmap" href="#"><span class="material-symbols-outlined text-lg">grid_view</span>Cohort Heatmap</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="predictive-alerts" href="#"><span class="material-symbols-outlined text-lg">crisis_alert</span>Predictive Alerts</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="drive-calendar" href="#"><span class="material-symbols-outlined text-lg">calendar_month</span>Drive Calendar</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="rule-engine" href="#"><span class="material-symbols-outlined text-lg">rule</span>Rule Engine</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-slate-100 hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="fairness-and-accreditation" href="#"><span class="material-symbols-outlined text-lg">balance</span>Fairness &amp; Accreditation</a></nav></div></div><div class="p-space-md border-t border-slate-200 bg-surface-container-low/50"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-status-verified text-base">verified</span><span class="font-label-code text-label-code text-on-surface font-semibold">Proofpoint Audit Sync</span></div><span class="font-label-caps text-label-caps text-on-surface-variant">0s ago</span></div></div></aside><div class="pl-64"><main class="w-full pt-16 bg-surface min-h-screen px-gutter-md pb-margin-lg"><div class="flex flex-col w-full">
+<!-- Top Section: Student Profile Header & Actions -->
+<div class="relative w-full bg-surface-container-lowest rounded-xl shadow-sm border border-slate-200 p-space-lg mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Profile Metadata Left -->
+<div class="flex items-start sm:items-center gap-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover shadow-sm ring-2 ring-brand-navy/20" data-alt="Professional headshot of a confident young South Asian female computer science student named Ananya Sharma, wearing modern minimal technical attire with soft studio lighting, sharp focus, clean neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByuiXG3IiAfNyrse-aqvEUxpYG2CL75RcRcsYXVllDoFEqVsIsb8mnu1liynOT73z96BCxqC3CpJcMZ4HcRzVJJdJWQSA94y_ZYorI1kAQA3a3-G6PkhLRgkqNwP48DCdJGyaPc3glhk-4vTdBXlLJU4gLOVzKOXS6m0gzEWrfNW9PZXd-RqyBUcNTJJgtvzNBp8nN8NqAKsDIyoa0zseXo00JcphGehsaRPN9TnQ"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-status-verified flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined text-[13px]" style='font-variation-settings: "FILL" 1;'>verified</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-slate-900 tracking-tight font-bold">Ananya Sharma</h1>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-status-verified border border-emerald-200 font-label-caps text-label-caps uppercase tracking-wider font-semibold">TPO Verified</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="flex items-center gap-1 font-medium text-slate-800">
+<span class="material-symbols-outlined text-sm text-brand-navy">school</span>
+              B.Tech Computer Science • Batch 2025
+            </span>
+<span class="text-slate-300">•</span>
+<span class="flex items-center gap-1 font-label-code text-label-code font-semibold text-status-verified bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+              CGPA 8.84 / 10.0
+            </span>
+<span class="text-slate-300">•</span>
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-slate-500">badge</span>
+              ID: CS21-8842
+            </span>
+</div>
+</div>
+</div>
+<!-- Header Primary Action & Agentic Sync Indicator -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-sm py-1.5 rounded bg-surface-container-low border border-slate-200 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-status-verified animate-ping"></span>
+<span class="font-label-code text-label-code text-slate-700 font-medium">Continuous Ingestion Live</span>
+</div>
+<button class="flex items-center justify-center gap-2 px-space-lg py-2.5 rounded bg-brand-navy hover:bg-slate-900 text-on-primary font-semibold shadow-sm shadow-blue-950/25 transition-all active:scale-[0.98] text-base" id="resume-gen-btn">
+<span class="material-symbols-outlined text-base">description</span>
+<span>Generate Resume</span>
+</button>
+</div>
+</div>
+<!-- Integrations Stream Banner -->
+<div class="mt-space-md pt-space-md bg-surface-container-low rounded-lg p-space-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-slate-600 uppercase tracking-wider font-semibold">Active Ingestion Pipelines</span>
+<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">4/4 Validated</span>
+</div>
+<div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 w-full md:w-auto">
+<!-- GitHub Sync Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-lowest border border-slate-200 shadow-sm">
+<span class="material-symbols-outlined text-sm text-on-surface">code</span>
+<span class="font-label-code text-label-code font-semibold text-on-surface">GitHub:</span>
+<span class="font-label-code text-label-code text-on-surface-variant">34 repos • 420 commits</span>
+<span class="w-1.5 h-1.5 rounded-full bg-status-verified"></span>
+</div>
+<!-- LeetCode Sync Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-lowest border border-slate-200 shadow-sm">
+<span class="material-symbols-outlined text-sm text-brand-navy">terminal</span>
+<span class="font-label-code text-label-code font-semibold text-on-surface">LeetCode:</span>
+<span class="font-label-code text-label-code text-status-verified font-semibold">1845 Rating</span>
+<span class="font-label-caps text-label-caps text-brand-blue font-medium">(Top 7%)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-status-verified"></span>
+</div>
+<!-- HackerRank Sync Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-lowest border border-slate-200 shadow-sm">
+<span class="material-symbols-outlined text-sm text-on-surface">data_object</span>
+<span class="font-label-code text-label-code font-semibold text-on-surface">HackerRank:</span>
+<span class="font-label-code text-label-code text-on-surface-variant">6-Star Problem Solving</span>
+<span class="w-1.5 h-1.5 rounded-full bg-status-verified"></span>
+</div>
+<!-- University SIS Sync Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-lowest border border-slate-200 shadow-sm">
+<span class="material-symbols-outlined text-sm text-brand-navy">account_balance</span>
+<span class="font-label-code text-label-code font-semibold text-on-surface">SIS Proctored:</span>
+<span class="font-label-code text-label-code text-status-verified font-semibold">Sem VII Finalized</span>
+<span class="w-1.5 h-1.5 rounded-full bg-status-verified"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter & Legend Control Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-lowest rounded-xl shadow-sm p-space-md mb-space-md border border-slate-200">
+<!-- Filter Tabs -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg w-full justify-between border border-slate-200">
+<button class="skill-tab active-tab px-3 py-1.5 rounded text-sm transition-all flex-1 justify-center antialiased border border-slate-200 bg-surface-container-lowest text-brand-navy shadow-sm font-semibold" onclick="filterSkills('all')">All Skills (11)</button>
+<button class="skill-tab px-3 py-1.5 rounded font-medium text-sm text-on-surface-variant hover:text-on-surface hover:bg-slate-100 transition-all flex items-center gap-2 flex-1 justify-center antialiased" onclick="filterSkills('verified')">
+<span class="w-2.5 h-2.5 rounded-full bg-status-verified shrink-0"></span>
+<span class="font-medium">Verified (6)</span>
+</button>
+<button class="skill-tab px-3 py-1.5 rounded font-medium text-sm text-on-surface-variant hover:text-on-surface hover:bg-slate-100 transition-all flex items-center gap-2 flex-1 justify-center antialiased" onclick="filterSkills('claimed')">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0"></span>
+<span class="font-medium">Claimed (3)</span>
+</button>
+<button class="skill-tab px-3 py-1.5 rounded font-medium text-sm text-on-surface-variant hover:text-on-surface hover:bg-slate-100 transition-all flex items-center gap-2 flex-1 justify-center antialiased" onclick="filterSkills('expired')">
+<span class="w-2.5 h-2.5 rounded-full bg-rose-600 shrink-0"></span>
+<span class="font-medium">Expired / Action Req. (2)</span>
+</button>
+</div>
+</div>
+<!-- Main Content 3-Column Domain Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md mb-space-lg">
+<!-- DOMAIN 1: Languages & Core -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-sm border border-slate-200 p-space-md">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-low border border-slate-200 p-space-sm rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-navy text-base">code_blocks</span>
+<span class="font-headline-md text-body-lg font-semibold text-slate-900">Languages &amp; Core</span>
+</div>
+<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">4 Tracks</span>
+</div>
+<div class="flex flex-col gap-space-sm flex-1">
+<!-- Python (Verified) -->
+<div class="skill-item verified bg-slate-50 border border-slate-200 hover:bg-slate-100/70 p-space-sm rounded-lg transition-all flex flex-col gap-1" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">Python</span>
+<!-- Verified Badge -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 text-status-verified border border-emerald-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none" style='font-variation-settings: "FILL" 1;'>check_circle</span>
+              VERIFIED
+            </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="text-brand-navy">LeetCode Top 7% • Py3 API</span>
+<span class="text-status-verified font-semibold">SHA-842f</span>
+</div>
+<div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-status-verified h-full w-[94%]"></div>
+</div>
+</div>
+<!-- TypeScript (Verified) -->
+<div class="skill-item verified bg-slate-50 border border-slate-200 hover:bg-slate-100/70 p-space-sm rounded-lg transition-all flex flex-col gap-1" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">TypeScript</span>
+<!-- Verified Badge -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 text-status-verified border border-emerald-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none" style='font-variation-settings: "FILL" 1;'>check_circle</span>
+              VERIFIED
+            </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="text-brand-navy">GitHub 18 Repos</span>
+<span class="text-status-verified font-semibold">SHA-7c91e</span>
+</div>
+<div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-status-verified h-full w-[88%]"></div>
+</div>
+</div>
+<!-- C++ (Claimed) -->
+<div class="skill-item claimed bg-amber-50/50 border border-amber-200/60 hover:bg-amber-50 p-space-sm rounded-lg transition-all flex flex-col gap-1" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">C++ (STL &amp; Algorithmic)</span>
+<!-- Claimed Badge -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none">person</span>
+              CLAIMED
+            </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="text-amber-800">Self-Reported • Unverified</span>
+<button class="text-brand-navy hover:text-brand-blue font-semibold hover:underline flex items-center gap-0.5" onclick="requestVerification('C++')">
+              Verify
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+<div class="w-full bg-amber-200/50 h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-amber-400 h-full w-[65%]"></div>
+</div>
+</div>
+<!-- Java (Expired) -->
+<div class="skill-item expired bg-rose-50/60 border border-rose-200 hover:bg-rose-50 p-space-sm rounded-lg transition-all flex flex-col gap-1.5" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">Java / JVM</span>
+<!-- Expired Badge -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-rose-100 text-rose-700 border border-rose-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none">warning</span>
+              EXPIRED
+            </span>
+</div>
+<div class="flex items-center gap-1.5 text-rose-700 font-body-sm text-body-sm leading-tight bg-white p-1.5 rounded border border-rose-200/70">
+<span class="material-symbols-outlined text-sm shrink-0">timer_off</span>
+<span>Certificate expired 14 days ago • <strong>Re-test required</strong></span>
+</div>
+<div class="flex items-center justify-between pt-0.5">
+<span class="font-label-code text-label-code text-slate-500">Was Oracle Certified Prof.</span>
+<button class="px-2 py-0.5 rounded bg-rose-600 text-white font-label-code text-label-code font-semibold hover:bg-rose-700 shadow-sm" onclick="openRetestModal('Java')">
+              Schedule Retest
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- DOMAIN 2: Frameworks & Systems -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-sm border border-slate-200 p-space-md">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-low border border-slate-200 p-space-sm rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-navy text-base">developer_board</span>
+<span class="font-headline-md text-body-lg font-semibold text-slate-900">Frameworks &amp; Systems</span>
+</div>
+<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">4 Tracks</span>
+</div>
+<div class="flex flex-col gap-space-sm flex-1">
+<!-- React/Next.js (Verified) -->
+<div class="skill-item verified bg-slate-50 border border-slate-200 hover:bg-slate-100/70 p-space-sm rounded-lg transition-all flex flex-col gap-1" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">React / Next.js (App Router)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 text-status-verified border border-emerald-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none" style='font-variation-settings: "FILL" 1;'>check_circle</span>
+              VERIFIED
+            </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="text-brand-navy">Vercel Deployments • 9 Production Apps</span>
+<span class="text-status-verified font-semibold">SHA-33f11</span>
+</div>
+<div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-status-verified h-full w-[96%]"></div>
+</div>
+</div>
+<!-- Node.js (Verified) -->
+<div class="skill-item verified bg-slate-50 border border-slate-200 hover:bg-slate-100/70 p-space-sm rounded-lg transition-all flex flex-col gap-1" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">Node.js (Express / Fastify)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 text-status-verified border border-emerald-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none" style='font-variation-settings: "FILL" 1;'>check_circle</span>
+              VERIFIED
+            </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="text-brand-navy">SIS Lab Practical 98/100 • Microservices</span>
+<span class="text-status-verified font-semibold">SHA-49a0b</span>
+</div>
+<div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-status-verified h-full w-[91%]"></div>
+</div>
+</div>
+<!-- Docker (Claimed) -->
+<div class="skill-item claimed bg-amber-50/50 border border-amber-200/60 hover:bg-amber-50 p-space-sm rounded-lg transition-all flex flex-col gap-1" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">Docker (Compose &amp; Multi-stage)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none">person</span>
+              CLAIMED
+            </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="text-amber-800">Claimed • Missing Dockerfile hash</span>
+<button class="text-brand-navy hover:text-brand-blue font-semibold hover:underline flex items-center gap-0.5" onclick="requestVerification('Docker')">
+              Verify
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+<div class="w-full bg-amber-200/50 h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-amber-400 h-full w-[50%]"></div>
+</div>
+</div>
+<!-- Distributed Systems (Claimed) -->
+<div class="skill-item claimed bg-amber-50/50 border border-amber-200/60 hover:bg-amber-50 p-space-sm rounded-lg transition-all flex flex-col gap-1" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">Distributed Systems &amp; Raft</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none">person</span>
+              CLAIMED
+            </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="text-amber-800">Coursework declared • No public repo</span>
+<button class="text-brand-navy hover:text-brand-blue font-semibold hover:underline flex items-center gap-0.5" onclick="requestVerification('Distributed Systems')">
+              Verify
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+<div class="w-full bg-amber-200/50 h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-amber-400 h-full w-[45%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- DOMAIN 3: Data & Cloud -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-sm border border-slate-200 p-space-md">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-low border border-slate-200 p-space-sm rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-navy text-base">cloud</span>
+<span class="font-headline-md text-body-lg font-semibold text-slate-900">Data &amp; Cloud Infrastructure</span>
+</div>
+<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">3 Tracks</span>
+</div>
+<div class="flex flex-col gap-space-sm flex-1">
+<!-- PostgreSQL (Verified) -->
+<div class="skill-item verified bg-slate-50 border border-slate-200 hover:bg-slate-100/70 p-space-sm rounded-lg transition-all flex flex-col gap-1" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">PostgreSQL (Indexing &amp; ACID)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 text-status-verified border border-emerald-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none" style='font-variation-settings: "FILL" 1;'>check_circle</span>
+              VERIFIED
+            </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="text-brand-navy">Proctored SQL Benchmark 94%</span>
+<span class="text-status-verified font-semibold">SHA-991fa</span>
+</div>
+<div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-status-verified h-full w-[92%]"></div>
+</div>
+</div>
+<!-- Redis (Claimed) -->
+<div class="skill-item claimed bg-amber-50/50 border border-amber-200/60 hover:bg-amber-50 p-space-sm rounded-lg transition-all flex flex-col gap-1" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">Redis (In-Memory Pub/Sub)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none">person</span>
+              CLAIMED
+            </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="text-amber-800">Self-Reported • Pending Benchmark</span>
+<button class="text-brand-navy hover:text-brand-blue font-semibold hover:underline flex items-center gap-0.5" onclick="requestVerification('Redis')">
+              Verify
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+<div class="w-full bg-amber-200/50 h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-amber-400 h-full w-[55%]"></div>
+</div>
+</div>
+<!-- AWS EC2/S3 (Expired) -->
+<div class="skill-item expired bg-rose-50/60 border border-rose-200 hover:bg-rose-50 p-space-sm rounded-lg transition-all flex flex-col gap-1.5" style="display: flex;">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-slate-900">AWS (EC2, S3, IAM)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-rose-100 text-rose-700 border border-rose-200 font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-xs leading-none">warning</span>
+              EXPIRED
+            </span>
+</div>
+<div class="flex items-center gap-1.5 text-rose-700 font-body-sm text-body-sm leading-tight bg-white p-1.5 rounded border border-rose-200/70">
+<span class="material-symbols-outlined text-sm shrink-0">timer_off</span>
+<span>Cloud Practitioner expired • <strong>Credential invalid</strong></span>
+</div>
+<div class="flex items-center justify-between pt-0.5">
+<span class="font-label-code text-label-code text-slate-500">AWS ID: CLD-77218</span>
+<button class="px-2 py-0.5 rounded bg-rose-600 text-white font-label-code text-label-code font-semibold hover:bg-rose-700 shadow-sm" onclick="openRetestModal('AWS Cloud')">
+              Upload Renewal
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Card: Add External Proof / Re-verify Expired Skills -->
+<div class="relative bg-surface-container-lowest rounded-xl shadow-sm border border-slate-200 p-space-lg">
+<!-- Live Ingestion Metrics / Mini Telemetry Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm bg-surface-container-low rounded-lg p-space-md border border-slate-200">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-slate-600 uppercase font-semibold">Verified Competencies</span>
+<span class="font-headline-md text-headline-md font-bold text-status-verified mt-0.5">54.5%</span>
+<span class="font-label-code text-label-code text-slate-500">6 of 11 verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-slate-600 uppercase font-semibold">Claimed Unverified</span>
+<span class="font-headline-md text-headline-md font-bold text-amber-600 mt-0.5">27.3%</span>
+<span class="font-label-code text-label-code text-slate-500">3 pending audit</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-slate-600 uppercase font-semibold">Expired Flags</span>
+<span class="font-headline-md text-headline-md font-bold text-rose-600 mt-0.5">18.2%</span>
+<span class="font-label-code text-label-code text-rose-600 font-semibold">2 urgent actions</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-slate-600 uppercase font-semibold">AI Recruiter Score</span>
+<span class="font-headline-md text-headline-md font-bold text-brand-navy mt-0.5">89 / 100</span>
+<span class="font-label-code text-label-code text-status-verified font-semibold">+12 upon re-test</span>
+</div>
+</div>
+</div>
+<!-- Interactive Modal Container for Proof Upload / Retest (Controlled via JS) -->
+<div class="fixed inset-0 z-50 items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 hidden" id="proof-modal">
+<div class="bg-surface-container-lowest rounded-xl shadow-2xl max-w-lg w-full p-space-lg flex flex-col gap-space-md border border-slate-200">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-navy">verified_user</span>
+<span class="font-headline-md text-headline-md font-semibold text-slate-900" id="modal-title">Attach Credential URL</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="closeModal()">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="modal-desc">
+        Attach your cryptographic verification link, Credly badge URL, or commit SHA to trigger autonomous verification agent v5.0.4.
+      </p>
+<div class="flex flex-col gap-space-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase font-semibold">Proof Link / Certificate Identifier</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-brand-navy text-base">link</span>
+<input class="w-full h-9 pl-9 pr-3 bg-surface-container-low text-on-surface font-label-code text-label-code rounded border border-slate-200 focus:bg-surface-container-lowest focus:ring-1 focus:ring-brand-navy focus:border-brand-navy transition-all" id="proof-input" placeholder="https://www.credly.com/badges/... or git commit SHA" type="text"/>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-1.5 rounded bg-surface-container text-on-surface font-body-sm text-body-sm font-semibold hover:bg-slate-200 transition-all" onclick="closeModal()">
+          Cancel
+        </button>
+<button class="px-space-md py-1.5 rounded bg-brand-navy text-on-primary font-body-sm text-body-sm font-semibold hover:bg-slate-900 transition-all flex items-center gap-1.5 shadow-sm shadow-blue-950/20" onclick="submitProof()">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+<span>Initiate Verification</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification -->
+<div class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-space-md py-2.5 rounded-lg shadow-xl font-body-sm text-body-sm items-center gap-2 border border-slate-700 hidden" id="toast-notify">
+<span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+<span id="toast-text">⚡ Tailored resume generated with verified SHA metadata! Ready in Documents.</span>
+</div>
+</div>
+<script>
+  function filterSkills(status) {
+    const tabs = document.querySelectorAll('.skill-tab');
+    tabs.forEach(tab => {
+      tab.classList.remove('bg-surface-container-lowest', 'text-brand-navy', 'shadow-sm', 'font-semibold', 'border', 'border-slate-200');
+      tab.classList.add('text-on-surface-variant', 'font-medium');
+    });
+
+    event.currentTarget.classList.add('bg-surface-container-lowest', 'text-brand-navy', 'shadow-sm', 'font-semibold', 'border', 'border-slate-200');
+    event.currentTarget.classList.remove('text-on-surface-variant', 'font-medium');
+
+    const items = document.querySelectorAll('.skill-item');
+    items.forEach(item => {
+      if (status === 'all') {
+        item.style.display = 'flex';
+      } else if (item.classList.contains(status)) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  function openProofModal(type) {
+    const modal = document.getElementById('proof-modal');
+    const title = document.getElementById('modal-title');
+    const input = document.getElementById('proof-input');
+    
+    if (type === 'file') {
+      title.innerText = 'Upload Official Certificate / Proof';
+      input.placeholder = 'Select PDF, Transcripts, or JSON key bundle...';
+    } else {
+      title.innerText = 'Attach Credential URL';
+      input.placeholder = 'https://www.credly.com/badges/... or git commit SHA';
+    }
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function openRetestModal(skillName) {
+    const modal = document.getElementById('proof-modal');
+    const title = document.getElementById('modal-title');
+    const desc = document.getElementById('modal-desc');
+    const input = document.getElementById('proof-input');
+
+    title.innerText = `Re-Test / Renew Credential: ${skillName}`;
+    desc.innerText = `To reinstate ${skillName} as Verified, submit your renewed credential URL or book a 30-minute proctored live evaluation via Proofpoint Agent.`;
+    input.placeholder = `Enter renewed ID or type 'BOOK_PROCTORED_LAB'`;
+    
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function requestVerification(skillName) {
+    openRetestModal(skillName);
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('proof-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast-notify');
+    const text = document.getElementById('toast-text');
+    text.innerText = message;
+    toast.classList.remove('hidden');
+    toast.classList.add('flex');
+    setTimeout(() => {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }, 3800);
+  }
+
+  function submitProof() {
+    closeModal();
+    showToast('Proofpoint Agent ingested proof. Hash verification queued for pipeline v5.0.4.');
+  }
+
+  document.getElementById('resume-gen-btn')?.addEventListener('click', function() {
+    this.disabled = true;
+    const originalContent = this.innerHTML;
+    this.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Synthesizing Tailored Resume...</span>';
+    setTimeout(() => {
+      this.disabled = false;
+      this.innerHTML = originalContent;
+      showToast('⚡ Tailored resume generated with verified SHA metadata! Ready in Documents.');
+    }, 1400);
+  });
+</script></main></div></body></html>

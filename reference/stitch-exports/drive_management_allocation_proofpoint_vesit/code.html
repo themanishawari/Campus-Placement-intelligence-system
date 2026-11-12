@@ -1,0 +1,578 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary-fixed":"#dde1ff","on-primary-fixed":"#131b2e","inverse-on-surface":"#eef0ff","on-secondary-container":"#00217a","primary-container":"#131b2e","surface":"#faf8ff","surface-container-highest":"#dce1fb","secondary-fixed-dim":"#b8c4ff","on-surface-variant":"#45464d","tertiary-fixed":"#d8e2ff","background":"#faf8ff","on-secondary-fixed-variant":"#173bab","on-surface":"#151b2d","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","on-primary-container":"#7c839b","outline-variant":"#c6c6cd","on-primary":"#ffffff","on-background":"#151b2d","surface-container-low":"#f2f3ff","tertiary-container":"#001a42","surface-container-high":"#e3e7ff","primary":"#000000","on-tertiary-container":"#3980f4","surface-tint":"#565e74","on-secondary-fixed":"#001453","surface-dim":"#d4d9f2","surface-bright":"#faf8ff","secondary-container":"#708cfd","error":"#ba1a1a","outline":"#76777d","on-secondary":"#ffffff","secondary":"#3755c3","on-tertiary-fixed-variant":"#004395","on-error-container":"#93000a","surface-container":"#eaedff","inverse-primary":"#bec6e0","primary-fixed-dim":"#bec6e0","error-container":"#ffdad6","on-tertiary-fixed":"#001a42","on-primary-fixed-variant":"#3f465c","inverse-surface":"#2a3043","on-error":"#ffffff","tertiary":"#000000","on-tertiary":"#ffffff","tertiary-fixed-dim":"#adc6ff","surface-variant":"#dce1fb"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-lg":"1rem","gutter-lg":"1.5rem","space-md":"0.75rem","margin-md":"1.5rem","space-xs":"0.25rem","margin-lg":"2rem","space-sm":"0.5rem","gutter":"1rem","margin":"1rem","space-xl":"1.5rem"},"fontFamily":{"label-sm":["JetBrains Mono"],"headline-md":["Hanken Grotesk"],"display-lg-mobile":["Hanken Grotesk"],"body-lg":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"headline-lg-mobile":["Hanken Grotesk"],"display-lg":["Hanken Grotesk"],"label-md":["JetBrains Mono"],"body-sm":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"]},"fontSize":{"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.035em","fontWeight":"500"}],"headline-md":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["1rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"body-md":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"600"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.025em","fontWeight":"700"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.025em","fontWeight":"500"}],"body-sm":["0.75rem",{"lineHeight":"1rem","fontWeight":"400"}],"headline-sm":["1.125rem",{"lineHeight":"1.5rem","fontWeight":"600"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-md flex items-center justify-between border-b border-surface-container-high"><div class="flex items-center gap-space-sm"><div class="flex items-center justify-center w-8 h-8 rounded bg-primary text-on-primary font-headline-sm text-headline-sm font-bold">P</div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight leading-none">proofpoint</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-0.5">Placement Intel</span></div></div><span class="px-1.5 py-0.5 rounded bg-primary-container text-primary-fixed font-label-sm text-label-sm font-semibold tracking-wider">v5.0</span></div><div class="flex-1 overflow-y-auto px-space-sm py-space-md flex flex-col gap-space-lg"><div class="flex flex-col"><div class="px-space-sm mb-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Institutional Analytics &amp; Ops</div><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-on-surface font-semibold shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="cohort-skill-dashboard" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-md text-body-md">Cohort Skill Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded transition-colors bg-surface-container-high text-on-surface font-semibold shadow-sm" data-path="drive-management-allocation" href="#"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span class="font-body-md text-body-md">Drive Management</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="fairness-accreditation" href="#"><span class="material-symbols-outlined text-[18px]">balance</span><span class="font-body-md text-body-md">Fairness &amp; Accreditation</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="predictive-alerts-mentorship" href="#"><span class="material-symbols-outlined text-[18px]">notification_important</span><span class="font-body-md text-body-md">Predictive Alerts</span></a></nav></div><div class="flex flex-col"><div class="px-space-sm mb-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Student View &amp; Data Governance</div><nav class="flex flex-col gap-0.5" data-active-classes="bg-surface-container-high text-on-surface font-semibold shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="student-profiles-verification" href="#"><span class="material-symbols-outlined text-[18px]">how_to_reg</span><span class="font-body-md text-body-md">Student Profiles &amp; Audit</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="target-company-matrices" href="#"><span class="material-symbols-outlined text-[18px]">business_center</span><span class="font-body-md text-body-md">Target Company Matrices</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="mock-drive-reports" href="#"><span class="material-symbols-outlined text-[18px]">description</span><span class="font-body-md text-body-md">Mock Drive Reports</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="remediation-roadmaps" href="#"><span class="material-symbols-outlined text-[18px]">alt_route</span><span class="font-body-md text-body-md">Remediation Roadmaps</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="privacy-dpdp-compliance" href="#"><span class="material-symbols-outlined text-[18px]">shield</span><span class="font-body-md text-body-md">Privacy &amp; DPDP Policy</span></a></nav></div></div><div class="p-space-sm bg-surface-container-low border-t border-surface-container-high flex flex-col gap-1.5"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-emerald-200"></span><span class="font-label-sm text-label-sm font-semibold text-on-surface">AST Engine: Online</span></div><div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified_user</span><span>Human-in-the-Loop Enforced</span></div><div class="mt-1 pt-1 border-t border-surface-container-high/60 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant"><span class="truncate font-medium">VESIT Placement Cell</span><span class="font-mono">v5.4</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl border-b border-surface-container-high z-40 flex items-center justify-between px-space-md gap-space-md"><div class="flex items-center gap-space-sm overflow-hidden"><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low border border-surface-container-high text-on-surface shrink-0"><span class="material-symbols-outlined text-[16px] text-secondary">lock</span><span class="font-body-sm text-body-sm font-semibold truncate max-w-[280px]">VESIT (Vivekanand Education Society's Inst.)</span><button class="flex items-center text-on-surface-variant hover:text-on-surface ml-1" title="Switch Institution" type="button"><span class="material-symbols-outlined text-[16px]">swap_horiz</span></button></div><div class="hidden xl:flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest border border-surface-container-high font-label-sm text-label-sm text-on-surface-variant shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span>Node: mum-in-vesit-prod-01</span></div><div class="hidden 2xl:flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm shrink-0"><span class="material-symbols-outlined text-[14px]">memory</span><span>AI Policy v5.4 • Supervised</span></div></div><div class="flex items-center gap-space-sm shrink-0"><button class="flex items-center gap-2 px-space-sm py-1.5 rounded bg-surface-container-lowest border border-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm" type="button"><span class="material-symbols-outlined text-[16px]">search</span><span class="hidden md:inline">Search</span><kbd class="hidden lg:inline px-1 py-0.2 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-mono">⌘K</kbd></button><button class="relative p-2 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Notifications &amp; Pending Approvals" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 flex items-center justify-center min-w-4 h-4 px-1 rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold leading-none">8</span></button><div class="h-6 w-px bg-surface-container-high mx-0.5"></div><div class="flex items-center gap-space-sm pl-1"><div class="flex flex-col text-right hidden sm:flex"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-tight">Dr. Aris Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight truncate max-w-[160px]">Head of Placement</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 flex-1 bg-surface px-space-md py-space-md"><div class="flex flex-col w-full gap-space-lg">
+<!-- Top Operational Banner & Controls -->
+<section class="flex flex-col gap-space-md bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded bg-primary-container text-primary-fixed font-label-sm text-label-sm uppercase tracking-wider font-semibold">Live Operational Engine</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">VESIT Season 2024-25 • Cycle-1 Active</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Campus Drive Management &amp; Intelligent Clash-Free Scheduling</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          VESIT Placement Season 2024-25 <span class="mx-1.5 opacity-40">•</span> <span class="font-semibold text-on-surface">48 Scheduled Drives</span> <span class="mx-1.5 opacity-40">•</span> <span class="font-semibold text-secondary">6 Clashes Resolved by AI</span> <span class="mx-1.5 opacity-40">•</span> <span class="font-semibold text-error">8 Pending Human Allocation</span>
+</p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0 flex-wrap">
+<button class="group flex items-center gap-2 px-space-md py-2 rounded bg-primary text-on-primary hover:bg-inverse-surface transition-all shadow-sm" id="runEngineBtn" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed group-hover:rotate-180 transition-transform duration-500">sync</span>
+<span class="font-body-md text-body-md font-semibold tracking-tight">Run Clash Detection Engine</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-body-md text-body-md font-medium" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Export Master Roster</span>
+</button>
+</div>
+</div>
+<!-- Sub-bar: View Selector + Quick Analytics Strip -->
+<div class="pt-space-sm flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Tabs -->
+<div class="flex items-center p-1 rounded-lg bg-surface-container-low self-start">
+<button class="px-space-md py-1.5 rounded font-body-sm text-body-sm font-semibold bg-surface-container-lowest text-on-surface shadow-sm flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">event_available</span>
+<span>Unified Clash-Free Calendar</span>
+</button>
+<button class="px-space-md py-1.5 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">view_timeline</span>
+<span>Drive List &amp; Pipeline</span>
+</button>
+<button class="px-space-md py-1.5 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">grid_4x4</span>
+<span>Slot Optimization Matrix</span>
+</button>
+</div>
+<!-- Live Infrastructure Safeguard Status -->
+<div class="flex items-center gap-2 px-space-md py-1.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-semibold">Lab Capacity Guard:</span>
+<span class="text-on-surface-variant">8 Labs • 2 Auditoriums • 40 Interview Cabins Synchronized</span>
+</div>
+</div>
+</section>
+<!-- Main Asymmetric Workspace (Calendar 65% + Side Allocation Pane 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT: Calendar Panel (7 Cols) -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Calendar Header Controls -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" title="Previous Month" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">November 2024</h2>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" title="Next Month" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold">Active Cycle Window</span>
+</div>
+<!-- Color Coding Legend -->
+<div class="flex items-center gap-space-sm flex-wrap text-label-sm font-label-sm">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded bg-secondary"></span> PPT/Talk
+            </span>
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded bg-on-secondary-container"></span> Online Test
+            </span>
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded bg-primary"></span> Final Rounds
+            </span>
+<span class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="w-2.5 h-2.5 rounded bg-secondary-container animate-pulse"></span> Suggested AI
+            </span>
+</div>
+</div>
+<!-- System Clash Prevention Micro-Alert -->
+<div class="flex items-center justify-between px-space-md py-2 rounded bg-surface-container text-on-surface">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+<span class="font-body-sm text-body-sm font-medium truncate">Zero Date/Lab Clashes Detected across 8 Computer Labs &amp; 2 Auditoriums</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold shrink-0">AST-Matrix Validated</span>
+</div>
+<!-- Monthly Grid Table (7-Day Grid) -->
+<div class="w-full overflow-x-auto">
+<div class="min-w-[680px]">
+<!-- Day Names -->
+<div class="grid grid-cols-7 gap-1 mb-1 text-center font-label-sm text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider">
+<div class="py-1">Mon</div>
+<div class="py-1">Tue</div>
+<div class="py-1">Wed</div>
+<div class="py-1">Thu</div>
+<div class="py-1">Fri</div>
+<div class="py-1">Sat</div>
+<div class="py-1">Sun</div>
+</div>
+<!-- Calendar Cells -->
+<div class="grid grid-cols-7 gap-1">
+<!-- Oct 28 - Oct 31 (Dimmed) -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low opacity-45 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">28</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low opacity-45 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">29</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low opacity-45 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">30</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low opacity-45 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">31</span>
+</div>
+<!-- Nov 1 (Friday) -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1 hover:bg-surface-container transition-colors">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">1</span>
+<div class="p-1 rounded bg-secondary text-on-secondary text-[11px] leading-tight font-medium shadow-xs">
+<div class="font-bold truncate">Oracle Drive</div>
+<div class="opacity-80 text-[9px] font-mono truncate">Auditorium B • 11:00 AM</div>
+</div>
+</div>
+<!-- Nov 2 -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">2</span>
+</div>
+<!-- Nov 3 -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">3</span>
+</div>
+<!-- Nov 4 to Nov 10 -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">4</span>
+<div class="p-1 rounded bg-secondary text-on-secondary text-[11px] leading-tight font-medium shadow-xs">
+<div class="font-bold truncate">Atlassian PPT</div>
+<div class="opacity-80 text-[9px] font-mono truncate">Auditorium A • 10:00 AM</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">5</span>
+<div class="p-1 rounded bg-on-secondary-container text-white text-[11px] leading-tight font-medium shadow-xs">
+<div class="font-bold truncate">Goldman Sachs Test</div>
+<div class="opacity-80 text-[9px] font-mono truncate">Labs 1, 2, 3 • 320 Stud.</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">6</span>
+<div class="p-1 rounded bg-primary text-on-primary text-[11px] leading-tight font-medium shadow-xs">
+<div class="font-bold truncate">JPMorgan Rounds</div>
+<div class="opacity-80 text-[9px] font-mono truncate">18 Interview Rooms</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">7</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">8</span>
+<div class="p-1 rounded bg-secondary text-on-secondary text-[11px] leading-tight font-medium shadow-xs">
+<div class="font-bold truncate">Cisco Keynote</div>
+<div class="opacity-80 text-[9px] font-mono truncate">Auditorium A • 02:00 PM</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">9</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">10</span>
+</div>
+<!-- Nov 11 to Nov 17 (High Activity + AI Suggested Slots) -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">11</span>
+<div class="p-1 rounded bg-primary text-on-primary text-[11px] leading-tight font-medium shadow-xs">
+<div class="font-bold truncate">Nomura Tech Hack</div>
+<div class="opacity-80 text-[9px] font-mono truncate">Lab 5 &amp; 6 • Full Day</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">12</span>
+<div class="p-1 rounded bg-surface-container-high text-on-surface text-[10px] font-mono font-medium">
+                  Semester Mid-Tests (AM)
+                </div>
+</div>
+<!-- Nov 13: Barclays Candidate Slot (AI proposed) -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1 ring-2 ring-secondary-container">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-secondary">13</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-ping"></span>
+</div>
+<div class="p-1 rounded bg-secondary-fixed text-on-secondary-fixed-variant text-[11px] leading-tight font-medium shadow-xs">
+<div class="font-bold truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span> Barclays (AI Sched)
+                  </div>
+<div class="text-[9px] font-mono truncate">Labs 1-4 • 09:30 AM</div>
+</div>
+</div>
+<!-- Nov 14: Morgan Stanley Suggested -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">14</span>
+<div class="p-1 rounded bg-secondary-container text-on-secondary-container text-[11px] leading-tight font-semibold shadow-xs">
+<div class="truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">magic_button</span> Morgan Stanley (Rec)
+                  </div>
+<div class="text-[9px] font-mono truncate opacity-90">Auditorium • 02:00 PM</div>
+</div>
+</div>
+<!-- Nov 15: Morgan Stanley Target -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">15</span>
+<div class="p-1 rounded bg-on-secondary-container text-white text-[11px] leading-tight font-medium shadow-xs">
+<div class="font-bold truncate">MS Online Code Test</div>
+<div class="opacity-80 text-[9px] font-mono truncate">280 Candidates • Labs 1-4</div>
+</div>
+</div>
+<!-- Nov 16: Deutsche Bank Resolved Slot -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">16</span>
+<div class="p-1 rounded bg-secondary text-on-secondary text-[11px] leading-tight font-medium shadow-xs">
+<div class="font-bold truncate">Deutsche Bank Drive</div>
+<div class="opacity-80 text-[9px] font-mono truncate">Rescheduled • 09:00 AM</div>
+</div>
+</div>
+<!-- Nov 17 -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">17</span>
+</div>
+<!-- Nov 18 to 24 -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">18</span>
+<div class="p-1 rounded bg-primary text-on-primary text-[11px] leading-tight font-medium">
+<div class="font-bold truncate">Accenture Deep Dive</div>
+<div class="opacity-80 text-[9px] font-mono truncate">Aud A &amp; B</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">19</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">20</span>
+<div class="p-1 rounded bg-secondary text-on-secondary text-[11px] leading-tight font-medium">
+<div class="font-bold truncate">BNY Mellon Tech</div>
+<div class="opacity-80 text-[9px] font-mono truncate">10:00 AM • Hall 1</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">21</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">22</span>
+<div class="p-1 rounded bg-on-secondary-container text-white text-[11px] leading-tight font-medium">
+<div class="font-bold truncate">TCS Digital Prime</div>
+<div class="opacity-80 text-[9px] font-mono truncate">600 Students Registered</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">23</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">24</span>
+</div>
+<!-- Nov 25 to 30 -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">25</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">26</span>
+<div class="p-1 rounded bg-primary text-on-primary text-[11px] leading-tight font-medium">
+<div class="font-bold truncate">UBS Final Interviews</div>
+<div class="opacity-80 text-[9px] font-mono truncate">12 Interview Rooms</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">27</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">28</span>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">29</span>
+<div class="p-1 rounded bg-secondary text-on-secondary text-[11px] leading-tight font-medium">
+<div class="font-bold truncate">L&amp;T Infotech</div>
+<div class="opacity-80 text-[9px] font-mono truncate">Auditorium B • 01:00 PM</div>
+</div>
+</div>
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">30</span>
+</div>
+<!-- Filler for Dec 1 -->
+<div class="min-h-[105px] p-1.5 rounded bg-surface-container-low opacity-45 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">1</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Venue Utilization Meter Bar -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">domain</span>
+              November Computer Labs Real-Time Booking Load
+            </span>
+<span class="font-mono text-label-sm font-semibold text-on-surface-variant">68% Total Capacity Utilized</span>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 48%" title="Allocated Tests"></div>
+<div class="bg-on-secondary-container h-full" style="width: 14%" title="Pending Approval Slots"></div>
+<div class="bg-primary-container h-full" style="width: 6%" title="Internal Exams Safe Guard"></div>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant pt-1">
+<span>Free Nodes: 420 PCs in Lab 7-8</span>
+<span>Clash Margin Threshold: &gt; 90 min between shifts</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT: AI Ingestion & Auto-Allocation Inbox (5 Cols) -->
+<div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-space-md">
+<!-- Split Panel Header Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">smart_toy</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">AI Drive Ingestion &amp; Allocation</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Autonomous NLP extraction • Human-In-The-Loop Approval</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold shrink-0">8 Pending</span>
+</div>
+<!-- Explainability Note -->
+<div class="p-space-sm rounded-lg bg-surface-container text-on-surface flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+            AI parsed incoming recruiter MoUs, syllabus schedules, and semester internal test dates to propose optimal time slots without conflicts.
+          </p>
+</div>
+<!-- Inbound Drive Card 1: Barclays -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Barclays Global Service</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SDE-1 • Analyst Roles • 16.0 LPA</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest font-mono text-[10px] text-on-surface-variant font-semibold">SCHED-OPT-BARC-01</span>
+</div>
+<!-- Parsed Specification -->
+<div class="bg-surface-container-lowest p-2 rounded text-body-sm font-body-sm text-on-surface-variant flex flex-col gap-1">
+<div class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">mark_email_read</span>
+<span>Parsed Inbound Email Intent:</span>
+</div>
+<p class="text-body-sm text-on-surface">"Requested Nov 12-13 for SDE-1 &amp; Analyst roles. Requires 400-seater online test lab infrastructure."</p>
+</div>
+<!-- AI Proposal Output -->
+<div class="p-2 rounded bg-secondary-fixed/50 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-on-secondary-fixed-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span> Proposed Slot Allocation:
+              </span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">100% Conflict Free</span>
+</div>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">Nov 13, 2024 • 09:30 AM - 12:30 PM</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Labs 1 to 4 (Allocates 412 available PCs • Zero Exam Overlap)</p>
+</div>
+<!-- Human Action CTAs -->
+<div class="pt-1 flex items-center gap-2">
+<button class="flex-1 py-1.5 px-space-sm rounded bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-inverse-surface transition-colors flex items-center justify-center gap-1 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Approve &amp; Allocate</span>
+</button>
+<button class="py-1.5 px-space-sm rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm font-medium" type="button">
+              Modify
+            </button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Decline Proposal" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Inbound Drive Card 2: Morgan Stanley -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Morgan Stanley</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tech Associate • 25.5 LPA</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest font-mono text-[10px] text-on-surface-variant font-semibold">SCHED-OPT-MS-04</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded text-body-sm font-body-sm text-on-surface-variant flex flex-col gap-1">
+<div class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">mark_email_read</span>
+<span>Parsed Inbound Email Intent:</span>
+</div>
+<p class="text-body-sm text-on-surface">"Requested Nov 15 for Tech Associate. Target 280 eligible CSE/IT students for on-prem pre-talk."</p>
+</div>
+<div class="p-2 rounded bg-secondary-fixed/50 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-on-secondary-fixed-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span> Proposed Slot Allocation:
+              </span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Hall 1 Ready</span>
+</div>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">Nov 15, 2024 • 02:00 PM - 04:00 PM</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Seminar Hall 1 (Capacity: 310) • Followed by Lab 1-3 Online Test</p>
+</div>
+<div class="pt-1 flex items-center gap-2">
+<button class="flex-1 py-1.5 px-space-sm rounded bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-inverse-surface transition-colors flex items-center justify-center gap-1 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Approve &amp; Allocate</span>
+</button>
+<button class="py-1.5 px-space-sm rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm font-medium" type="button">
+              Modify Schedule
+            </button>
+</div>
+</div>
+<!-- Inbound Drive Card 3: Deutsche Bank (Clash Resolved) -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Deutsche Bank</span>
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Graduate Analyst • 19.6 LPA</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-mono text-[10px] font-bold">EXAM CONFLICT DETECTED</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded text-body-sm font-body-sm text-on-surface-variant flex flex-col gap-1">
+<div class="flex items-center gap-1 font-semibold text-error">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>Original Inbound Request: Nov 12 (Clash)</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">Requested date collides with Semester V Internal Assessment tests for 420 students.</p>
+</div>
+<div class="p-2 rounded bg-surface-container-highest flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">lightbulb</span> AI Reschedule Recommendation:
+            </span>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">Shift to Saturday Nov 16 • 09:00 AM Slot</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Zero exam overlap. Full campus availability guaranteed.</p>
+</div>
+<div class="pt-1 flex items-center gap-2">
+<button class="flex-1 py-1.5 px-space-sm rounded bg-secondary text-on-secondary font-body-sm text-body-sm font-semibold hover:bg-primary transition-colors flex items-center justify-center gap-1 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+<span>Accept Reschedule</span>
+</button>
+<button class="py-1.5 px-space-sm rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm font-medium" type="button">
+              Manual Override
+            </button>
+</div>
+</div>
+<!-- View All Link -->
+<button class="w-full py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-semibold transition-colors flex items-center justify-center gap-1" type="button">
+<span>Inspect All 8 Pending Drive Ingestions</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Recruiter Outreach & Bulk Invitation Suite -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[24px]">forward_to_inbox</span>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Recruiter Outreach &amp; Campaign Manager</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Automated multi-tier corporate pipeline targeting 540+ vetted Tech, FinTech, and HFT campus partners for VESIT placement drives.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="px-space-md py-2 rounded bg-primary text-on-primary hover:bg-inverse-surface transition-colors font-body-md text-body-md font-semibold flex items-center gap-2 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Compose Targeted Recruiter Campaign</span>
+</button>
+<button class="px-space-md py-2 rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-body-md text-body-md font-medium flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Track Read Receipts</span>
+</button>
+</div>
+</div>
+<!-- Metrics Cards Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Total Invitations Sent</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">420</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+65 this week</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Vetted corporate database (540+ Tier-1)</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Read &amp; Opened</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">186</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">44.3% Conversion</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Average read within 4.2 hours</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Drives Confirmed</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">54</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Target: 70</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Slots locked on master timetable</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Awaiting Allocation</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-secondary">8</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold font-mono">AST-Queue</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Awaiting officer click approval</span>
+</div>
+</div>
+<!-- Active Campaign Filtering & Live Dispatch Status -->
+<div class="p-space-md rounded-lg bg-surface-container flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant">Active Segment Filter:</span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest font-body-sm text-body-sm font-semibold text-on-surface shadow-xs">
+            FinTech &amp; HFT • CTC &gt; 20 LPA
+          </span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span>Recipients: 34 Companies</span>
+<span class="mx-1">•</span>
+<span class="text-secondary font-medium">Response Rate: 72%</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">DPDP-Compliant Outreach</span>
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Micro-interaction for the Clash Detection trigger
+  const runBtn = document.getElementById('runEngineBtn');
+  if (runBtn) {
+    runBtn.addEventListener('click', function() {
+      const origText = runBtn.innerHTML;
+      runBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[18px] animate-spin">rotate_right</span>
+        <span class="font-body-md text-body-md font-semibold tracking-tight">Analyzing 48 Drives...</span>
+      `;
+      runBtn.disabled = true;
+      setTimeout(() => {
+        runBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[18px] text-secondary">check</span>
+          <span class="font-body-md text-body-md font-semibold tracking-tight">Zero Conflicts Found!</span>
+        `;
+        setTimeout(() => {
+          runBtn.innerHTML = origText;
+          runBtn.disabled = false;
+        }, 2200);
+      }, 1000);
+    });
+  }
+</script></main></div>
+
+</body></html>
