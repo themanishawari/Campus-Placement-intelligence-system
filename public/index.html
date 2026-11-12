@@ -454,11 +454,6 @@
 
   <!-- Header Right Controls & User Profile -->
   <div class="flex items-center gap-2 lg:gap-3 shrink-0">
-    <!-- Active AST Node Pill -->
-    <div class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-code text-[11px] font-semibold">
-      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-      <span>AST Node: mum-in-vesit-prod-01</span>
-    </div>
 
     <!-- Role / Persona Switcher Toggle -->
     <div class="relative">
@@ -762,17 +757,6 @@
             </div>
           </div>
 
-          <!-- Dynamic Role State Header Banner -->
-          <div id="role-context-banner" class="mb-6 p-3.5 rounded-xl bg-indigo-50/80 border border-indigo-100/90 flex items-center justify-between text-xs">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
-              <div>
-                <span id="role-title-text" class="font-bold text-indigo-950">Candidate Workspace Access</span>
-                <p id="role-desc-text" class="text-[11px] text-indigo-700">Encrypted personal skill vault, mock drive diagnostics &amp; private consent tokens</p>
-              </div>
-            </div>
-            <span id="role-badge-tag" class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200">STUDENT SCOPE</span>
-          </div>
 
           <!-- Form Area -->
           <form onsubmit="handleLogin(event)" class="space-y-4">
@@ -811,20 +795,6 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                   </svg>
                 </button>
-              </div>
-            </div>
-
-            <!-- Sensitive Data Protection Feature: Masking & Zero-Trust Checkbox -->
-            <div class="pt-1 pb-1">
-              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-2.5">
-                <input id="mask-sensitive-data" type="checkbox" checked="" class="mt-0.5 h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-slate-300 rounded cursor-pointer">
-                <div class="text-xs">
-                  <label for="mask-sensitive-data" class="font-bold text-slate-800 cursor-pointer flex items-center gap-1.5">
-                    <span>Enforce Sensitive PII Masking &amp; Air-Gapped Session</span>
-                    <span class="px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 text-[9px] font-mono font-bold uppercase">Active Guard</span>
-                  </label>
-                  <p class="text-[11px] text-slate-500 mt-0.5">Prevents unconsented exposure of phone, national IDs, and cross-batch academic rank. Redacts recruiter telemetry outside verified drives.</p>
-                </div>
               </div>
             </div>
 
