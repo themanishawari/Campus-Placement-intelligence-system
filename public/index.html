@@ -722,23 +722,6 @@
               </div>
             </div>
 
-            <!-- Multi-Factor / Hardware Key (Appears automatically for TPO or as secure option) -->
-            <div id="mfa-section" class="hidden">
-              <div class="p-3 bg-slate-900 text-slate-100 rounded-xl border border-slate-800 space-y-2">
-                <div class="flex items-center justify-between text-xs">
-                  <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
-                    </svg>
-                  </div>
-                  <span class="text-[10px] font-mono text-indigo-300">Mandatory for Admin</span>
-                </div>
-                <div class="flex gap-2">
-                  <input type="text" id="mfa-code" maxlength="6" placeholder="849201" value="849201" class="w-36 text-center tracking-widest font-mono text-sm px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400">
-                  <button type="button" onclick="verifyFidoToken()" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition-colors font-medium">Verify FIDO2</button>
-                </div>
-              </div>
-            </div>
 
             <!-- Login CTA -->
             <button type="submit" id="submit-login-btn" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group">
@@ -3278,10 +3261,10 @@
 </div>
 <!-- Header Primary Action & Agentic Sync Indicator -->
 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm">
-<div class="flex items-center gap-1.5 px-space-sm py-1.5 rounded bg-surface-container-low border border-slate-200 text-on-surface-variant">
-<span class="w-2 h-2 rounded-full bg-status-verified animate-ping"></span>
-<span class="font-label-code text-label-code text-slate-700 font-medium">Continuous Ingestion Live</span>
-</div>
+<button class="flex items-center justify-center gap-2 px-space-md py-2.5 rounded bg-surface-container-low hover:bg-slate-200 border border-slate-200 text-slate-800 font-semibold shadow-sm transition-all active:scale-[0.98] text-sm" id="certificate-up-btn" onclick="openProofModal('file')">
+<span class="material-symbols-outlined text-base">upload_file</span>
+<span>Upload Certificate</span>
+</button>
 <button class="flex items-center justify-center gap-2 px-space-lg py-2.5 rounded bg-brand-navy hover:bg-slate-900 text-on-primary font-semibold shadow-sm shadow-blue-950/25 transition-all active:scale-[0.98] text-base" id="resume-gen-btn">
 <span class="material-symbols-outlined text-base">description</span>
 <span>Generate Resume</span>
@@ -3355,7 +3338,6 @@
 <span class="material-symbols-outlined text-brand-navy text-base">code_blocks</span>
 <span class="font-headline-md text-body-lg font-semibold text-slate-900">Languages &amp; Core</span>
 </div>
-<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">4 Tracks</span>
 </div>
 <div class="flex flex-col gap-space-sm flex-1">
 <!-- Python (Verified) -->
@@ -3445,7 +3427,6 @@
 <span class="material-symbols-outlined text-brand-navy text-base">developer_board</span>
 <span class="font-headline-md text-body-lg font-semibold text-slate-900">Frameworks &amp; Systems</span>
 </div>
-<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">4 Tracks</span>
 </div>
 <div class="flex flex-col gap-space-sm flex-1">
 <!-- React/Next.js (Verified) -->
@@ -3531,7 +3512,6 @@
 <span class="material-symbols-outlined text-brand-navy text-base">cloud</span>
 <span class="font-headline-md text-body-lg font-semibold text-slate-900">Data &amp; Cloud Infrastructure</span>
 </div>
-<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">3 Tracks</span>
 </div>
 <div class="flex flex-col gap-space-sm flex-1">
 <!-- PostgreSQL (Verified) -->
@@ -3758,11 +3738,6 @@
 <!-- Control Header & Operational Filters -->
 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-gutter-md">
 <div class="flex flex-col">
-<div class="flex items-center gap-space-xs text-secondary mb-1">
-<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary">Decision Telemetry</span>
-<span class="text-outline-variant font-label-code text-label-code">/</span>
-<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-semibold">Proofpoint Cohort Gap Engine</span>
-</div>
 <div class="flex items-baseline gap-space-md">
 <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Target Companies &amp; Proofpoint Gap Matrix</h1>
 </div>
@@ -3779,11 +3754,6 @@
 <option>Platform &amp; Reliability Associate</option>
 </select>
 </div>
-<div class="flex items-center bg-surface-container-low p-1 rounded-xl shadow-sm">
-<button class="px-3 py-1 rounded-lg font-label-caps text-label-caps uppercase font-bold bg-surface-container-lowest text-primary shadow-sm transition-all">All Tiers</button>
-<button class="px-3 py-1 rounded-lg font-label-caps text-label-caps uppercase font-medium text-secondary hover:text-on-surface transition-all">Tier-1 FAANG+</button>
-<button class="px-3 py-1 rounded-lg font-label-caps text-label-caps uppercase font-medium text-secondary hover:text-on-surface transition-all">Fintech Unicorns</button>
-</div>
 <button class="p-2 rounded-xl bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-colors shadow-sm" title="Re-sync Candidate Rubric Vector">
 <span class="material-symbols-outlined text-lg leading-none">sync</span>
 </button>
@@ -3794,13 +3764,6 @@
 <div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-md items-start">
 <!-- LEFT COLUMN: Target Enterprise Fit Ranking (5 cols on xl) -->
 <div class="xl:col-span-5 flex flex-col gap-space-md">
-<div class="flex items-center justify-between px-1">
-<div class="flex items-center gap-space-xs">
-<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold">Ranked Targets</span>
-<span class="font-label-code text-label-code px-1.5 py-0.2 rounded-full bg-surface-container text-secondary">4 Configured</span>
-</div>
-<span class="font-label-code text-label-code text-secondary">Sort: Match Score (Desc)</span>
-</div>
 <!-- Card 1: Google (Active Selected Target) -->
 <div class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-md cursor-pointer transition-all border border-blue-100">
 <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary-container rounded-l-xl"></div>
@@ -4004,15 +3967,6 @@
 <span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
 <span class="font-headline-md text-headline-md text-on-surface">Active Inspector: Google (SDE-1)</span>
 </div>
-<span class="font-body-sm text-body-sm text-secondary">Comparative readiness vs Verified Hired Cohort Benchmarks</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<span class="flex items-center gap-1 font-label-code text-label-code px-2 py-1 rounded bg-blue-50 border border-blue-200/50 text-primary-container font-semibold">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span> Candidate Current
-            </span>
-<span class="flex items-center gap-1 font-label-code text-label-code px-2 py-1 rounded bg-surface-container text-secondary">
-<span class="w-2 h-2 rounded-full bg-outline-variant"></span> Target Bar (90th %ile)
-            </span>
 </div>
 </div>
 <!-- Metric Breakdowns with Differential Comparison Bars -->
@@ -4191,14 +4145,6 @@
 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg relative z-10">
 <!-- Test Identity -->
 <div class="flex flex-col gap-space-xs">
-<div class="flex flex-wrap items-center gap-space-sm">
-<span class="px-space-sm py-0.5 rounded bg-secondary-container/70 font-label-code text-label-code text-secondary font-semibold uppercase tracking-wider">
-            RUN #2024-DRV-0842
-          </span>
-<span class="font-label-code text-label-code text-on-surface-variant">
-            Conducted Oct 24, 2024 • 14:00 - 17:30 IST
-          </span>
-</div>
 <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">
           Proofpoint Proctored Mock Drive #4: FinTech SDE Benchmark
         </h1>
@@ -4207,7 +4153,7 @@
         </p>
 </div>
 <!-- High Impact Metric Pills -->
-<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex flex-wrap items-center justify-end gap-space-md ml-auto shrink-0">
 <!-- Overall Score -->
 <div class="flex items-center gap-space-md bg-surface-container-low px-space-lg py-space-sm rounded-xl border border-outline-variant/60">
 <div class="relative flex items-center justify-center w-14 h-14">
@@ -4702,14 +4648,7 @@
       <div id="view-learning-path" class="view-panel w-full p-4 lg:p-6 space-y-4 hidden">
         <div class="flex flex-col w-full space-y-space-xl">
 <!-- Top Breadcrumb & Status Bar -->
-<div class="flex flex-wrap items-center justify-between gap-space-md">
-<nav class="flex items-center gap-space-xs font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant">
-<span>Student Operations</span>
-<span class="text-outline-variant">/</span>
-<span>Adaptive Remediation</span>
-<span class="text-outline-variant">/</span>
-<span class="text-secondary font-semibold">Personal Learning Path</span>
-</nav>
+<div class="flex flex-wrap items-center justify-end gap-space-md ml-auto">
 <div class="flex items-center gap-space-sm">
 <span class="inline-flex items-center gap-space-xs px-space-sm py-[3px] rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm">
 <span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>
@@ -4726,37 +4665,25 @@
 <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-secondary/15 blur-3xl pointer-events-none"></div>
 <div class="absolute right-1/4 -bottom-20 w-64 h-64 rounded-full bg-secondary-container/10 blur-2xl pointer-events-none"></div>
 <div class="relative p-space-xl sm:p-gutter-lg flex flex-col gap-space-md">
-<div class="flex flex-wrap items-center gap-space-sm">
-<span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-lowest/10 text-secondary-fixed text-label-sm font-label-sm tracking-wider uppercase">
-<span class="material-symbols-outlined text-[15px]">auto_awesome</span>
-          AI Diagnostic Synthesis
-        </span>
-<span class="px-space-sm py-space-xs rounded bg-secondary-container/30 text-on-primary text-label-sm font-label-sm tracking-wide">
-          Target: SDE-1 / Backend Engineer
-        </span>
-<span class="px-space-sm py-space-xs rounded bg-surface-container-lowest/10 text-outline-variant text-label-sm font-label-sm">
-          Origin: Proctored Mock Drive #4
-        </span>
-</div>
 <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
 <div class="max-w-3xl space-y-space-xs">
 <h1 class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-primary">
             Remediation Roadmap: Mock Drive #4 Deficit &amp; Target Company Gap Closure
           </h1>
-<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+<p class="font-body-md text-body-md text-white leading-relaxed">
             This adaptive path was synthesized directly from your FinTech SDE Mock Drive diagnostic report 
-            <span class="text-on-primary font-medium">(-15 Marks lost: SQL latency cutoff and DAG node ordering)</span> 
+            <span class="text-white font-medium">(-15 Marks lost: SQL latency cutoff and DAG node ordering)</span> 
             and your active Google &amp; Microsoft SDE-1 Skill Gap profiles. Complete actionable tasks to produce verifiable cryptographic proof, update your skill badges, and unlock drive retake clearance.
           </p>
 </div>
 <div class="flex items-center gap-space-md shrink-0">
 <div class="px-space-md py-space-sm rounded-lg bg-surface-container-lowest/10 flex flex-col">
-<span class="font-label-sm text-label-sm text-on-primary-container uppercase">Projected Gain</span>
-<span class="font-headline-md text-headline-md text-secondary-fixed font-bold">+14 Pts</span>
+<span class="font-label-sm text-label-sm text-white uppercase font-medium">Projected Gain</span>
+<span class="font-headline-md text-headline-md text-white font-bold">+14 Pts</span>
 </div>
 <div class="px-space-md py-space-sm rounded-lg bg-surface-container-lowest/10 flex flex-col">
-<span class="font-label-sm text-label-sm text-on-primary-container uppercase">Retake Clearance</span>
-<span class="font-headline-md text-headline-md text-on-primary font-bold">2 / 5 Steps</span>
+<span class="font-label-sm text-label-sm text-white uppercase font-medium">Retake Clearance</span>
+<span class="font-headline-md text-headline-md text-white font-bold">2 / 5 Steps</span>
 </div>
 </div>
 </div>
@@ -4771,13 +4698,7 @@
 <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
             Proof Remediation Pipeline
           </h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Deterministic sequence: every node requires reproducible evidence or automated AST verification.
-          </p>
 </div>
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary px-space-sm py-space-xs rounded bg-surface-container font-medium">
-          Loop ID: #RM-2025-0941
-        </span>
 </div>
 <!-- Timeline Container -->
 <div class="relative flex flex-col space-y-space-lg pl-6 sm:pl-8 before:absolute before:left-3 sm:before:left-4 before:top-4 before:bottom-6 before:w-[2px] before:bg-surface-container-high">
@@ -5192,20 +5113,6 @@
 <span class="material-symbols-outlined text-[16px]">file_download</span>
 <span>Download Learning Roadmap PDF</span>
 </button>
-</div>
-</section>
-<!-- Cryptographic Verification Integrity Card -->
-<section class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm">
-<div class="flex items-center gap-space-sm mb-space-xs">
-<span class="material-symbols-outlined text-secondary text-[18px]">gavel</span>
-<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Integrity Protocol</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-          Proofpoint Placement Intelligence uses reproducible AST sandbox execution and tamper-evident SHA-256 signatures recognized by institutional placement accreditation.
-        </p>
-<div class="mt-space-sm pt-space-sm font-label-sm text-label-sm text-on-surface-variant font-mono flex items-center justify-between">
-<span>ROOT_NODE: #941B-PROOF-SEC</span>
-<span class="text-secondary font-semibold">VERIFIED VALID</span>
 </div>
 </section>
 </div>
@@ -5790,13 +5697,6 @@
         <div class="flex flex-col w-full space-y-gutter-lg">
 <!-- Breadcrumbs & Header Section -->
 <div class="flex flex-col gap-space-xs">
-<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
-<span>Student Operations</span>
-<span class="material-symbols-outlined text-[12px] text-outline-variant">chevron_right</span>
-<span>Data Governance &amp; Consent</span>
-<span class="material-symbols-outlined text-[12px] text-outline-variant">chevron_right</span>
-<span class="text-secondary font-semibold">DPDP Act Compliance</span>
-</div>
 <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pt-space-xs">
 <div>
 <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">My Privacy &amp; Consent</h1>
@@ -5814,13 +5714,7 @@
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-space-sm">
 <h2 class="font-headline-sm text-headline-sm text-on-surface">Safe Code Import &amp; Integrations</h2>
-<span class="px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm uppercase tracking-wider">
-          Strict Read-Only Enforcement
-        </span>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline-block">
-        4 Active Ingest Pipelines Authenticated
-      </span>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-start">
   
@@ -5843,9 +5737,6 @@
 </div>
 </div>
 </div>
-<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm font-semibold">
-              OAuth 2.0 App
-            </span>
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant">
 <span class="font-label-sm text-label-sm uppercase text-on-surface font-semibold block mb-0.5">Enforced Scope</span>
@@ -5901,9 +5792,6 @@
 </div>
 </div>
 </div>
-<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm font-semibold">
-              Public GraphQL
-            </span>
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant">
 <span class="font-label-sm text-label-sm uppercase text-on-surface font-semibold block mb-0.5">Enforced Scope</span>
@@ -5958,9 +5846,6 @@
 </div>
 </div>
 </div>
-<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm font-semibold">
-              Public Badges
-            </span>
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant">
 <span class="font-label-sm text-label-sm uppercase text-on-surface font-semibold block mb-0.5">Enforced Scope</span>
@@ -5998,9 +5883,6 @@
 </div>
 </div>
 </div>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
-              Statutory Sync
-            </span>
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant">
 <span class="font-label-sm text-label-sm uppercase text-on-surface font-semibold block mb-0.5">Enforced Scope</span>
@@ -6121,10 +6003,6 @@
           Every automated score, percentile ranking, and eligibility cutoff is backed by zero-black-box deterministic logic and human audit trails.
         </p>
 </div>
-<button class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary hover:underline self-start sm:self-auto font-medium" type="button">
-<span>Proofpoint Explainability Whitepaper</span>
-<span class="material-symbols-outlined text-[14px]">open_in_new</span>
-</button>
 </div>
 <div class="space-y-space-sm">
 <!-- Decision Entry 1 -->
@@ -6137,21 +6015,11 @@
 <div>
 <div class="flex items-center gap-2 flex-wrap">
 <span class="font-headline-sm text-headline-sm text-on-surface">Mock Drive #4 Aggregate Score: 78/100</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-low text-secondary font-label-sm text-label-sm font-semibold">Conditional Ready</span>
 </div>
 <div class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 font-mono">
                 Reason Code: <span class="text-on-surface font-semibold">RULE-MCK-FINTECH-0842</span> • Generated 4d ago
               </div>
 </div>
-</div>
-<div class="flex items-center gap-space-sm shrink-0">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">
-<span class="material-symbols-outlined text-[14px] text-secondary">psychology</span>
-              99.1% Deterministic Rule Match
-            </span>
-<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase tracking-wider transition-colors" type="button">
-              Inspect Decision Proof
-            </button>
 </div>
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low mt-space-sm font-body-sm text-body-sm text-on-surface leading-relaxed">
@@ -6169,7 +6037,6 @@
 <div>
 <div class="flex items-center gap-2 flex-wrap">
 <span class="font-headline-sm text-headline-sm text-on-surface">Uber SDE-1 Backend Eligibility: Disqualified / Blocked</span>
-<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Failed Cutoff</span>
 </div>
 <div class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 font-mono">
                 Reason Code: <span class="text-on-surface font-semibold">PROOFPOINT-UBER-SYS402</span> • Generated Oct 22, 2024
@@ -6177,10 +6044,6 @@
 </div>
 </div>
 <div class="flex items-center gap-space-sm shrink-0">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">
-<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
-              100% Policy Match
-            </span>
 <button class="px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-surface-container text-secondary font-label-sm text-label-sm uppercase tracking-wider font-semibold transition-colors" type="button">
               Submit Appeal to T&amp;P Cell
             </button>
@@ -6201,21 +6064,11 @@
 <div>
 <div class="flex items-center gap-2 flex-wrap">
 <span class="font-headline-sm text-headline-sm text-on-surface">Google SDE-1 Fit Match Score: 88%</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-low text-secondary font-label-sm text-label-sm font-semibold">High Fit</span>
 </div>
 <div class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 font-mono">
                 Reason Code: <span class="text-on-surface font-semibold">GAP-G00G-L3-09</span> • Generated Oct 18, 2024
               </div>
 </div>
-</div>
-<div class="flex items-center gap-space-sm shrink-0">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">
-<span class="material-symbols-outlined text-[14px] text-secondary">analytics</span>
-              98.4% Vector Calibration
-            </span>
-<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase tracking-wider transition-colors" type="button">
-              View Vector Rubric
-            </button>
 </div>
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low mt-space-sm font-body-sm text-body-sm text-on-surface leading-relaxed">

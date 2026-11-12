@@ -79,23 +79,21 @@ setTimeout(() => {
           const auditFootnoteRemoved = await sendEval(`!document.getElementById('view-login').innerText.includes('Audit Logging Enabled') && !document.getElementById('view-login').innerText.includes('ISO/IEC 27001')`);
           const multiSigRemoved = await sendEval(`!document.getElementById('view-login').innerText.includes('TPO Multi-Sig Key')`);
           const passwordTokenRemoved = await sendEval(`!document.getElementById('view-login').querySelector('label[for="user-password"], div:has(> #user-password), label:has(+ div #user-password)')?.innerText.includes('/ Token')`);
+          const mfaSectionRemoved = await sendEval(`document.getElementById('mfa-section') === null`);
           console.log('Role context banner removed:', bannerRemoved);
           console.log('SAML button removed:', samlRemoved);
           console.log('Audit footnote removed:', auditFootnoteRemoved);
           console.log('Multi-sig key text removed:', multiSigRemoved);
+          console.log('MFA section removed completely:', mfaSectionRemoved);
 
           // Switch to TPO Admin tab
           await sendEval(`switchRole('tpo')`);
-          const mfaVisible = await sendEval(`!document.getElementById('mfa-section').classList.contains('hidden')`);
           const userValTPO = await sendEval(`document.getElementById('user-identity').value`);
-          console.log('MFA Section visible for TPO:', mfaVisible);
           console.log('TPO Identity prefill:', userValTPO);
 
           // Switch back to Student tab
           await sendEval(`switchRole('student')`);
-          const mfaHidden = await sendEval(`document.getElementById('mfa-section').classList.contains('hidden')`);
           const userValStudent = await sendEval(`document.getElementById('user-identity').value`);
-          console.log('MFA Section hidden for Student:', mfaHidden);
           console.log('Student Identity prefill:', userValStudent);
 
           // Test Password Toggle
