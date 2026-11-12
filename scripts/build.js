@@ -73,65 +73,21 @@ const masterHeader = `
 
   <!-- Header Right Controls & User Profile -->
   <div class="flex items-center gap-2 lg:gap-3 shrink-0">
-    <!-- Active AST Node Pill -->
-    <div class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-code text-[11px] font-semibold">
-      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-      <span>AST Node: mum-in-vesit-prod-01</span>
+    <!-- Active Persona Identifier (Read-Only) -->
+    <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low border border-slate-200 text-on-surface text-xs font-medium shadow-sm">
+      <span class="material-symbols-outlined text-sm text-brand-navy" id="personaIcon">manage_accounts</span>
+      <span class="font-semibold text-slate-900" id="personaLabel">TPO Dean View</span>
     </div>
 
-    <!-- Role / Persona Switcher Toggle -->
-    <div class="relative">
-      <button 
-        id="personaToggleBtn"
-        onclick="togglePersonaDropdown()"
-        class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-slate-200/80 border border-slate-200 text-on-surface text-xs font-medium transition-all shadow-sm"
-        title="Switch between Placement Dean and Student Persona"
-      >
-        <span class="material-symbols-outlined text-sm text-brand-navy" id="personaIcon">manage_accounts</span>
-        <span class="font-semibold text-slate-900" id="personaLabel">TPO Dean View</span>
-        <span class="material-symbols-outlined text-xs text-slate-400">expand_more</span>
-      </button>
-
-      <!-- Dropdown Menu -->
-      <div id="personaMenu" class="hidden absolute right-0 mt-1.5 w-72 bg-white rounded-xl shadow-xl border border-slate-200 p-2.5 z-50">
-        <!-- Active User Info Card -->
-        <div id="personaActiveCard" class="p-2.5 rounded-lg bg-slate-50 border border-slate-100 mb-2">
-          <div class="flex items-center gap-2.5">
-            <div id="personaAvatar" class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs shrink-0">DV</div>
-            <div class="flex flex-col min-w-0">
-              <span id="personaName" class="text-xs font-bold text-slate-900 truncate">Dr. Aris Vance</span>
-              <span id="personaRoleDesc" class="text-[11px] text-slate-500 truncate">Head of Career Placements & TPO</span>
-            </div>
-          </div>
-          <div class="mt-2 pt-2 border-t border-slate-200/60 flex items-center justify-between text-[10px]">
-            <span class="font-mono text-slate-500">Security Guard:</span>
-            <span id="personaSecurityTag" class="px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-800 font-mono font-semibold">TPO GOVERNANCE</span>
-          </div>
-        </div>
-
-        <!-- Switch Portal / Account -->
-        <button 
-          id="btnSwitchPortal"
-          onclick="switchToOppositeRole()" 
-          class="w-full flex items-center justify-between px-2.5 py-2 rounded-lg text-left hover:bg-slate-50 text-slate-700 hover:text-slate-900 transition-colors text-xs font-medium group"
-        >
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-[16px] text-indigo-600">swap_horiz</span>
-            <span id="btnSwitchPortalText">Switch to Student Portal</span>
-          </div>
-          <span class="material-symbols-outlined text-xs text-slate-400 group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
-        </button>
-
-        <!-- Sign Out / Lock Session -->
-        <button 
-          onclick="signOut()" 
-          class="w-full flex items-center gap-2 px-2.5 py-2 mt-1 rounded-lg text-left hover:bg-rose-50 text-rose-700 transition-colors text-xs font-medium"
-        >
-          <span class="material-symbols-outlined text-[16px] text-rose-600">logout</span>
-          <span>Sign Out / Lock Session</span>
-        </button>
-      </div>
-    </div>
+    <!-- Sign Out Button -->
+    <button 
+      onclick="signOut()" 
+      class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-rose-50 text-slate-700 hover:text-rose-700 border border-slate-200 text-xs font-medium transition-all shadow-sm"
+      title="Sign Out / Lock Session"
+    >
+      <span class="material-symbols-outlined text-[16px] text-rose-600">logout</span>
+      <span class="hidden sm:inline font-semibold">Sign Out</span>
+    </button>
 
     <!-- Quick Action "+ New Drive" Button (Institutional & Ops only) -->
     <button 
