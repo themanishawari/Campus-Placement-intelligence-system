@@ -1712,7 +1712,7 @@ const masterHtml = `<!DOCTYPE html>
       const origContent = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Verifying Cryptographic Tokens...</span>';
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Verifying Credentials...</span>';
       }
 
       setTimeout(() => {

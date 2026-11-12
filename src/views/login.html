@@ -62,18 +62,6 @@
             </div>
           </div>
 
-          <!-- Dynamic Role State Header Banner -->
-          <div id="role-context-banner" class="mb-6 p-3.5 rounded-xl bg-indigo-50/80 border border-indigo-100/90 flex items-center justify-between text-xs">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
-              <div>
-                <span id="role-title-text" class="font-bold text-indigo-950">Candidate Workspace Access</span>
-                <p id="role-desc-text" class="text-[11px] text-indigo-700">Encrypted personal skill vault, mock drive diagnostics &amp; private consent tokens</p>
-              </div>
-            </div>
-            <span id="role-badge-tag" class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200">STUDENT SCOPE</span>
-          </div>
-
           <!-- Form Area -->
           <form onsubmit="handleLogin(event)" class="space-y-4">
             <!-- Identity Field (Roll Number / Institutional Email) -->
@@ -95,7 +83,7 @@
             <!-- Password / Passkey Field -->
             <div>
               <div class="flex items-center justify-between mb-1.5">
-                <label class="text-xs font-bold text-slate-800">Password / Token</label>
+                <label class="text-xs font-bold text-slate-800">Password</label>
                 <button type="button" onclick="handleForgotPassword()" class="text-[11px] font-medium text-indigo-600 hover:text-indigo-800">Forgot credentials?</button>
               </div>
               <div class="relative rounded-lg shadow-sm">
@@ -122,13 +110,12 @@
                     <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
                     </svg>
-                    <span class="font-bold text-white">TPO Multi-Sig Key or Authenticator Code</span>
                   </div>
                   <span class="text-[10px] font-mono text-indigo-300">Mandatory for Admin</span>
                 </div>
                 <div class="flex gap-2">
                   <input type="text" id="mfa-code" maxlength="6" placeholder="849201" value="849201" class="w-36 text-center tracking-widest font-mono text-sm px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400">
-                  <button type="button" onclick="verifyFidoToken()" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition-colors font-medium">Verify FIDO2 Token</button>
+                  <button type="button" onclick="verifyFidoToken()" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition-colors font-medium">Verify FIDO2</button>
                 </div>
               </div>
             </div>
@@ -151,8 +138,8 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-3">
-              <button type="button" onclick="handleGoogleSSO()" class="flex items-center justify-center gap-2 py-2 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+            <div>
+              <button type="button" onclick="handleGoogleSSO()" class="w-full flex items-center justify-center gap-2 py-2.5 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
                 <svg class="w-4 h-4" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path>
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path>
@@ -161,25 +148,8 @@
                 </svg>
                 <span>VESIT Google Auth</span>
               </button>
-              <button type="button" onclick="handleSamlSSO()" class="flex items-center justify-center gap-2 py-2 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
-                <svg class="w-4 h-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
-                </svg>
-                <span>SAML / Shibboleth</span>
-              </button>
             </div>
           </form>
-
-          <!-- Security Footnote -->
-          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
-            <span class="flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              <span>Audit Logging Enabled (SHA-256)</span>
-            </span>
-            <span class="font-mono text-slate-500">ISO/IEC 27001 Certified</span>
-          </div>
         </div>
       </div>
     </div>

@@ -73,26 +73,29 @@ setTimeout(() => {
           console.log('Master Sidebar hidden:', sidebarHidden);
 
           console.log('\n--- Phase 2: Testing Login Page Controls & Button Mappings ---');
+          // Verify removed elements from login page
+          const bannerRemoved = await sendEval(`document.getElementById('role-context-banner') === null`);
+          const samlRemoved = await sendEval(`!document.getElementById('view-login').innerHTML.includes('handleSamlSSO')`);
+          const auditFootnoteRemoved = await sendEval(`!document.getElementById('view-login').innerText.includes('Audit Logging Enabled') && !document.getElementById('view-login').innerText.includes('ISO/IEC 27001')`);
+          const multiSigRemoved = await sendEval(`!document.getElementById('view-login').innerText.includes('TPO Multi-Sig Key')`);
+          const passwordTokenRemoved = await sendEval(`!document.getElementById('view-login').querySelector('label[for="user-password"], div:has(> #user-password), label:has(+ div #user-password)')?.innerText.includes('/ Token')`);
+          console.log('Role context banner removed:', bannerRemoved);
+          console.log('SAML button removed:', samlRemoved);
+          console.log('Audit footnote removed:', auditFootnoteRemoved);
+          console.log('Multi-sig key text removed:', multiSigRemoved);
+
           // Switch to TPO Admin tab
           await sendEval(`switchRole('tpo')`);
-          const roleTitleTPO = await sendEval(`document.getElementById('role-title-text').textContent`);
-          const badgeTPO = await sendEval(`document.getElementById('role-badge-tag').textContent`);
           const mfaVisible = await sendEval(`!document.getElementById('mfa-section').classList.contains('hidden')`);
           const userValTPO = await sendEval(`document.getElementById('user-identity').value`);
-          console.log('TPO Role Title:', roleTitleTPO);
-          console.log('TPO Badge:', badgeTPO);
-          console.log('MFA Section visible:', mfaVisible);
+          console.log('MFA Section visible for TPO:', mfaVisible);
           console.log('TPO Identity prefill:', userValTPO);
 
           // Switch back to Student tab
           await sendEval(`switchRole('student')`);
-          const roleTitleStudent = await sendEval(`document.getElementById('role-title-text').textContent`);
-          const badgeStudent = await sendEval(`document.getElementById('role-badge-tag').textContent`);
           const mfaHidden = await sendEval(`document.getElementById('mfa-section').classList.contains('hidden')`);
           const userValStudent = await sendEval(`document.getElementById('user-identity').value`);
-          console.log('Student Role Title:', roleTitleStudent);
-          console.log('Student Badge:', badgeStudent);
-          console.log('MFA Section hidden:', mfaHidden);
+          console.log('MFA Section hidden for Student:', mfaHidden);
           console.log('Student Identity prefill:', userValStudent);
 
           // Test Password Toggle

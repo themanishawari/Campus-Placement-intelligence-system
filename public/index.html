@@ -682,18 +682,6 @@
             </div>
           </div>
 
-          <!-- Dynamic Role State Header Banner -->
-          <div id="role-context-banner" class="mb-6 p-3.5 rounded-xl bg-indigo-50/80 border border-indigo-100/90 flex items-center justify-between text-xs">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
-              <div>
-                <span id="role-title-text" class="font-bold text-indigo-950">Candidate Workspace Access</span>
-                <p id="role-desc-text" class="text-[11px] text-indigo-700">Encrypted personal skill vault, mock drive diagnostics &amp; private consent tokens</p>
-              </div>
-            </div>
-            <span id="role-badge-tag" class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200">STUDENT SCOPE</span>
-          </div>
-
           <!-- Form Area -->
           <form onsubmit="handleLogin(event)" class="space-y-4">
             <!-- Identity Field (Roll Number / Institutional Email) -->
@@ -715,7 +703,7 @@
             <!-- Password / Passkey Field -->
             <div>
               <div class="flex items-center justify-between mb-1.5">
-                <label class="text-xs font-bold text-slate-800">Password / Token</label>
+                <label class="text-xs font-bold text-slate-800">Password</label>
                 <button type="button" onclick="handleForgotPassword()" class="text-[11px] font-medium text-indigo-600 hover:text-indigo-800">Forgot credentials?</button>
               </div>
               <div class="relative rounded-lg shadow-sm">
@@ -742,13 +730,12 @@
                     <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
                     </svg>
-                    <span class="font-bold text-white">TPO Multi-Sig Key or Authenticator Code</span>
                   </div>
                   <span class="text-[10px] font-mono text-indigo-300">Mandatory for Admin</span>
                 </div>
                 <div class="flex gap-2">
                   <input type="text" id="mfa-code" maxlength="6" placeholder="849201" value="849201" class="w-36 text-center tracking-widest font-mono text-sm px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400">
-                  <button type="button" onclick="verifyFidoToken()" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition-colors font-medium">Verify FIDO2 Token</button>
+                  <button type="button" onclick="verifyFidoToken()" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition-colors font-medium">Verify FIDO2</button>
                 </div>
               </div>
             </div>
@@ -771,8 +758,8 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-3">
-              <button type="button" onclick="handleGoogleSSO()" class="flex items-center justify-center gap-2 py-2 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+            <div>
+              <button type="button" onclick="handleGoogleSSO()" class="w-full flex items-center justify-center gap-2 py-2.5 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
                 <svg class="w-4 h-4" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path>
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path>
@@ -781,25 +768,8 @@
                 </svg>
                 <span>VESIT Google Auth</span>
               </button>
-              <button type="button" onclick="handleSamlSSO()" class="flex items-center justify-center gap-2 py-2 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
-                <svg class="w-4 h-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
-                </svg>
-                <span>SAML / Shibboleth</span>
-              </button>
             </div>
           </form>
-
-          <!-- Security Footnote -->
-          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
-            <span class="flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              <span>Audit Logging Enabled (SHA-256)</span>
-            </span>
-            <span class="font-mono text-slate-500">ISO/IEC 27001 Certified</span>
-          </div>
         </div>
       </div>
     </div>
@@ -3385,6 +3355,7 @@
 <span class="material-symbols-outlined text-brand-navy text-base">code_blocks</span>
 <span class="font-headline-md text-body-lg font-semibold text-slate-900">Languages &amp; Core</span>
 </div>
+<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">4 Tracks</span>
 </div>
 <div class="flex flex-col gap-space-sm flex-1">
 <!-- Python (Verified) -->
@@ -3474,6 +3445,7 @@
 <span class="material-symbols-outlined text-brand-navy text-base">developer_board</span>
 <span class="font-headline-md text-body-lg font-semibold text-slate-900">Frameworks &amp; Systems</span>
 </div>
+<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">4 Tracks</span>
 </div>
 <div class="flex flex-col gap-space-sm flex-1">
 <!-- React/Next.js (Verified) -->
@@ -3559,6 +3531,7 @@
 <span class="material-symbols-outlined text-brand-navy text-base">cloud</span>
 <span class="font-headline-md text-body-lg font-semibold text-slate-900">Data &amp; Cloud Infrastructure</span>
 </div>
+<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">3 Tracks</span>
 </div>
 <div class="flex flex-col gap-space-sm flex-1">
 <!-- PostgreSQL (Verified) -->
@@ -3785,6 +3758,11 @@
 <!-- Control Header & Operational Filters -->
 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-gutter-md">
 <div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-secondary mb-1">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary">Decision Telemetry</span>
+<span class="text-outline-variant font-label-code text-label-code">/</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-semibold">Proofpoint Cohort Gap Engine</span>
+</div>
 <div class="flex items-baseline gap-space-md">
 <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Target Companies &amp; Proofpoint Gap Matrix</h1>
 </div>
@@ -3801,7 +3779,11 @@
 <option>Platform &amp; Reliability Associate</option>
 </select>
 </div>
-
+<div class="flex items-center bg-surface-container-low p-1 rounded-xl shadow-sm">
+<button class="px-3 py-1 rounded-lg font-label-caps text-label-caps uppercase font-bold bg-surface-container-lowest text-primary shadow-sm transition-all">All Tiers</button>
+<button class="px-3 py-1 rounded-lg font-label-caps text-label-caps uppercase font-medium text-secondary hover:text-on-surface transition-all">Tier-1 FAANG+</button>
+<button class="px-3 py-1 rounded-lg font-label-caps text-label-caps uppercase font-medium text-secondary hover:text-on-surface transition-all">Fintech Unicorns</button>
+</div>
 <button class="p-2 rounded-xl bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-colors shadow-sm" title="Re-sync Candidate Rubric Vector">
 <span class="material-symbols-outlined text-lg leading-none">sync</span>
 </button>
@@ -3817,6 +3799,7 @@
 <span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold">Ranked Targets</span>
 <span class="font-label-code text-label-code px-1.5 py-0.2 rounded-full bg-surface-container text-secondary">4 Configured</span>
 </div>
+<span class="font-label-code text-label-code text-secondary">Sort: Match Score (Desc)</span>
 </div>
 <!-- Card 1: Google (Active Selected Target) -->
 <div class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-md cursor-pointer transition-all border border-blue-100">
@@ -4023,7 +4006,14 @@
 </div>
 <span class="font-body-sm text-body-sm text-secondary">Comparative readiness vs Verified Hired Cohort Benchmarks</span>
 </div>
-
+<div class="flex items-center gap-space-xs">
+<span class="flex items-center gap-1 font-label-code text-label-code px-2 py-1 rounded bg-blue-50 border border-blue-200/50 text-primary-container font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Candidate Current
+            </span>
+<span class="flex items-center gap-1 font-label-code text-label-code px-2 py-1 rounded bg-surface-container text-secondary">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span> Target Bar (90th %ile)
+            </span>
+</div>
 </div>
 <!-- Metric Breakdowns with Differential Comparison Bars -->
 <div class="flex flex-col gap-space-lg">
@@ -5832,9 +5822,10 @@
         4 Active Ingest Pipelines Authenticated
       </span>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-start">
+  
 <!-- 2a. GitHub Card -->
-<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col gap-space-md h-fit self-start shadow-sm hover:shadow-md transition-shadow">
 <div class="space-y-space-md">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex items-center gap-space-sm">
@@ -5858,20 +5849,41 @@
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant">
 <span class="font-label-sm text-label-sm uppercase text-on-surface font-semibold block mb-0.5">Enforced Scope</span>
-            Access to public repositories, commit history and programming languages.
+            Strictly Read-Only (Public Commits, Commit SHAs, PR summaries, Repository Languages). Zero Write Permissions. Zero Access to Private Repositories.
           </div>
-
+<div class="space-y-space-xs pt-1">
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Sync public commit telemetry</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Analyzes cadence consistency without parsing commit blobs</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">AST &amp; cyclomatic complexity parsing</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Synthesizes code architecture quality for Tier-1 engineering score</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
 </div>
 <div class="pt-space-md mt-space-md flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">UID: 449208</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">ID: gh_app_8921a</span>
 <button class="px-space-sm py-1 rounded bg-surface-container-lowest text-error hover:bg-error-container hover:text-on-error-container font-label-sm text-label-sm uppercase tracking-wider font-semibold transition-colors" type="button">
-            Disconnect
-</button>
+            Withdraw GitHub Access
+          </button>
 </div>
 </div>
 
 <!-- 2b. LeetCode Card -->
-<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col gap-space-md h-fit self-start shadow-sm hover:shadow-md transition-shadow">
 <div class="space-y-space-md">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex items-center gap-space-sm">
@@ -5895,18 +5907,40 @@
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant">
 <span class="font-label-sm text-label-sm uppercase text-on-surface font-semibold block mb-0.5">Enforced Scope</span>
-            Access to public contest ratings, problem-solving statistics, submission history and programming performance.
+            Strictly Read-Only (Contest rating, solved problems count, runtime efficiency benchmarks). No session cookies, tokens, or credential persistence.
           </div>
-
+<div class="space-y-space-xs pt-1">
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Include Contest Percentile in Recruiter Score</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Powers algorithmic speed validation on FinTech campus shortlists</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between py-1 opacity-70">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Weekly problem velocity telemetry</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Continuous practice activity scoring</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+</div>
 <div class="pt-space-md mt-space-md flex items-center justify-between">
 <span class="font-label-sm text-label-sm text-on-surface-variant font-mono">UID: 449208</span>
 <button class="px-space-sm py-1 rounded bg-surface-container-lowest text-error hover:bg-error-container hover:text-on-error-container font-label-sm text-label-sm uppercase tracking-wider font-semibold transition-colors" type="button">
-            Disconnect
+            Withdraw LeetCode Access
           </button>
 </div>
 </div>
 <!-- 2c. HackerRank Card -->
-<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col gap-space-md h-fit self-start shadow-sm hover:shadow-md transition-shadow">
 <div class="space-y-space-md">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex items-center gap-space-sm">
@@ -5941,12 +5975,12 @@
 <div class="pt-space-md mt-space-md flex items-center justify-between">
 <span class="font-label-sm text-label-sm text-on-surface-variant font-mono">HR-VERIFIED: #98321</span>
 <button class="px-space-sm py-1 rounded bg-surface-container-lowest text-error hover:bg-error-container hover:text-on-error-container font-label-sm text-label-sm uppercase tracking-wider font-semibold transition-colors" type="button">
-            Disconnect
+            Withdraw HackerRank Access
           </button>
 </div>
 </div>
 <!-- 2d. University SIS Portal Card -->
-<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col gap-space-md h-fit self-start shadow-sm hover:shadow-md transition-shadow">
 <div class="space-y-space-md">
 <div class="flex items-start justify-between gap-space-sm">
 <div class="flex items-center gap-space-sm">
@@ -7611,7 +7645,7 @@ FROM user_activity_log;</textarea>
       const origContent = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Verifying Cryptographic Tokens...</span>';
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Verifying Credentials...</span>';
       }
 
       setTimeout(() => {
@@ -8195,13 +8229,17 @@ FROM user_activity_log;</textarea>
             a.click();
             a.remove();
           });
-        } else if (txt.includes('Disconnect')) {
+        } else if (txt.includes('Withdraw GitHub Access') || txt.includes('Withdraw LeetCode Access') || txt.includes('Withdraw HackerRank Access')) {
           btn.addEventListener('click', function() {
             showToast('Access revoked under DPDP mandate. Telemetry sync suspended.', 'link_off');
             this.textContent = 'Access Revoked ✓';
             this.classList.add('opacity-50');
           });
-        } 
+        } else if (txt.includes('All Tiers') || txt.includes('Tier-1 FAANG+') || txt.includes('Fintech Unicorns')) {
+          btn.addEventListener('click', function() {
+            showToast(`Filter applied: ${txt}`, 'filter_alt');
+          });
+        }
       });
     });
   </script>
