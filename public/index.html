@@ -3632,7 +3632,6 @@
 <span class="material-symbols-outlined text-brand-navy text-base">code_blocks</span>
 <span class="font-headline-md text-body-lg font-semibold text-slate-900">Languages &amp; Core</span>
 </div>
-<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">4 Tracks</span>
 </div>
 <div class="flex flex-col gap-space-sm flex-1">
 <!-- Python (Verified) -->
@@ -3722,7 +3721,6 @@
 <span class="material-symbols-outlined text-brand-navy text-base">developer_board</span>
 <span class="font-headline-md text-body-lg font-semibold text-slate-900">Frameworks &amp; Systems</span>
 </div>
-<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">4 Tracks</span>
 </div>
 <div class="flex flex-col gap-space-sm flex-1">
 <!-- React/Next.js (Verified) -->
@@ -3808,7 +3806,6 @@
 <span class="material-symbols-outlined text-brand-navy text-base">cloud</span>
 <span class="font-headline-md text-body-lg font-semibold text-slate-900">Data &amp; Cloud Infrastructure</span>
 </div>
-<span class="font-label-code text-label-code px-1.5 py-0.5 rounded bg-blue-100 text-brand-navy font-semibold border border-blue-200">3 Tracks</span>
 </div>
 <div class="flex flex-col gap-space-sm flex-1">
 <!-- PostgreSQL (Verified) -->
@@ -4046,11 +4043,6 @@
 <!-- Control Header & Operational Filters -->
 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-gutter-md">
 <div class="flex flex-col">
-<div class="flex items-center gap-space-xs text-secondary mb-1">
-<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary">Decision Telemetry</span>
-<span class="text-outline-variant font-label-code text-label-code">/</span>
-<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-semibold">Proofpoint Cohort Gap Engine</span>
-</div>
 <div class="flex items-baseline gap-space-md">
 <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Target Companies &amp; Proofpoint Gap Matrix</h1>
 </div>
@@ -4067,11 +4059,7 @@
 <option>Platform &amp; Reliability Associate</option>
 </select>
 </div>
-<div class="flex items-center bg-surface-container-low p-1 rounded-xl shadow-sm">
-<button class="px-3 py-1 rounded-lg font-label-caps text-label-caps uppercase font-bold bg-surface-container-lowest text-primary shadow-sm transition-all">All Tiers</button>
-<button class="px-3 py-1 rounded-lg font-label-caps text-label-caps uppercase font-medium text-secondary hover:text-on-surface transition-all">Tier-1 FAANG+</button>
-<button class="px-3 py-1 rounded-lg font-label-caps text-label-caps uppercase font-medium text-secondary hover:text-on-surface transition-all">Fintech Unicorns</button>
-</div>
+
 <button class="p-2 rounded-xl bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-colors shadow-sm" title="Re-sync Candidate Rubric Vector">
 <span class="material-symbols-outlined text-lg leading-none">sync</span>
 </button>
@@ -4087,7 +4075,6 @@
 <span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold">Ranked Targets</span>
 <span class="font-label-code text-label-code px-1.5 py-0.2 rounded-full bg-surface-container text-secondary">4 Configured</span>
 </div>
-<span class="font-label-code text-label-code text-secondary">Sort: Match Score (Desc)</span>
 </div>
 <!-- Card 1: Google (Active Selected Target) -->
 <div class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-md cursor-pointer transition-all border border-blue-100">
@@ -4294,14 +4281,7 @@
 </div>
 <span class="font-body-sm text-body-sm text-secondary">Comparative readiness vs Verified Hired Cohort Benchmarks</span>
 </div>
-<div class="flex items-center gap-space-xs">
-<span class="flex items-center gap-1 font-label-code text-label-code px-2 py-1 rounded bg-blue-50 border border-blue-200/50 text-primary-container font-semibold">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span> Candidate Current
-            </span>
-<span class="flex items-center gap-1 font-label-code text-label-code px-2 py-1 rounded bg-surface-container text-secondary">
-<span class="w-2 h-2 rounded-full bg-outline-variant"></span> Target Bar (90th %ile)
-            </span>
-</div>
+
 </div>
 <!-- Metric Breakdowns with Differential Comparison Bars -->
 <div class="flex flex-col gap-space-lg">
@@ -6136,38 +6116,18 @@
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant">
 <span class="font-label-sm text-label-sm uppercase text-on-surface font-semibold block mb-0.5">Enforced Scope</span>
-            Strictly Read-Only (Public Commits, Commit SHAs, PR summaries, Repository Languages). Zero Write Permissions. Zero Access to Private Repositories.
+            Access to public repositories, commit history and programming languages.
           </div>
-<div class="space-y-space-xs pt-1">
-<div class="flex items-center justify-between py-1">
-<div class="flex flex-col">
-<span class="font-body-md text-body-md text-on-surface font-medium">Sync public commit telemetry</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Analyzes cadence consistency without parsing commit blobs</span>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" type="checkbox">
-<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
-</label>
-</div>
-<div class="flex items-center justify-between py-1">
-<div class="flex flex-col">
-<span class="font-body-md text-body-md text-on-surface font-medium">AST &amp; cyclomatic complexity parsing</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Synthesizes code architecture quality for Tier-1 engineering score</span>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" type="checkbox">
-<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
-</label>
-</div>
-</div>
+
 </div>
 <div class="pt-space-md mt-space-md flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">ID: gh_app_8921a</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">UID: 449208</span>
 <button class="px-space-sm py-1 rounded bg-surface-container-lowest text-error hover:bg-error-container hover:text-on-error-container font-label-sm text-label-sm uppercase tracking-wider font-semibold transition-colors" type="button">
-            Withdraw GitHub Access
-          </button>
+            Disconnect
+</button>
 </div>
 </div>
+
 <!-- 2b. LeetCode Card -->
 <div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
 <div class="space-y-space-md">
@@ -6193,35 +6153,13 @@
 </div>
 <div class="p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant">
 <span class="font-label-sm text-label-sm uppercase text-on-surface font-semibold block mb-0.5">Enforced Scope</span>
-            Strictly Read-Only (Contest rating, solved problems count, runtime efficiency benchmarks). No session cookies, tokens, or credential persistence.
+            Access to public contest ratings, problem-solving statistics, submission history and programming performance.
           </div>
-<div class="space-y-space-xs pt-1">
-<div class="flex items-center justify-between py-1">
-<div class="flex flex-col">
-<span class="font-body-md text-body-md text-on-surface font-medium">Include Contest Percentile in Recruiter Score</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Powers algorithmic speed validation on FinTech campus shortlists</span>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" type="checkbox">
-<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
-</label>
-</div>
-<div class="flex items-center justify-between py-1 opacity-70">
-<div class="flex flex-col">
-<span class="font-body-md text-body-md text-on-surface font-medium">Weekly problem velocity telemetry</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Continuous practice activity scoring</span>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" type="checkbox">
-<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
-</label>
-</div>
-</div>
-</div>
+
 <div class="pt-space-md mt-space-md flex items-center justify-between">
 <span class="font-label-sm text-label-sm text-on-surface-variant font-mono">UID: 449208</span>
 <button class="px-space-sm py-1 rounded bg-surface-container-lowest text-error hover:bg-error-container hover:text-on-error-container font-label-sm text-label-sm uppercase tracking-wider font-semibold transition-colors" type="button">
-            Withdraw LeetCode Access
+            Disconnect
           </button>
 </div>
 </div>
@@ -6261,7 +6199,7 @@
 <div class="pt-space-md mt-space-md flex items-center justify-between">
 <span class="font-label-sm text-label-sm text-on-surface-variant font-mono">HR-VERIFIED: #98321</span>
 <button class="px-space-sm py-1 rounded bg-surface-container-lowest text-error hover:bg-error-container hover:text-on-error-container font-label-sm text-label-sm uppercase tracking-wider font-semibold transition-colors" type="button">
-            Withdraw HackerRank Access
+            Disconnect
           </button>
 </div>
 </div>
@@ -8533,17 +8471,13 @@ FROM user_activity_log;</textarea>
             a.click();
             a.remove();
           });
-        } else if (txt.includes('Withdraw GitHub Access') || txt.includes('Withdraw LeetCode Access') || txt.includes('Withdraw HackerRank Access')) {
+        } else if (txt.includes('Disconnect')) {
           btn.addEventListener('click', function() {
             showToast('Access revoked under DPDP mandate. Telemetry sync suspended.', 'link_off');
             this.textContent = 'Access Revoked ✓';
             this.classList.add('opacity-50');
           });
-        } else if (txt.includes('All Tiers') || txt.includes('Tier-1 FAANG+') || txt.includes('Fintech Unicorns')) {
-          btn.addEventListener('click', function() {
-            showToast(`Filter applied: ${txt}`, 'filter_alt');
-          });
-        }
+        } 
       });
     });
   </script>
