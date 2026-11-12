@@ -3735,404 +3735,462 @@
       <!-- View 6: Target Companies & Gaps -->
       <div id="view-target-gaps" class="view-panel w-full p-4 lg:p-6 space-y-4 hidden">
         <div class="flex flex-col w-full">
-<!-- Control Header & Operational Filters -->
-<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-gutter-md">
-<div class="flex flex-col">
-<div class="flex items-baseline gap-space-md">
-<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Target Companies &amp; Proofpoint Gap Matrix</h1>
-</div>
-</div>
-<!-- Tier & Role Selectors -->
-<div class="flex flex-wrap items-center gap-space-sm">
-<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container-low shadow-sm">
-<span class="material-symbols-outlined text-sm text-secondary">psychology</span>
-<label class="font-label-code text-label-code text-secondary font-medium" for="role-select">Target Role:</label>
-<select class="bg-transparent font-body-sm text-body-sm font-semibold text-on-surface focus:outline-none cursor-pointer pr-2" id="role-select">
-<option selected="">SDE-1 / Backend Engineer</option>
-<option>Fullstack Systems Engineer</option>
-<option>Distributed Data Engineer</option>
-<option>Platform &amp; Reliability Associate</option>
-</select>
-</div>
-<button class="p-2 rounded-xl bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-colors shadow-sm" title="Re-sync Candidate Rubric Vector">
-<span class="material-symbols-outlined text-lg leading-none">sync</span>
-</button>
-</div>
-</div>
-<!-- Agent Interventions / Human-in-the-Loop Advisory Banner -->
-<!-- Primary 12-Column Responsive Workspace Grid -->
-<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-md items-start">
-<!-- LEFT COLUMN: Target Enterprise Fit Ranking (5 cols on xl) -->
-<div class="xl:col-span-5 flex flex-col gap-space-md">
-<!-- Card 1: Google (Active Selected Target) -->
-<div class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-md cursor-pointer transition-all border border-blue-100">
-<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary-container rounded-l-xl"></div>
-<div class="flex flex-col gap-space-sm pl-1">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/60 flex items-center justify-center font-headline-md text-headline-md font-bold text-on-surface shadow-sm">
-<span class="text-primary-container">G</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-center gap-1.5">
-<span class="font-headline-md text-headline-md text-on-surface">Google</span>
-<span class="material-symbols-outlined text-sm text-primary-container" style='font-variation-settings: "FILL" 1;'>verified</span>
-</div>
-<span class="font-body-sm text-body-sm text-secondary">L3 Core SWE / Cloud Platform Infrastructure</span>
-</div>
-</div>
-<!-- Score Pill -->
-<div class="flex flex-col items-end">
-<div class="flex items-baseline gap-1 px-2.5 py-1 rounded-lg bg-blue-50 border border-blue-200/50">
-<span class="font-label-code text-label-code text-secondary font-medium">Match</span>
-<span class="font-headline-md text-headline-md font-bold text-primary-container leading-none">88%</span>
-</div>
-<span class="font-label-code text-label-code text-primary font-semibold mt-1">High Fit</span>
-</div>
-</div>
-<!-- Explainability Tag / Gap Observation -->
-<div class="rounded-lg bg-surface-container-low p-space-xs flex items-center gap-2">
-<span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 ml-1"></span>
-<span class="font-body-sm text-body-sm text-on-surface truncate">
-<strong class="font-semibold text-primary">Strong Algorithmic Core</strong>, Minor Gap: Distributed Tracing
+  <!-- Control Header & Operational Filters -->
+  <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-gutter-md">
+    <div class="flex flex-col">
+      <div class="flex items-baseline gap-space-md">
+        <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Target Companies &amp; Proofpoint
+          Gap Matrix</h1>
+      </div>
+    </div>
+    <!-- Tier & Role Selectors -->
+    <div class="flex flex-wrap items-center gap-space-sm">
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container-low shadow-sm">
+        <span class="material-symbols-outlined text-sm text-secondary">psychology</span>
+        <label class="font-label-code text-label-code text-secondary font-medium" for="role-select">Target Role:</label>
+        <select
+          class="bg-transparent font-body-sm text-body-sm font-semibold text-on-surface focus:outline-none cursor-pointer pr-2"
+          id="role-select">
+          <option selected="">SDE-1 / Backend Engineer</option>
+          <option>Fullstack Systems Engineer</option>
+          <option>Distributed Data Engineer</option>
+          <option>Platform &amp; Reliability Associate</option>
+        </select>
+      </div>
+      <button
+        class="p-2 rounded-xl bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-colors shadow-sm"
+        title="Re-sync Candidate Rubric Vector">
+        <span class="material-symbols-outlined text-lg leading-none">sync</span>
+      </button>
+    </div>
+  </div>
+  <!-- Agent Interventions / Human-in-the-Loop Advisory Banner -->
+  <!-- Primary 12-Column Responsive Workspace Grid -->
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-md items-start">
+    <!-- LEFT COLUMN: Target Enterprise Fit Ranking (5 cols on xl) -->
+    <div class="xl:col-span-5 flex flex-col gap-space-md">
+      <!-- Card 1: Google (Active Selected Target) -->
+      <div
+        class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-md cursor-pointer transition-all border border-blue-100">
+        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary-container rounded-l-xl"></div>
+        <div class="flex flex-col gap-space-sm pl-1">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-space-sm">
+              <div
+                class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/60 flex items-center justify-center font-headline-md text-headline-md font-bold text-on-surface shadow-sm">
+                <span class="text-primary-container">G</span>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-headline-md text-headline-md text-on-surface">Google</span>
+                  <span class="material-symbols-outlined text-sm text-primary-container"
+                    style='font-variation-settings: "FILL" 1;'>verified</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-secondary">L3 Core SWE / Cloud Platform
+                  Infrastructure</span>
+              </div>
+            </div>
+            <!-- Score Pill -->
+            <div class="flex flex-col items-end">
+              <div class="flex items-baseline gap-1 px-2.5 py-1 rounded-lg bg-blue-50 border border-blue-200/50">
+                <span class="font-label-code text-label-code text-secondary font-medium">Match</span>
+                <span class="font-headline-md text-headline-md font-bold text-primary-container leading-none">88%</span>
+              </div>
+              <span class="font-label-code text-label-code text-primary font-semibold mt-1">High Fit</span>
+            </div>
+          </div>
+          <!-- Explainability Tag / Gap Observation -->
+          <div class="rounded-lg bg-surface-container-low p-space-xs flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 ml-1"></span>
+            <span class="font-body-sm text-body-sm text-on-surface truncate">
+              <strong class="font-semibold text-primary">Strong Algorithmic Core</strong>, Minor Gap: Distributed
+              Tracing
             </span>
-</div>
-<!-- Mini Sparkline Distribution Bar -->
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<span class="font-label-caps text-label-caps uppercase text-secondary">Hiring Bar:</span>
-<div class="flex gap-1">
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-outline-variant"></span>
-</div>
-</div>
-<span class="font-label-code text-label-code text-primary-container font-bold flex items-center gap-0.5 hover:translate-x-0.5 transition-transform">
+          </div>
+          <!-- Mini Sparkline Distribution Bar -->
+          <div class="flex items-center justify-between pt-1">
+            <div class="flex items-center gap-2">
+              <span class="font-label-caps text-label-caps uppercase text-secondary">Hiring Bar:</span>
+              <div class="flex gap-1">
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-outline-variant"></span>
+              </div>
+            </div>
+            <span
+              class="font-label-code text-label-code text-primary-container font-bold flex items-center gap-0.5 hover:translate-x-0.5 transition-transform">
               Inspect Vector <span class="material-symbols-outlined text-xs">arrow_forward</span>
-</span>
-</div>
-</div>
-</div>
-<!-- Card 2: Microsoft -->
-<div class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all cursor-pointer">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center font-headline-md text-headline-md font-bold text-on-surface shadow-sm">
-<span class="text-secondary">M</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-center gap-1.5">
-<span class="font-headline-md text-headline-md text-on-surface">Microsoft</span>
-<span class="material-symbols-outlined text-sm text-primary-container" style='font-variation-settings: "FILL" 1;'>verified</span>
-</div>
-<span class="font-body-sm text-body-sm text-secondary">SWE-1 / Azure Enterprise Core Services</span>
-</div>
-</div>
-<div class="flex flex-col items-end">
-<div class="flex items-baseline gap-1 px-2.5 py-1 rounded-lg bg-blue-50 border border-blue-200/50">
-<span class="font-label-code text-label-code text-secondary font-medium">Match</span>
-<span class="font-headline-md text-headline-md font-bold text-primary-container leading-none">91%</span>
-</div>
-<span class="font-label-code text-label-code text-primary font-semibold mt-1">Strong Match</span>
-</div>
-</div>
-<div class="rounded-lg bg-surface-container-low p-space-xs flex items-center gap-2">
-<span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 ml-1"></span>
-<span class="font-body-sm text-body-sm text-on-surface truncate">
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Microsoft -->
+      <div
+        class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all cursor-pointer">
+        <div class="flex flex-col gap-space-sm">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-space-sm">
+              <div
+                class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center font-headline-md text-headline-md font-bold text-on-surface shadow-sm">
+                <span class="text-secondary">M</span>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-headline-md text-headline-md text-on-surface">Microsoft</span>
+                  <span class="material-symbols-outlined text-sm text-primary-container"
+                    style='font-variation-settings: "FILL" 1;'>verified</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-secondary">SWE-1 / Azure Enterprise Core Services</span>
+              </div>
+            </div>
+            <div class="flex flex-col items-end">
+              <div class="flex items-baseline gap-1 px-2.5 py-1 rounded-lg bg-blue-50 border border-blue-200/50">
+                <span class="font-label-code text-label-code text-secondary font-medium">Match</span>
+                <span class="font-headline-md text-headline-md font-bold text-primary-container leading-none">91%</span>
+              </div>
+              <span class="font-label-code text-label-code text-primary font-semibold mt-1">Strong Match</span>
+            </div>
+          </div>
+          <div class="rounded-lg bg-surface-container-low p-space-xs flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 ml-1"></span>
+            <span class="font-body-sm text-body-sm text-on-surface truncate">
               All core requirements met, bonus cloud cert recommended
             </span>
-</div>
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<span class="font-label-caps text-label-caps uppercase text-secondary">Hiring Bar:</span>
-<div class="flex gap-1">
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-outline-variant"></span>
-</div>
-</div>
-<span class="font-label-code text-label-code text-secondary group-hover:text-primary-container transition-colors">Select for deep analysis</span>
-</div>
-</div>
-</div>
-<!-- Card 3: Stripe -->
-<div class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all cursor-pointer">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center font-headline-md text-headline-md font-bold text-on-surface shadow-sm">
-<span class="text-primary-container">S</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-center gap-1.5">
-<span class="font-headline-md text-headline-md text-on-surface">Stripe</span>
-</div>
-<span class="font-body-sm text-body-sm text-secondary">Backend Integration &amp; Global Ledger Team</span>
-</div>
-</div>
-<div class="flex flex-col items-end">
-<div class="flex items-baseline gap-1 px-2.5 py-1 rounded-lg bg-surface-container">
-<span class="font-label-code text-label-code text-secondary font-medium">Match</span>
-<span class="font-headline-md text-headline-md font-bold text-on-surface leading-none">82%</span>
-</div>
-<span class="font-label-code text-label-code text-secondary font-semibold mt-1">Target</span>
-</div>
-</div>
-<div class="rounded-lg bg-surface-container-low p-space-xs flex items-center gap-2">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 ml-1"></span>
-<span class="font-body-sm text-body-sm text-on-surface truncate">
-<strong class="font-semibold text-primary">Strong API &amp; Systems</strong>, Gap: Idempotency &amp; High Throughput
+          </div>
+          <div class="flex items-center justify-between pt-1">
+            <div class="flex items-center gap-2">
+              <span class="font-label-caps text-label-caps uppercase text-secondary">Hiring Bar:</span>
+              <div class="flex gap-1">
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-outline-variant"></span>
+              </div>
+            </div>
+            <span
+              class="font-label-code text-label-code text-secondary group-hover:text-primary-container transition-colors">Select
+              for deep analysis</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Stripe -->
+      <div
+        class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all cursor-pointer">
+        <div class="flex flex-col gap-space-sm">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-space-sm">
+              <div
+                class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center font-headline-md text-headline-md font-bold text-on-surface shadow-sm">
+                <span class="text-primary-container">S</span>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-headline-md text-headline-md text-on-surface">Stripe</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-secondary">Backend Integration &amp; Global Ledger
+                  Team</span>
+              </div>
+            </div>
+            <div class="flex flex-col items-end">
+              <div class="flex items-baseline gap-1 px-2.5 py-1 rounded-lg bg-surface-container">
+                <span class="font-label-code text-label-code text-secondary font-medium">Match</span>
+                <span class="font-headline-md text-headline-md font-bold text-on-surface leading-none">82%</span>
+              </div>
+              <span class="font-label-code text-label-code text-secondary font-semibold mt-1">Target</span>
+            </div>
+          </div>
+          <div class="rounded-lg bg-surface-container-low p-space-xs flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 ml-1"></span>
+            <span class="font-body-sm text-body-sm text-on-surface truncate">
+              <strong class="font-semibold text-primary">Strong API &amp; Systems</strong>, Gap: Idempotency &amp; High
+              Throughput
             </span>
-</div>
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<span class="font-label-caps text-label-caps uppercase text-secondary">Hiring Bar:</span>
-<div class="flex gap-1">
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-</div>
-</div>
-<span class="font-label-code text-label-code text-secondary group-hover:text-primary-container transition-colors">Select for deep analysis</span>
-</div>
-</div>
-</div>
-<!-- Card 4: Amazon -->
-<div class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all cursor-pointer">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center font-headline-md text-headline-md font-bold text-on-surface shadow-sm">
-<span class="text-secondary">A</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-center gap-1.5">
-<span class="font-headline-md text-headline-md text-on-surface">Amazon</span>
-</div>
-<span class="font-body-sm text-body-sm text-secondary">SDE-1 / Fulfillment Engine Logistics</span>
-</div>
-</div>
-<div class="flex flex-col items-end">
-<div class="flex items-baseline gap-1 px-2.5 py-1 rounded-lg bg-error-container text-on-error-container">
-<span class="font-label-code text-label-code font-medium">Match</span>
-<span class="font-headline-md text-headline-md font-bold leading-none">74%</span>
-</div>
-<span class="font-label-code text-label-code text-error font-semibold mt-1">Moderate Gap</span>
-</div>
-</div>
-<div class="rounded-lg bg-surface-container-low p-space-xs flex items-center gap-2">
-<span class="w-1.5 h-1.5 rounded-full bg-error shrink-0 ml-1"></span>
-<span class="font-body-sm text-body-sm text-on-surface truncate">
+          </div>
+          <div class="flex items-center justify-between pt-1">
+            <div class="flex items-center gap-2">
+              <span class="font-label-caps text-label-caps uppercase text-secondary">Hiring Bar:</span>
+              <div class="flex gap-1">
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+              </div>
+            </div>
+            <span
+              class="font-label-code text-label-code text-secondary group-hover:text-primary-container transition-colors">Select
+              for deep analysis</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Amazon -->
+      <div
+        class="group relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all cursor-pointer">
+        <div class="flex flex-col gap-space-sm">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-space-sm">
+              <div
+                class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center font-headline-md text-headline-md font-bold text-on-surface shadow-sm">
+                <span class="text-secondary">A</span>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-headline-md text-headline-md text-on-surface">Amazon</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-secondary">SDE-1 / Fulfillment Engine Logistics</span>
+              </div>
+            </div>
+            <div class="flex flex-col items-end">
+              <div class="flex items-baseline gap-1 px-2.5 py-1 rounded-lg bg-error-container text-on-error-container">
+                <span class="font-label-code text-label-code font-medium">Match</span>
+                <span class="font-headline-md text-headline-md font-bold leading-none">74%</span>
+              </div>
+              <span class="font-label-code text-label-code text-error font-semibold mt-1">Moderate Gap</span>
+            </div>
+          </div>
+          <div class="rounded-lg bg-surface-container-low p-space-xs flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-error shrink-0 ml-1"></span>
+            <span class="font-body-sm text-body-sm text-on-surface truncate">
               Missing: Low-level Object Oriented Design proof
             </span>
-</div>
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<span class="font-label-caps text-label-caps uppercase text-secondary">Hiring Bar:</span>
-<div class="flex gap-1">
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
-<span class="w-4 h-1.5 rounded-full bg-outline-variant"></span>
-<span class="w-4 h-1.5 rounded-full bg-outline-variant"></span>
-</div>
-</div>
-<span class="font-label-code text-label-code text-secondary group-hover:text-primary-container transition-colors">Select for deep analysis</span>
-</div>
-</div>
-</div>
-<!-- Quick Add / Custom Benchmark Trigger -->
-<div class="bg-surface-container-low p-space-md rounded-xl flex items-center justify-between text-secondary hover:text-on-surface transition-colors cursor-pointer border border-outline-variant/30">
-<div class="flex items-center gap-space-sm">
-<span class="material-symbols-outlined text-lg text-primary-container">add_circle</span>
-<span class="font-body-sm text-body-sm font-semibold">Simulate Additional Target Benchmark (e.g. Netflix, Meta)</span>
-</div>
-<span class="material-symbols-outlined text-sm">chevron_right</span>
-</div>
-</div>
-<!-- RIGHT COLUMN / MAIN AREA: Deep Skill Gap Matrix for Google SDE-1 (7 cols on xl) -->
-<div class="xl:col-span-7 flex flex-col gap-gutter-md">
-<!-- Benchmark Analysis Header Card -->
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg border border-slate-100">
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-xs">
-<div class="flex flex-col">
-<div class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
-<span class="font-headline-md text-headline-md text-on-surface">Active Inspector: Google (SDE-1)</span>
-</div>
-</div>
-</div>
-<!-- Metric Breakdowns with Differential Comparison Bars -->
-<div class="flex flex-col gap-space-lg">
-<!-- 1. Data Structures & Algorithms -->
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base text-emerald-600">account_tree</span>
-<span class="font-body-sm text-body-sm font-semibold text-on-surface">Data Structures &amp; Algorithms</span>
-</div>
-<div class="flex items-center gap-space-sm">
-<span class="font-label-code text-label-code text-secondary font-medium">95% vs 90% target</span>
-<span class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-bold flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">trending_up</span> Exceeds +5%
+          </div>
+          <div class="flex items-center justify-between pt-1">
+            <div class="flex items-center gap-2">
+              <span class="font-label-caps text-label-caps uppercase text-secondary">Hiring Bar:</span>
+              <div class="flex gap-1">
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-primary-container"></span>
+                <span class="w-4 h-1.5 rounded-full bg-outline-variant"></span>
+                <span class="w-4 h-1.5 rounded-full bg-outline-variant"></span>
+              </div>
+            </div>
+            <span
+              class="font-label-code text-label-code text-secondary group-hover:text-primary-container transition-colors">Select
+              for deep analysis</span>
+          </div>
+        </div>
+      </div>
+      <!-- Quick Add / Custom Benchmark Trigger -->
+      <div
+        class="bg-surface-container-low p-space-md rounded-xl flex items-center justify-between text-secondary hover:text-on-surface transition-colors cursor-pointer border border-outline-variant/30">
+        <div class="flex items-center gap-space-sm">
+          <span class="material-symbols-outlined text-lg text-primary-container">add_circle</span>
+          <span class="font-body-sm text-body-sm font-semibold">Simulate Additional Target Benchmark (e.g. Netflix,
+            Meta)</span>
+        </div>
+        <span class="material-symbols-outlined text-sm">chevron_right</span>
+      </div>
+    </div>
+    <!-- RIGHT COLUMN / MAIN AREA: Deep Skill Gap Matrix for Google SDE-1 (7 cols on xl) -->
+    <div class="xl:col-span-7 flex flex-col gap-gutter-md">
+      <!-- Benchmark Analysis Header Card -->
+      <div
+        class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg border border-slate-100">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-xs">
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+              <span class="font-headline-md text-headline-md text-on-surface">Active Inspector: Google (SDE-1)</span>
+            </div>
+          </div>
+        </div>
+        <!-- Metric Breakdowns with Differential Comparison Bars -->
+        <div class="flex flex-col gap-space-lg">
+          <!-- 1. Data Structures & Algorithms -->
+          <div class="flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base text-emerald-600">account_tree</span>
+                <span class="font-body-sm text-body-sm font-semibold text-on-surface">Data Structures &amp;
+                  Algorithms</span>
+              </div>
+              <div class="flex items-center gap-space-sm">
+                <span class="font-label-code text-label-code text-secondary font-medium">95% vs 90% target</span>
+                <span
+                  class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-bold flex items-center gap-0.5">
+                  <span class="material-symbols-outlined text-xs">trending_up</span> Exceeds +5%
                 </span>
-</div>
-</div>
-<div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
-<!-- Company Target Marker Line -->
-<div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 90%;" title="Target Bar 90%"></div>
-<!-- Candidate Score Fill -->
-<div class="h-full bg-primary-container rounded-full transition-all duration-700" style="width: 95%;"></div>
-</div>
-<div class="flex justify-between text-secondary font-label-code text-label-code">
-<span>Graph traversal, DP, amortized complexity mastered</span>
-<span class="text-emerald-700 font-semibold">Tier-1 Optimal</span>
-</div>
-</div>
-<!-- 2. System Design & Concurrency -->
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base text-rose-600">hub</span>
-<span class="font-body-sm text-body-sm font-semibold text-on-surface">System Design &amp; Concurrency</span>
-</div>
-<div class="flex items-center gap-space-sm">
-<span class="font-label-code text-label-code text-secondary font-medium">65% vs 85% target</span>
-<span class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-rose-50 text-rose-700 border border-rose-200/60 font-bold flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">trending_down</span> Gap: -20%
+              </div>
+            </div>
+            <div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+              <!-- Company Target Marker Line -->
+              <div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 90%;" title="Target Bar 90%">
+              </div>
+              <!-- Candidate Score Fill -->
+              <div class="h-full bg-primary-container rounded-full transition-all duration-700" style="width: 95%;">
+              </div>
+            </div>
+            <div class="flex justify-between text-secondary font-label-code text-label-code">
+              <span>Graph traversal, DP, amortized complexity mastered</span>
+              <span class="text-emerald-700 font-semibold">Tier-1 Optimal</span>
+            </div>
+          </div>
+          <!-- 2. System Design & Concurrency -->
+          <div class="flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base text-rose-600">hub</span>
+                <span class="font-body-sm text-body-sm font-semibold text-on-surface">System Design &amp;
+                  Concurrency</span>
+              </div>
+              <div class="flex items-center gap-space-sm">
+                <span class="font-label-code text-label-code text-secondary font-medium">65% vs 85% target</span>
+                <span
+                  class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-rose-50 text-rose-700 border border-rose-200/60 font-bold flex items-center gap-0.5">
+                  <span class="material-symbols-outlined text-xs">trending_down</span> Gap: -20%
                 </span>
-</div>
-</div>
-<div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
-<div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 85%;" title="Target Bar 85%"></div>
-<div class="h-full bg-rose-600 rounded-full transition-all duration-700" style="width: 65%;"></div>
-</div>
-<div class="flex justify-between text-secondary font-label-code text-label-code">
-<span class="text-rose-600 font-medium">Bottlenecks: Thread contention, distributed locks, CAP trade-offs</span>
-<span class="text-rose-600 font-semibold">High Priority</span>
-</div>
-</div>
-<!-- 3. Database & Caching -->
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base text-emerald-600">database</span>
-<span class="font-body-sm text-body-sm font-semibold text-on-surface">Database &amp; Caching</span>
-</div>
-<div class="flex items-center gap-space-sm">
-<span class="font-label-code text-label-code text-secondary font-medium">85% vs 80% target</span>
-<span class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-bold flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">trending_up</span> Exceeds +5%
+              </div>
+            </div>
+            <div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+              <div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 85%;" title="Target Bar 85%">
+              </div>
+              <div class="h-full bg-rose-600 rounded-full transition-all duration-700" style="width: 65%;"></div>
+            </div>
+            <div class="flex justify-between text-secondary font-label-code text-label-code">
+              <span class="text-rose-600 font-medium">Bottlenecks: Thread contention, distributed locks, CAP
+                trade-offs</span>
+              <span class="text-rose-600 font-semibold">High Priority</span>
+            </div>
+          </div>
+          <!-- 3. Database & Caching -->
+          <div class="flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base text-emerald-600">database</span>
+                <span class="font-body-sm text-body-sm font-semibold text-on-surface">Database &amp; Caching</span>
+              </div>
+              <div class="flex items-center gap-space-sm">
+                <span class="font-label-code text-label-code text-secondary font-medium">85% vs 80% target</span>
+                <span
+                  class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-bold flex items-center gap-0.5">
+                  <span class="material-symbols-outlined text-xs">trending_up</span> Exceeds +5%
                 </span>
-</div>
-</div>
-<div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
-<div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 80%;" title="Target Bar 80%"></div>
-<div class="h-full bg-primary-container rounded-full transition-all duration-700" style="width: 85%;"></div>
-</div>
-<div class="flex justify-between text-secondary font-label-code text-label-code">
-<span>PostgreSQL replication, Redis cache invalidation strategies</span>
-<span class="text-emerald-700 font-semibold">Competency Cleared</span>
-</div>
-</div>
-<!-- 4. Cloud & Containerization -->
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base text-rose-600">cloud_sync</span>
-<span class="font-body-sm text-body-sm font-semibold text-on-surface">Cloud &amp; Containerization</span>
-</div>
-<div class="flex items-center gap-space-sm">
-<span class="font-label-code text-label-code text-secondary font-medium">50% vs 75% target</span>
-<span class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-rose-50 text-rose-700 border border-rose-200/60 font-bold flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">trending_down</span> Gap: -25%
+              </div>
+            </div>
+            <div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+              <div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 80%;" title="Target Bar 80%">
+              </div>
+              <div class="h-full bg-primary-container rounded-full transition-all duration-700" style="width: 85%;">
+              </div>
+            </div>
+            <div class="flex justify-between text-secondary font-label-code text-label-code">
+              <span>PostgreSQL replication, Redis cache invalidation strategies</span>
+              <span class="text-emerald-700 font-semibold">Competency Cleared</span>
+            </div>
+          </div>
+          <!-- 4. Cloud & Containerization -->
+          <div class="flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base text-rose-600">cloud_sync</span>
+                <span class="font-body-sm text-body-sm font-semibold text-on-surface">Cloud &amp;
+                  Containerization</span>
+              </div>
+              <div class="flex items-center gap-space-sm">
+                <span class="font-label-code text-label-code text-secondary font-medium">50% vs 75% target</span>
+                <span
+                  class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-rose-50 text-rose-700 border border-rose-200/60 font-bold flex items-center gap-0.5">
+                  <span class="material-symbols-outlined text-xs">trending_down</span> Gap: -25%
                 </span>
-</div>
-</div>
-<div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
-<div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 75%;" title="Target Bar 75%"></div>
-<div class="h-full bg-rose-600 rounded-full transition-all duration-700" style="width: 50%;"></div>
-</div>
-<div class="flex justify-between text-secondary font-label-code text-label-code">
-<span class="text-rose-600 font-medium">Gaps in Kubernetes pod orchestration and OpenTelemetry traces</span>
-<span class="text-rose-600 font-semibold">High Priority</span>
-</div>
-</div>
-<!-- 5. Behavioral & Leadership Principles -->
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-base text-secondary">forum</span>
-<span class="font-body-sm text-body-sm font-semibold text-on-surface">Behavioral &amp; Leadership Principles</span>
-</div>
-<div class="flex items-center gap-space-sm">
-<span class="font-label-code text-label-code text-secondary font-medium">80% vs 80% target</span>
-<span class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-surface-container text-on-surface font-bold">
+              </div>
+            </div>
+            <div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+              <div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 75%;" title="Target Bar 75%">
+              </div>
+              <div class="h-full bg-rose-600 rounded-full transition-all duration-700" style="width: 50%;"></div>
+            </div>
+            <div class="flex justify-between text-secondary font-label-code text-label-code">
+              <span class="text-rose-600 font-medium">Gaps in Kubernetes pod orchestration and OpenTelemetry
+                traces</span>
+              <span class="text-rose-600 font-semibold">High Priority</span>
+            </div>
+          </div>
+          <!-- 5. Behavioral & Leadership Principles -->
+          <div class="flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-base text-secondary">forum</span>
+                <span class="font-body-sm text-body-sm font-semibold text-on-surface">Behavioral &amp; Leadership
+                  Principles</span>
+              </div>
+              <div class="flex items-center gap-space-sm">
+                <span class="font-label-code text-label-code text-secondary font-medium">80% vs 80% target</span>
+                <span
+                  class="px-2 py-0.5 rounded-full font-label-code text-label-code bg-surface-container text-on-surface font-bold">
                   Matched
                 </span>
-</div>
-</div>
-<div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
-<div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 80%;" title="Target Bar 80%"></div>
-<div class="h-full bg-secondary rounded-full transition-all duration-700" style="width: 80%;"></div>
-</div>
-<div class="flex justify-between text-secondary font-label-code text-label-code">
-<span>Googleyness &amp; STAR methodology alignment confirmed</span>
-<span class="text-secondary font-semibold">Neutral Baseline</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Visual Radar / Vector Projection Sub-Panel -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-md">
-<!-- Synthetic Visual Radar Chart (SVG Geometry) -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between border border-slate-100">
-<div class="flex items-center justify-between mb-space-sm">
-<span class="font-body-sm text-body-sm font-semibold text-on-surface">Pentagon Radar Projection</span>
-<span class="font-label-code text-label-code text-secondary">5-Axis Normalized</span>
-</div>
-<div class="relative flex items-center justify-center py-2">
-<!-- Inline SVG Polygon Radar with Navy Blue Vector -->
-<svg class="w-48 h-48 overflow-visible" viewbox="0 0 200 200">
-<!-- Concentric Background Polygons -->
-<polygon class="text-surface-container-high" fill="none" points="100,20 176,75 147,165 53,165 24,75" stroke="currentColor" stroke-width="1.5"></polygon>
-<polygon class="text-surface-container-high" fill="none" points="100,45 153,84 133,145 67,145 47,84" stroke="currentColor" stroke-width="1"></polygon>
-<polygon class="text-surface-container-high" fill="none" points="100,70 131,92 119,127 81,127 69,92" stroke="currentColor" stroke-width="1"></polygon>
-<!-- Company Target Overlay Polygon (Dashed outline) -->
-<polygon class="text-outline" fill="none" points="100,28 168,78 138,155 60,150 35,82" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1.5"></polygon>
-<!-- Candidate Performance Polygon (Navy Blue Fill & Outline) -->
-<polygon fill="#1e3a8a" fill-opacity="0.2" points="100,24 148,88 140,157 75,135 39,81" stroke="#1e3a8a" stroke-width="2.2"></polygon>
-<!-- Vertex nodes -->
-<circle cx="100" cy="24" fill="#1e3a8a" r="3.5"></circle>
-<circle cx="148" cy="88" fill="#e11d48" r="3.5"></circle>
-<circle cx="140" cy="157" fill="#1e3a8a" r="3.5"></circle>
-<circle cx="75" cy="135" fill="#e11d48" r="3.5"></circle>
-<circle cx="39" cy="81" fill="#3755c3" r="3.5"></circle>
-<!-- Axis Labels -->
-<text class="font-label-code text-[8px] fill-current text-secondary font-bold" text-anchor="middle" x="100" y="12">DSA (95%)</text>
-<text class="font-label-code text-[8px] fill-current text-rose-600 font-bold" text-anchor="start" x="180" y="80">SysDesign</text>
-<text class="font-label-code text-[8px] fill-current text-secondary font-bold" text-anchor="middle" x="145" y="178">DB/Cache</text>
-<text class="font-label-code text-[8px] fill-current text-rose-600 font-bold" text-anchor="middle" x="50" y="178">Cloud/K8s</text>
-<text class="font-label-code text-[8px] fill-current text-secondary font-bold" text-anchor="end" x="12" y="80">STAR</text>
-</svg>
-</div>
-<div class="flex items-center justify-between text-secondary pt-2">
-<span class="font-label-code text-label-code">Volumetric Overlap</span>
-<span class="font-label-code text-label-code font-bold text-primary-container">84.2% Area Match</span>
-</div>
-</div>
-<!-- AI Explainability Metadata Card -->
-</div>
-<!-- Action Panel / CTAs -->
-</div>
-</div>
+              </div>
+            </div>
+            <div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+              <div class="absolute top-0 bottom-0 w-0.5 bg-outline z-10" style="left: 80%;" title="Target Bar 80%">
+              </div>
+              <div class="h-full bg-secondary rounded-full transition-all duration-700" style="width: 80%;"></div>
+            </div>
+            <div class="flex justify-between text-secondary font-label-code text-label-code">
+              <span>Googleyness &amp; STAR methodology alignment confirmed</span>
+              <span class="text-secondary font-semibold">Neutral Baseline</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Visual Radar / Vector Projection Sub-Panel -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-md">
+        <!-- Synthetic Visual Radar Chart (SVG Geometry) -->
+        <div
+          class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between border border-slate-100">
+          <div class="flex items-center justify-between mb-space-sm">
+            <span class="font-body-sm text-body-sm font-semibold text-on-surface">Pentagon Radar Projection</span>
+            <span class="font-label-code text-label-code text-secondary">5-Axis Normalized</span>
+          </div>
+          <div class="relative flex items-center justify-center py-2">
+            <!-- Inline SVG Polygon Radar with Navy Blue Vector -->
+            <svg class="w-48 h-48 overflow-visible" viewbox="0 0 200 200">
+              <!-- Concentric Background Polygons -->
+              <polygon class="text-surface-container-high" fill="none" points="100,20 176,75 147,165 53,165 24,75"
+                stroke="currentColor" stroke-width="1.5"></polygon>
+              <polygon class="text-surface-container-high" fill="none" points="100,45 153,84 133,145 67,145 47,84"
+                stroke="currentColor" stroke-width="1"></polygon>
+              <polygon class="text-surface-container-high" fill="none" points="100,70 131,92 119,127 81,127 69,92"
+                stroke="currentColor" stroke-width="1"></polygon>
+              <!-- Company Target Overlay Polygon (Dashed outline) -->
+              <polygon class="text-outline" fill="none" points="100,28 168,78 138,155 60,150 35,82"
+                stroke="currentColor" stroke-dasharray="3 3" stroke-width="1.5"></polygon>
+              <!-- Candidate Performance Polygon (Navy Blue Fill & Outline) -->
+              <polygon fill="#1e3a8a" fill-opacity="0.2" points="100,24 148,88 140,157 75,135 39,81" stroke="#1e3a8a"
+                stroke-width="2.2"></polygon>
+              <!-- Vertex nodes -->
+              <circle cx="100" cy="24" fill="#1e3a8a" r="3.5"></circle>
+              <circle cx="148" cy="88" fill="#e11d48" r="3.5"></circle>
+              <circle cx="140" cy="157" fill="#1e3a8a" r="3.5"></circle>
+              <circle cx="75" cy="135" fill="#e11d48" r="3.5"></circle>
+              <circle cx="39" cy="81" fill="#3755c3" r="3.5"></circle>
+              <!-- Axis Labels -->
+              <text class="font-label-code text-[8px] fill-current text-secondary font-bold" text-anchor="middle"
+                x="100" y="12">DSA (95%)</text>
+              <text class="font-label-code text-[8px] fill-current text-rose-600 font-bold" text-anchor="start" x="180"
+                y="80">SysDesign</text>
+              <text class="font-label-code text-[8px] fill-current text-secondary font-bold" text-anchor="middle"
+                x="145" y="178">DB/Cache</text>
+              <text class="font-label-code text-[8px] fill-current text-rose-600 font-bold" text-anchor="middle" x="50"
+                y="178">Cloud/K8s</text>
+              <text class="font-label-code text-[8px] fill-current text-secondary font-bold" text-anchor="end" x="12"
+                y="80">STAR</text>
+            </svg>
+          </div>
+          <div class="flex items-center justify-between text-secondary pt-2">
+            <span class="font-label-code text-label-code">Volumetric Overlap</span>
+            <span class="font-label-code text-label-code font-bold text-primary-container">84.2% Area Match</span>
+          </div>
+        </div>
+        <!-- AI Explainability Metadata Card -->
+      </div>
+      <!-- Action Panel / CTAs -->
+    </div>
+  </div>
 </div>
       </div>
 
@@ -5126,11 +5184,6 @@
 <!-- Top Context Header & View Switching -->
 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md py-space-md">
 <div class="flex flex-col gap-1">
-<div class="flex items-center gap-space-xs text-slate-500 font-label-code text-label-code uppercase tracking-wider">
-<span>Proofpoint Placement Intelligence</span>
-<span>/</span>
-<span class="text-blue-700 font-semibold">Eligibility Verification Engine</span>
-</div>
 <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-tight">
         Campus Placement Drives &amp; Eligibility Tracker
       </h1>
@@ -5188,9 +5241,9 @@
 <div class="drive-card flex flex-col justify-between rounded-xl bg-surface-container-lowest p-space-lg shadow-sm transition-all hover:shadow-md border border-slate-200/70" data-status="eligible open">
 <div class="flex flex-col gap-space-md">
 <!-- Top Metadata & Match Pill -->
-<div class="flex items-start justify-between gap-space-xs">
-<div class="flex items-center gap-space-sm">
-<div class="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center font-headline-md font-bold text-blue-700">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0 flex-1">
+<div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center font-headline-md font-bold text-blue-700 shrink-0">
 <span class="material-symbols-outlined text-2xl">developer_board</span>
 </div>
 <div class="flex flex-col min-w-0">
@@ -5199,7 +5252,7 @@
 </div>
 </div>
 <!-- Badge: Eligible -->
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-label-code text-label-code font-bold uppercase tracking-wider shrink-0">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/70 text-[11px] font-bold uppercase tracking-wide shrink-0 whitespace-nowrap">
 <span class="material-symbols-outlined text-sm text-emerald-600">check_circle</span>
             ELIGIBLE
           </div>
@@ -5261,9 +5314,9 @@
 <div class="drive-card flex flex-col justify-between rounded-xl bg-surface-container-lowest p-space-lg shadow-sm transition-all hover:shadow-md border border-slate-200/70" data-status="eligible applied">
 <div class="flex flex-col gap-space-md">
 <!-- Top Metadata & Match Pill -->
-<div class="flex items-start justify-between gap-space-xs">
-<div class="flex items-center gap-space-sm">
-<div class="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center font-headline-md font-bold text-blue-700">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0 flex-1">
+<div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center font-headline-md font-bold text-blue-700 shrink-0">
 <span class="material-symbols-outlined text-2xl">account_balance</span>
 </div>
 <div class="flex flex-col min-w-0">
@@ -5272,7 +5325,7 @@
 </div>
 </div>
 <!-- Badge: Eligible -->
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-label-code text-label-code font-bold uppercase tracking-wider shrink-0">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/70 text-[11px] font-bold uppercase tracking-wide shrink-0 whitespace-nowrap">
 <span class="material-symbols-outlined text-sm text-emerald-600">check_circle</span>
             ELIGIBLE
           </div>
@@ -5337,9 +5390,9 @@
 <div class="drive-card flex flex-col justify-between rounded-xl bg-surface-container-lowest p-space-lg shadow-sm transition-all hover:shadow-md border border-slate-200/70" data-status="not-eligible">
 <div class="flex flex-col gap-space-md">
 <!-- Top Metadata & Disqualified Pill -->
-<div class="flex items-start justify-between gap-space-xs">
-<div class="flex items-center gap-space-sm">
-<div class="w-11 h-11 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center font-headline-md font-bold text-on-surface">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0 flex-1">
+<div class="w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center font-headline-md font-bold text-on-surface shrink-0">
 <span class="material-symbols-outlined text-2xl">local_taxi</span>
 </div>
 <div class="flex flex-col min-w-0">
@@ -5348,7 +5401,7 @@
 </div>
 </div>
 <!-- Badge: Not Eligible -->
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-label-code text-label-code font-bold uppercase tracking-wider shrink-0">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-[11px] font-bold uppercase tracking-wide shrink-0 whitespace-nowrap">
 <span class="material-symbols-outlined text-sm text-rose-600">error</span>
             NOT ELIGIBLE
           </div>
@@ -5373,10 +5426,6 @@
 <p class="font-body-sm text-body-sm text-slate-600 leading-snug">
             Minimum 2 Verified Cloud/System Design Projects required by recruiter criteria. (Current: 1 Verified, 1 Expired repo trace).
           </p>
-<div class="flex items-center gap-1 mt-1 text-slate-500 font-label-code text-label-code">
-<span class="material-symbols-outlined text-xs text-blue-700">info</span>
-            Trace Ref: PROOFPOINT-UBER-SYS402
-          </div>
 </div>
 <!-- Recovery Opportunities Details -->
 <div class="space-y-1">
@@ -5403,9 +5452,9 @@
 <div class="drive-card flex flex-col justify-between rounded-xl bg-surface-container-lowest p-space-lg shadow-sm transition-all hover:shadow-md border border-slate-200/70" data-status="not-eligible">
 <div class="flex flex-col gap-space-md">
 <!-- Top Metadata & Disqualified Pill -->
-<div class="flex items-start justify-between gap-space-xs">
-<div class="flex items-center gap-space-sm">
-<div class="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center font-headline-md font-bold text-blue-700">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0 flex-1">
+<div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center font-headline-md font-bold text-blue-700 shrink-0">
 <span class="material-symbols-outlined text-2xl">cloud_sync</span>
 </div>
 <div class="flex flex-col min-w-0">
@@ -5414,7 +5463,7 @@
 </div>
 </div>
 <!-- Badge: Not Eligible -->
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-label-code text-label-code font-bold uppercase tracking-wider shrink-0">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-[11px] font-bold uppercase tracking-wide shrink-0 whitespace-nowrap">
 <span class="material-symbols-outlined text-sm text-rose-600">error</span>
             NOT ELIGIBLE
           </div>
@@ -5439,10 +5488,6 @@
 <p class="font-body-sm text-body-sm text-slate-600 leading-snug">
             Docker &amp; Kubernetes skill tag state must be ‘Verified’ via assessment or lab badge. (Current state: ‘Claimed’).
           </p>
-<div class="flex items-center gap-1 mt-1 text-slate-500 font-label-code text-label-code">
-<span class="material-symbols-outlined text-xs text-blue-700">info</span>
-            Trace Ref: PROOFPOINT-SF-K8S-DEVOPS
-          </div>
 </div>
 <!-- Skill Delta Indicator -->
 <div class="flex flex-col gap-1.5">
@@ -5463,15 +5508,11 @@
 <span class="material-symbols-outlined text-base text-blue-700">assignment_return</span>
           Request Waiver / Appeal
         </button>
-<button class="w-full bg-blue-50 text-blue-800 hover:bg-blue-100 py-2 px-space-md rounded-lg font-body-sm text-body-sm font-medium transition-all flex items-center justify-center gap-1.5 border border-blue-200">
-<span class="material-symbols-outlined text-base text-blue-700">quiz</span>
-          Start 20m Lab Validation
-        </button>
 </div>
 </div>
 </div>
 <!-- Auxiliary Data Breakdown Table (Controlled by View Toggle or Filter) -->
-<div class="mt-space-xl bg-surface-container-lowest rounded-xl p-space-lg shadow-sm border border-slate-200/70" id="table-view-section">
+<div class="mt-space-xl bg-surface-container-lowest rounded-xl p-space-lg shadow-sm border border-slate-200/70 hidden" id="table-view-section">
 <div class="flex items-center justify-between pb-space-md">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-blue-700">rule_folder</span>
@@ -5647,21 +5688,26 @@
   const drivesGrid = document.getElementById('drives-grid');
   const tableSection = document.getElementById('table-view-section');
 
-  kanbanBtn.addEventListener('click', () => {
+  function showKanbanView() {
     kanbanBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm', 'font-semibold');
     kanbanBtn.classList.remove('text-slate-600', 'font-medium');
     tableBtn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm', 'font-semibold');
     tableBtn.classList.add('text-slate-600', 'font-medium');
-    drivesGrid.scrollIntoView({ behavior: 'smooth' });
-  });
+    if (drivesGrid) drivesGrid.classList.remove('hidden');
+    if (tableSection) tableSection.classList.add('hidden');
+  }
 
-  tableBtn.addEventListener('click', () => {
+  function showTableView() {
     tableBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm', 'font-semibold');
     tableBtn.classList.remove('text-slate-600', 'font-medium');
     kanbanBtn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm', 'font-semibold');
     kanbanBtn.classList.add('text-slate-600', 'font-medium');
-    tableSection.scrollIntoView({ behavior: 'smooth' });
-  });
+    if (drivesGrid) drivesGrid.classList.add('hidden');
+    if (tableSection) tableSection.classList.remove('hidden');
+  }
+
+  if (kanbanBtn) kanbanBtn.addEventListener('click', showKanbanView);
+  if (tableBtn) tableBtn.addEventListener('click', showTableView);
 
   // Modal interactions
   const modal = document.getElementById('appeal-modal');

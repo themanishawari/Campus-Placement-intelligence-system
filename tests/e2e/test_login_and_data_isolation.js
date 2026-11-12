@@ -3,7 +3,7 @@ const { spawn } = require('child_process');
 const http = require('http');
 
 const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
-const port = 9227;
+const port = 9266;
 const args = [
   '--headless',
   '--disable-gpu',
