@@ -82,6 +82,7 @@ setTimeout(() => {
               hasAiPolicy: viewText.includes('AI Policy v5.4 • Human-in-the-Loop Active'),
               hasNodeId: viewText.includes('IN-VESIT-2025-A1'),
               hasStatutoryComplianceCore: viewText.includes('Statutory Compliance Core'),
+              hasRequiresSignOff: viewText.includes('Requires Sign-off'),
 
               // Header checks
               headerHasAstNode: headerText.includes('mum-in-vesit-prod-01') || bodyText.includes('mum-in-vesit-prod-01'),
@@ -114,6 +115,7 @@ setTimeout(() => {
         console.log('  hasAiPolicy:', result.hasAiPolicy);
         console.log('  hasNodeId:', result.hasNodeId);
         console.log('  hasStatutoryComplianceCore:', result.hasStatutoryComplianceCore);
+        console.log('  hasRequiresSignOff (should be false):', result.hasRequiresSignOff);
 
         console.log('\nMaster Header & Persona checks:');
         console.log('  headerHasAstNode (should be false):', result.headerHasAstNode);
@@ -143,6 +145,7 @@ setTimeout(() => {
                           !result.hasAiPolicy &&
                           !result.hasNodeId &&
                           !result.hasStatutoryComplianceCore &&
+                          !result.hasRequiresSignOff &&
                           !result.headerHasAstNode &&
                           !result.hasPersonaDropdownMenu &&
                           !result.hasPersonaToggleBtn &&
@@ -157,3 +160,4 @@ setTimeout(() => {
     });
   });
 }, 2000);
+
