@@ -365,17 +365,55 @@
     .animate-fade-in {
       animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
+
+    /* Glass panel & grid background for Login Portal */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .grid-bg {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    }
+
+    /* Hide Institutional & Ops elements when in Student Candidate View */
+    body.in-student-view .institutional-element,
+    body[data-perspective="student"] .institutional-element,
+    body.in-student-view #section-institutional,
+    body.in-student-view #divider-institutional {
+      display: none !important;
+    }
+
+    /* Hide Student Candidate View elements when in TPO Admin View */
+    body.in-admin-view .student-element,
+    body[data-perspective="admin"] .student-element,
+    body.in-admin-view #section-student {
+      display: none !important;
+    }
+
+    /* When on Login view, isolate and expand full screen without header/sidebar */
+    body.in-login-view #masterHeader,
+    body.in-login-view #masterSidebar {
+      display: none !important;
+    }
+    body.in-login-view #appLayoutWrapper {
+      padding-left: 0 !important;
+      padding-top: 0 !important;
+    }
   </style>
 </head>
 <body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen">
 
   <!-- Master Top Navigation Bar -->
   
-<header class="fixed top-0 left-0 right-0 h-16 z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-b border-slate-200 flex items-center justify-between px-4 lg:px-6 shadow-[0_1px_8px_rgba(15,23,42,0.06)]">
+<header id="masterHeader" class="fixed top-0 left-0 right-0 h-16 z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-b border-slate-200 flex items-center justify-between px-4 lg:px-6 shadow-[0_1px_8px_rgba(15,23,42,0.06)]">
   <!-- Brand & Institutional Identifier Left -->
   <div class="flex items-center gap-3 lg:gap-6 shrink-0">
     <!-- Proofpoint Brand Logo -->
-    <a href="#/cohort-skills" class="flex items-center gap-2.5 group">
+    <a href="#/cohort-skills" id="headerBrandLink" class="flex items-center gap-2.5 group">
       <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-navy via-slate-900 to-blue-900 text-on-primary flex items-center justify-center font-headline-md text-headline-md tracking-tight font-bold shadow-sm shadow-blue-900/30 group-hover:scale-105 transition-transform">
         P
       </div>
@@ -436,37 +474,51 @@
       </button>
 
       <!-- Dropdown Menu -->
-      <div id="personaMenu" class="hidden absolute right-0 mt-1.5 w-64 bg-white rounded-xl shadow-xl border border-slate-200 p-2 z-50">
-        <div class="px-2 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Switch Perspective</div>
+      <div id="personaMenu" class="hidden absolute right-0 mt-1.5 w-72 bg-white rounded-xl shadow-xl border border-slate-200 p-2.5 z-50">
+        <!-- Active User Info Card -->
+        <div id="personaActiveCard" class="p-2.5 rounded-lg bg-slate-50 border border-slate-100 mb-2">
+          <div class="flex items-center gap-2.5">
+            <div id="personaAvatar" class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs shrink-0">DV</div>
+            <div class="flex flex-col min-w-0">
+              <span id="personaName" class="text-xs font-bold text-slate-900 truncate">Dr. Aris Vance</span>
+              <span id="personaRoleDesc" class="text-[11px] text-slate-500 truncate">Head of Career Placements & TPO</span>
+            </div>
+          </div>
+          <div class="mt-2 pt-2 border-t border-slate-200/60 flex items-center justify-between text-[10px]">
+            <span class="font-mono text-slate-500">Security Guard:</span>
+            <span id="personaSecurityTag" class="px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-800 font-mono font-semibold">TPO GOVERNANCE</span>
+          </div>
+        </div>
+
+        <!-- Switch Portal / Account -->
         <button 
-          onclick="switchPersona('dean')" 
-          class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left hover:bg-slate-50 transition-colors group"
+          id="btnSwitchPortal"
+          onclick="switchToOppositeRole()" 
+          class="w-full flex items-center justify-between px-2.5 py-2 rounded-lg text-left hover:bg-slate-50 text-slate-700 hover:text-slate-900 transition-colors text-xs font-medium group"
         >
-          <div class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs shrink-0">
-            DV
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px] text-indigo-600">swap_horiz</span>
+            <span id="btnSwitchPortalText">Switch to Student Portal</span>
           </div>
-          <div class="flex flex-col">
-            <span class="text-xs font-bold text-slate-900">Dr. Aris Vance</span>
-            <span class="text-[11px] text-slate-500">Head of Career Placements & TPO</span>
-          </div>
+          <span class="material-symbols-outlined text-xs text-slate-400 group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
         </button>
+
+        <!-- Sign Out / Lock Session -->
         <button 
-          onclick="switchPersona('student')" 
-          class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left hover:bg-slate-50 transition-colors group mt-1"
+          onclick="signOut()" 
+          class="w-full flex items-center gap-2 px-2.5 py-2 mt-1 rounded-lg text-left hover:bg-rose-50 text-rose-700 transition-colors text-xs font-medium"
         >
-          <img class="w-8 h-8 rounded-full object-cover ring-1 ring-emerald-500 shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByuiXG3IiAfNyrse-aqvEUxpYG2CL75RcRcsYXVllDoFEqVsIsb8mnu1liynOT73z96BCxqC3CpJcMZ4HcRzVJJdJWQSA94y_ZYorI1kAQA3a3-G6PkhLRgkqNwP48DCdJGyaPc3glhk-4vTdBXlLJU4gLOVzKOXS6m0gzEWrfNW9PZXd-RqyBUcNTJJgtvzNBp8nN8NqAKsDIyoa0zseXo00JcphGehsaRPN9TnQ" alt="Ananya Sharma"/>
-          <div class="flex flex-col">
-            <span class="text-xs font-bold text-slate-900">Ananya Sharma</span>
-            <span class="text-[11px] text-slate-500">Student • B.Tech CMPN (2025)</span>
-          </div>
+          <span class="material-symbols-outlined text-[16px] text-rose-600">logout</span>
+          <span>Sign Out / Lock Session</span>
         </button>
       </div>
     </div>
 
-    <!-- Quick Action "+ New Drive" Button -->
+    <!-- Quick Action "+ New Drive" Button (Institutional & Ops only) -->
     <button 
+      id="btnNewDrive"
       onclick="openModal('modal-new-drive')" 
-      class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-navy hover:bg-slate-900 text-white text-xs font-semibold shadow-sm shadow-blue-950/20 transition-all active:scale-[0.98]"
+      class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-navy hover:bg-slate-900 text-white text-xs font-semibold shadow-sm shadow-blue-950/20 transition-all active:scale-[0.98] institutional-element"
     >
       <span class="material-symbols-outlined text-[16px]">add_circle</span>
       <span>New Drive</span>
@@ -502,7 +554,7 @@
   <div class="p-3 xl:p-4 flex flex-col gap-5">
     
     <!-- Institutional Section -->
-    <div class="flex flex-col gap-1.5">
+    <div id="section-institutional" class="flex flex-col gap-1.5 institutional-element">
       <div class="px-2.5 flex items-center justify-between">
         <span class="font-label-caps text-[10px] font-bold text-slate-500 uppercase tracking-wider">Institutional & Ops</span>
         <span class="px-1.5 py-0.2 rounded bg-blue-50 text-blue-800 text-[10px] font-mono font-semibold">TPO</span>
@@ -543,10 +595,10 @@
     </div>
 
     <!-- Divider -->
-    <div class="h-px bg-slate-200"></div>
+    <div id="divider-institutional" class="h-px bg-slate-200 institutional-element"></div>
 
     <!-- Student Operations Section -->
-    <div class="flex flex-col gap-1.5">
+    <div id="section-student" class="flex flex-col gap-1.5">
       <div class="px-2.5 flex items-center justify-between">
         <span class="font-label-caps text-[10px] font-bold text-slate-500 uppercase tracking-wider">Student Candidate View</span>
         <span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] font-mono font-semibold">Ananya S.</span>
@@ -602,6 +654,21 @@
       </nav>
     </div>
 
+    <!-- Sidebar Account & Session Controls -->
+    <div class="px-2 pt-2 border-t border-slate-200/80 flex flex-col gap-1">
+      <button 
+        onclick="signOut()" 
+        class="w-full flex items-center justify-between px-2.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 hover:bg-rose-50 text-xs font-semibold transition-all group"
+        title="Sign Out and Return to Multi-Tenant Portal Access"
+      >
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[16px] text-slate-400 group-hover:text-rose-600">logout</span>
+          <span>Sign Out / Switch Portal</span>
+        </div>
+        <span class="text-[10px] font-mono text-slate-400 group-hover:text-rose-500">Lock</span>
+      </button>
+    </div>
+
   </div>
 
   <!-- Sidebar Footer: Audit & Node Status -->
@@ -622,9 +689,233 @@
 
 
   <!-- Master Application Content Wrapper -->
-  <div class="lg:pl-64 xl:pl-72 pt-16 min-h-screen bg-surface">
+  <div id="appLayoutWrapper" class="lg:pl-64 xl:pl-72 pt-16 min-h-screen bg-surface transition-all duration-200">
     <main class="w-full min-h-[calc(100vh-4rem)]">
       
+      <!-- View 0: Multi-Tenant Login Portal -->
+      <div id="view-login" class="view-panel w-full min-h-screen hidden">
+        <div class="w-full min-h-screen flex flex-col justify-between bg-slate-50">
+  <!-- Top Minimal Utility Bar / Institution Tenant Indicator -->
+  <header class="w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md px-6 py-3.5 flex items-center justify-between z-20">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-white shadow-sm font-bold text-base tracking-tighter">
+        <svg class="w-5 h-5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <path d="m9 12 2 2 4-4"></path>
+        </svg>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-slate-900 tracking-tight">Proofpoint</span>
+          <span class="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">v5.4</span>
+        </div>
+        <p class="text-[11px] text-slate-500 font-medium tracking-wide">PLACEMENT INTELLIGENCE PLATFORM</p>
+      </div>
+    </div>
+
+    <!-- Active Tenant & Privacy Guard Telemetry -->
+    <div class="flex items-center gap-3 text-xs">
+      <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 font-mono text-[11px]">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>VESIT Node: <strong class="text-slate-800 font-semibold">mum-in-vesit-prod-01</strong></span>
+      </div>
+      <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 font-medium text-[11px]">
+        <svg class="w-3.5 h-3.5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+        <span>DPDP 2023 Cryptographic Shield</span>
+      </div>
+      <button type="button" onclick="openLoginHelpDesk()" class="text-slate-500 hover:text-slate-900 transition-colors font-medium">Help Desk</button>
+    </div>
+  </header>
+
+  <!-- Main Section with Grid Background -->
+  <main class="flex-1 grid-bg flex items-center justify-center p-4 sm:p-6 lg:p-8 relative">
+    
+    <!-- Ambient decorative blobs -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-200/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="w-full max-w-xl mx-auto flex items-center justify-center">
+      <div class="w-full">
+        <div class="glass-panel border border-slate-200/90 rounded-2xl shadow-xl p-6 sm:p-8">
+          <!-- Portal Switcher Tabs -->
+          <div class="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
+            <div>
+              <h2 class="text-lg font-bold text-slate-900">Sign in to your Portal</h2>
+              <p class="text-xs text-slate-500 mt-0.5">Select your role to ensure compliant data access</p>
+            </div>
+            <!-- Accessible Role Pill Toggles -->
+            <div class="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200/80" role="tablist">
+              <button id="tab-student" type="button" onclick="switchRole('student')" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-slate-900 shadow-sm flex items-center gap-1.5" role="tab" aria-selected="true">
+                <svg class="w-3.5 h-3.5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+                <span>Student</span>
+              </button>
+              <button id="tab-tpo" type="button" onclick="switchRole('tpo')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5" role="tab" aria-selected="false">
+                <svg class="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+                <span>TPO Admin</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Role State Header Banner -->
+          <div id="role-context-banner" class="mb-6 p-3.5 rounded-xl bg-indigo-50/80 border border-indigo-100/90 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+              <div>
+                <span id="role-title-text" class="font-bold text-indigo-950">Candidate Workspace Access</span>
+                <p id="role-desc-text" class="text-[11px] text-indigo-700">Encrypted personal skill vault, mock drive diagnostics &amp; private consent tokens</p>
+              </div>
+            </div>
+            <span id="role-badge-tag" class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200">STUDENT SCOPE</span>
+          </div>
+
+          <!-- Form Area -->
+          <form onsubmit="handleLogin(event)" class="space-y-4">
+            <!-- Identity Field (Roll Number / Institutional Email) -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label id="identity-label" class="text-xs font-bold text-slate-800">VESIT Student Roll Number or University Email</label>
+                <span class="text-[11px] font-mono text-slate-500">e.g. 2021-CMPN-042</span>
+              </div>
+              <div class="relative rounded-lg shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+                  </svg>
+                </div>
+                <input type="text" id="user-identity" required="" placeholder="ananya.sharma@ves.ac.in" value="ananya.sharma@ves.ac.in" class="block w-full pl-9 pr-3 py-2.5 text-sm bg-slate-50/50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition-all font-sans">
+              </div>
+            </div>
+
+            <!-- Password / Passkey Field -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label class="text-xs font-bold text-slate-800">Password / Token</label>
+                <button type="button" onclick="handleForgotPassword()" class="text-[11px] font-medium text-indigo-600 hover:text-indigo-800">Forgot credentials?</button>
+              </div>
+              <div class="relative rounded-lg shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                  </svg>
+                </div>
+                <input type="password" id="user-password" required="" value="••••••••••••" class="block w-full pl-9 pr-10 py-2.5 text-sm bg-slate-50/50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition-all font-sans tracking-widest">
+                <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600" title="Toggle password visibility">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sensitive Data Protection Feature: Masking & Zero-Trust Checkbox -->
+            <div class="pt-1 pb-1">
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-2.5">
+                <input id="mask-sensitive-data" type="checkbox" checked="" class="mt-0.5 h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-slate-300 rounded cursor-pointer">
+                <div class="text-xs">
+                  <label for="mask-sensitive-data" class="font-bold text-slate-800 cursor-pointer flex items-center gap-1.5">
+                    <span>Enforce Sensitive PII Masking &amp; Air-Gapped Session</span>
+                    <span class="px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 text-[9px] font-mono font-bold uppercase">Active Guard</span>
+                  </label>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Prevents unconsented exposure of phone, national IDs, and cross-batch academic rank. Redacts recruiter telemetry outside verified drives.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Multi-Factor / Hardware Key (Appears automatically for TPO or as secure option) -->
+            <div id="mfa-section" class="hidden">
+              <div class="p-3 bg-slate-900 text-slate-100 rounded-xl border border-slate-800 space-y-2">
+                <div class="flex items-center justify-between text-xs">
+                  <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
+                    </svg>
+                    <span class="font-bold text-white">TPO Multi-Sig Key or Authenticator Code</span>
+                  </div>
+                  <span class="text-[10px] font-mono text-indigo-300">Mandatory for Admin</span>
+                </div>
+                <div class="flex gap-2">
+                  <input type="text" id="mfa-code" maxlength="6" placeholder="849201" value="849201" class="w-36 text-center tracking-widest font-mono text-sm px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400">
+                  <button type="button" onclick="verifyFidoToken()" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition-colors font-medium">Verify FIDO2 Token</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Login CTA -->
+            <button type="submit" id="submit-login-btn" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group">
+              <span id="btn-text">Authenticate &amp; Enter Student Workspace</span>
+              <svg class="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>
+
+            <!-- Institutional Single Sign-On (Google Workspace / University SAML) -->
+            <div class="relative py-2">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-slate-200"></div>
+              </div>
+              <div class="relative flex justify-center text-xs uppercase">
+                <span class="bg-white px-2 text-slate-400 font-medium">Institutional Single Sign-On</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" onclick="handleGoogleSSO()" class="flex items-center justify-center gap-2 py-2 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"></path>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"></path>
+                </svg>
+                <span>VESIT Google Auth</span>
+              </button>
+              <button type="button" onclick="handleSamlSSO()" class="flex items-center justify-center gap-2 py-2 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                <svg class="w-4 h-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                </svg>
+                <span>SAML / Shibboleth</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Security Footnote -->
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>Audit Logging Enabled (SHA-256)</span>
+            </span>
+            <span class="font-mono text-slate-500">ISO/IEC 27001 Certified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Institutional Compliance Bar -->
+  <footer class="w-full bg-white border-t border-slate-200/80 px-6 py-3 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+    <div class="flex items-center gap-4">
+      <span class="font-semibold text-slate-700">Proofpoint by Vivekanand Education Society (VESIT)</span>
+      <span class="hidden sm:inline text-slate-300">•</span>
+      <span class="hidden sm:inline">Training &amp; Placement Cell Operations</span>
+    </div>
+    <div class="flex items-center gap-4 text-[11px]">
+      <button type="button" onclick="openModal('modal-whitepaper')" class="hover:text-slate-900 underline decoration-slate-300">DPDP Data Retention Policy</button>
+      <button type="button" onclick="openModal('modal-whitepaper')" class="hover:text-slate-900 underline decoration-slate-300">Multi-Tenancy Isolation Spec</button>
+      <span class="font-mono text-slate-400">Security SLA: Tier 1 Platinum</span>
+    </div>
+  </footer>
+</div>
+
+      </div>
+
       <!-- View 1: Cohort Skill Dashboard -->
       <div id="view-cohort-skills" class="view-panel w-full p-4 lg:p-6 space-y-4">
         <div class="flex flex-col w-full">
@@ -6396,10 +6687,10 @@
     <!-- Quick Filters -->
     <div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border-b border-slate-200 text-xs overflow-x-auto">
       <span class="text-slate-400 font-medium">Quick jump:</span>
-      <button onclick="navigateRoute('cohort-skills'); closeModal('modal-omnisearch')" class="px-2 py-1 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-medium">Cohort Analytics</button>
-      <button onclick="navigateRoute('drive-management'); closeModal('modal-omnisearch')" class="px-2 py-1 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-medium">Drive Management</button>
-      <button onclick="navigateRoute('talent-discovery'); closeModal('modal-omnisearch')" class="px-2 py-1 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-medium">Talent Pool</button>
-      <button onclick="navigateRoute('skill-profile'); closeModal('modal-omnisearch')" class="px-2 py-1 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-medium">Ananya Sharma (Profile)</button>
+      <button onclick="navigateRoute('cohort-skills'); closeModal('modal-omnisearch')" class="institutional-element px-2 py-1 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-medium">Cohort Analytics</button>
+      <button onclick="navigateRoute('drive-management'); closeModal('modal-omnisearch')" class="institutional-element px-2 py-1 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-medium">Drive Management</button>
+      <button onclick="navigateRoute('talent-discovery'); closeModal('modal-omnisearch')" class="institutional-element px-2 py-1 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-medium">Talent Pool</button>
+      <button onclick="navigateRoute('skill-profile'); closeModal('modal-omnisearch')" class="student-element px-2 py-1 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-medium">Ananya Sharma (Profile)</button>
     </div>
 
     <!-- Results Container -->
@@ -7195,7 +7486,54 @@ FROM user_activity_log;</textarea>
 </div>
 
 <!-- ========================================== -->
-<!-- 15. GLOBAL FLOATING TOAST NOTIFICATION -->
+<!-- 15. TPO & STUDENT HELP DESK MODAL -->
+<!-- ========================================== -->
+<div id="modal-helpdesk" class="modal-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+  <div class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col" onclick="event.stopPropagation()">
+    <div class="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+      <div class="flex items-center gap-2.5">
+        <span class="material-symbols-outlined text-brand-navy text-xl">contact_support</span>
+        <div>
+          <h3 class="font-bold text-slate-900 text-sm">VESIT Placement & IT Help Desk</h3>
+          <p class="text-[11px] text-slate-500">Autonomous Campus Multi-Tenant Support</p>
+        </div>
+      </div>
+      <button onclick="closeModal('modal-helpdesk')" class="p-1 rounded-lg text-slate-400 hover:text-slate-600">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+
+    <div class="p-5 space-y-3.5 text-xs text-slate-700">
+      <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-slate-900">Training & Placement Office</span>
+          <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-bold text-[10px]">Open 9am-6pm</span>
+        </div>
+        <p class="text-slate-600 leading-relaxed">Office 304, Academic Block A, VESIT Chembur, Mumbai. For drive schedule discrepancies, FIDO2 token resets, or DPDP compliance queries.</p>
+        <div class="flex items-center gap-4 text-[11px] text-slate-500 font-mono pt-1">
+          <span>Tel: +91 22 6153 2500</span>
+          <span>Ext: 4102 / 4105</span>
+        </div>
+      </div>
+
+      <div class="p-3 rounded-xl bg-indigo-50/70 border border-indigo-100 space-y-1.5">
+        <span class="font-bold text-indigo-950">Immediate Support Channels</span>
+        <div class="space-y-1 text-indigo-800">
+          <div>• Email: <code class="font-mono text-indigo-900">tpo-support@ves.ac.in</code></div>
+          <div>• Student Cell: <code class="font-mono text-indigo-900">placement-rep@ves.ac.in</code></div>
+          <div>• Security & AST Node Hotline: <code class="font-mono text-indigo-900">mum-ops@proofpoint.internal</code></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-3 bg-slate-50 border-t border-slate-200 flex justify-end">
+      <button onclick="closeModal('modal-helpdesk')" class="px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 16. GLOBAL FLOATING TOAST NOTIFICATION -->
 <!-- ========================================== -->
 <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-10 opacity-0 pointer-events-none transition-all duration-300 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-slate-700">
   <span id="toastIcon" class="material-symbols-outlined text-emerald-400 text-xl">check_circle</span>
@@ -7211,6 +7549,7 @@ FROM user_activity_log;</textarea>
     // ROUTING & NAVIGATION
     // ==========================================
     const routes = [
+      'login',
       'cohort-skills',
       'drive-management',
       'talent-discovery',
@@ -7223,8 +7562,138 @@ FROM user_activity_log;</textarea>
       'privacy-consent'
     ];
 
+    const studentRoutes = [
+      'skill-profile',
+      'target-gaps',
+      'mock-reports',
+      'learning-path',
+      'my-drives',
+      'privacy-consent'
+    ];
+
+    const institutionalRoutes = [
+      'cohort-skills',
+      'drive-management',
+      'talent-discovery',
+      'fairness-accreditation'
+    ];
+
+    // Auth & Perspective State
+    let currentAuthRole = null;       // 'student' | 'admin' | null
+    let authLocked = false;            // Strict route protection active when true
+    let currentPerspective = 'admin';  // 'admin' | 'student'
+    let currentPersona = 'dean';       // backward compatibility
+    let currentLoginTabRole = 'student'; // 'student' | 'tpo'
+
+    function updatePerspectiveUI(perspective) {
+      const isStudent = (perspective === 'student' || perspective === true);
+      currentPerspective = isStudent ? 'student' : 'admin';
+      currentPersona = isStudent ? 'student' : 'dean';
+
+      if (isStudent) {
+        document.body.classList.add('in-student-view');
+        document.body.classList.remove('in-admin-view');
+        document.body.setAttribute('data-perspective', 'student');
+      } else {
+        document.body.classList.add('in-admin-view');
+        document.body.classList.remove('in-student-view');
+        document.body.setAttribute('data-perspective', 'admin');
+      }
+
+      // Hide or show Institutional Section and Divider in the master sidebar
+      const instSection = document.getElementById('section-institutional');
+      if (instSection) {
+        if (isStudent) {
+          instSection.classList.add('hidden');
+        } else {
+          instSection.classList.remove('hidden');
+        }
+      }
+
+      const instDivider = document.getElementById('divider-institutional');
+      if (instDivider) {
+        if (isStudent) {
+          instDivider.classList.add('hidden');
+        } else {
+          instDivider.classList.remove('hidden');
+        }
+      }
+
+      // Hide or show Student Section in the master sidebar
+      const studentSection = document.getElementById('section-student');
+      if (studentSection) {
+        if (isStudent) {
+          studentSection.classList.remove('hidden');
+        } else {
+          studentSection.classList.add('hidden');
+        }
+      }
+
+      // Hide or show + New Drive button in header
+      const btnNewDrive = document.getElementById('btnNewDrive');
+      if (btnNewDrive) {
+        if (isStudent) {
+          btnNewDrive.classList.add('!hidden');
+          btnNewDrive.classList.remove('sm:flex');
+        } else {
+          btnNewDrive.classList.remove('!hidden');
+          btnNewDrive.classList.add('sm:flex');
+        }
+      }
+
+      // Update persona dropdown trigger icon and label
+      const icon = document.getElementById('personaIcon');
+      const label = document.getElementById('personaLabel');
+      if (icon && label) {
+        if (isStudent) {
+          icon.textContent = 'school';
+          label.textContent = 'Student Candidate View';
+        } else {
+          icon.textContent = 'manage_accounts';
+          label.textContent = 'TPO Dean View';
+        }
+      }
+
+      // Update active user profile card inside dropdown
+      const personaAvatar = document.getElementById('personaAvatar');
+      const personaName = document.getElementById('personaName');
+      const personaRoleDesc = document.getElementById('personaRoleDesc');
+      const personaSecurityTag = document.getElementById('personaSecurityTag');
+      const btnSwitchPortalText = document.getElementById('btnSwitchPortalText');
+
+      if (isStudent) {
+        if (personaAvatar) { personaAvatar.textContent = 'AS'; personaAvatar.className = 'w-8 h-8 rounded-full bg-emerald-700 text-white flex items-center justify-center font-bold text-xs shrink-0'; }
+        if (personaName) personaName.textContent = 'Ananya Sharma';
+        if (personaRoleDesc) personaRoleDesc.textContent = 'B.Tech CMPN (Batch 2025)';
+        if (personaSecurityTag) {
+          personaSecurityTag.textContent = 'STUDENT WORKSPACE';
+          personaSecurityTag.className = 'px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 font-mono font-semibold';
+        }
+        if (btnSwitchPortalText) btnSwitchPortalText.textContent = 'Switch to TPO Admin Portal';
+      } else {
+        if (personaAvatar) { personaAvatar.textContent = 'DV'; personaAvatar.className = 'w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs shrink-0'; }
+        if (personaName) personaName.textContent = 'Dr. Aris Vance';
+        if (personaRoleDesc) personaRoleDesc.textContent = 'Head of Career Placements & TPO';
+        if (personaSecurityTag) {
+          personaSecurityTag.textContent = 'TPO GOVERNANCE';
+          personaSecurityTag.className = 'px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-800 font-mono font-semibold';
+        }
+        if (btnSwitchPortalText) btnSwitchPortalText.textContent = 'Switch to Student Portal';
+      }
+
+      // Update brand link target
+      const brandLink = document.getElementById('headerBrandLink');
+      if (brandLink) {
+        brandLink.setAttribute('href', isStudent ? '#/skill-profile' : '#/cohort-skills');
+      }
+    }
+
     // Alias mapping for backward compatibility with original stitch links
     const routeAliases = {
+      'login': 'login',
+      'portal-login': 'login',
+      'signin': 'login',
+      'auth': 'login',
       'cohort-skill-dashboard': 'cohort-skills',
       'cohort-heatmap': 'cohort-skills',
       'drive-management-allocation': 'drive-management',
@@ -7264,11 +7733,79 @@ FROM user_activity_log;</textarea>
 
     function handleRoute() {
       let hash = cleanRoute(window.location.hash);
-      if (!hash) hash = 'cohort-skills';
+      if (!hash) {
+        hash = (authLocked && !currentAuthRole) ? 'login' : 'cohort-skills';
+      }
       const activeRoute = routeAliases[hash] || hash;
-      const targetRoute = routes.includes(activeRoute) ? activeRoute : 'cohort-skills';
+      let targetRoute = routes.includes(activeRoute) ? activeRoute : 'cohort-skills';
 
-      // Switch view panels
+      // 1. If on login view: isolate and present full-screen view
+      if (targetRoute === 'login') {
+        document.body.classList.add('in-login-view');
+        document.body.classList.remove('in-student-view', 'in-admin-view');
+        const header = document.getElementById('masterHeader');
+        const sidebar = document.getElementById('masterSidebar');
+        const wrapper = document.getElementById('appLayoutWrapper');
+        if (header) header.classList.add('hidden');
+        if (sidebar) sidebar.classList.add('hidden');
+        if (wrapper) {
+          wrapper.classList.remove('lg:pl-64', 'xl:pl-72', 'pt-16');
+          wrapper.classList.add('p-0');
+        }
+        routes.forEach(r => {
+          const p = document.getElementById('view-' + r);
+          if (p) {
+            if (r === 'login') {
+              p.classList.remove('hidden');
+              window.scrollTo({ top: 0, behavior: 'instant' });
+            } else {
+              p.classList.add('hidden');
+            }
+          }
+        });
+        return;
+      }
+
+      // 2. Non-login routes: restore master header and sidebar
+      document.body.classList.remove('in-login-view');
+      const header = document.getElementById('masterHeader');
+      const sidebar = document.getElementById('masterSidebar');
+      const wrapper = document.getElementById('appLayoutWrapper');
+      if (header) header.classList.remove('hidden');
+      if (sidebar) sidebar.classList.remove('hidden');
+      if (wrapper) {
+        wrapper.classList.add('lg:pl-64', 'xl:pl-72', 'pt-16');
+        wrapper.classList.remove('p-0');
+      }
+
+      // 3. Strict Role-Based Route Guarding (Air-gapped data protection)
+      if (authLocked) {
+        if (currentAuthRole === 'student' && institutionalRoutes.includes(targetRoute)) {
+          showToast('Access Denied: Institutional & TPO administrative records are restricted.', 'lock');
+          window.location.hash = '#/skill-profile';
+          return;
+        }
+        if (currentAuthRole === 'admin' && studentRoutes.includes(targetRoute)) {
+          showToast('Access Restricted: Student personal data is isolated under DPDP 2023 air-gap.', 'shield');
+          window.location.hash = '#/cohort-skills';
+          return;
+        }
+        if (!currentAuthRole) {
+          showToast('Session locked. Please authenticate to access portal data.', 'lock');
+          window.location.hash = '#/login';
+          return;
+        }
+      }
+
+      // 4. Update UI perspective
+      if (!authLocked) {
+        const isStudent = studentRoutes.includes(targetRoute);
+        updatePerspectiveUI(isStudent ? 'student' : 'admin');
+      } else {
+        updatePerspectiveUI(currentAuthRole === 'student' ? 'student' : 'admin');
+      }
+
+      // 5. Switch view panels
       routes.forEach(r => {
         const panel = document.getElementById('view-' + r);
         if (panel) {
@@ -7281,7 +7818,7 @@ FROM user_activity_log;</textarea>
         }
       });
 
-      // Update active state in sidebar
+      // 6. Update active state in sidebar
       document.querySelectorAll('.nav-item').forEach(el => {
         const routeAttr = el.getAttribute('data-route');
         if (routeAttr === targetRoute) {
@@ -7296,33 +7833,194 @@ FROM user_activity_log;</textarea>
     window.addEventListener('DOMContentLoaded', handleRoute);
 
     // ==========================================
-    // PERSONA / ROLE SWITCHER
+    // PERSONA / ROLE SWITCHER & AUTH HANDLERS
     // ==========================================
-    let currentPersona = 'dean';
-
     function togglePersonaDropdown() {
       const menu = document.getElementById('personaMenu');
-      menu.classList.toggle('hidden');
+      if (menu) menu.classList.toggle('hidden');
     }
 
     function switchPersona(persona) {
-      currentPersona = persona;
-      const icon = document.getElementById('personaIcon');
-      const label = document.getElementById('personaLabel');
-      const menu = document.getElementById('personaMenu');
-      menu.classList.add('hidden');
-
-      if (persona === 'dean') {
-        icon.textContent = 'manage_accounts';
-        label.textContent = 'TPO Dean View';
+      if (persona === 'dean' || persona === 'admin') {
+        currentAuthRole = 'admin';
+        updatePerspectiveUI('admin');
         showToast('Switched context: Dr. Aris Vance (TPO Dean)', 'admin_panel_settings');
         navigateRoute('cohort-skills');
       } else {
-        icon.textContent = 'school';
-        label.textContent = 'Student: Ananya S.';
-        showToast('Switched context: Ananya Sharma (Student Portal)', 'school');
+        currentAuthRole = 'student';
+        updatePerspectiveUI('student');
+        showToast('Switched context: Student Candidate View (Ananya Sharma)', 'school');
         navigateRoute('skill-profile');
       }
+      const menu = document.getElementById('personaMenu');
+      if (menu) menu.classList.add('hidden');
+    }
+
+    function switchToOppositeRole() {
+      const menu = document.getElementById('personaMenu');
+      if (menu) menu.classList.add('hidden');
+      if (currentPerspective === 'student') {
+        currentAuthRole = 'admin';
+        updatePerspectiveUI('admin');
+        window.location.hash = '#/cohort-skills';
+        showToast('Switched to TPO Dean Administration Portal', 'admin_panel_settings');
+      } else {
+        currentAuthRole = 'student';
+        updatePerspectiveUI('student');
+        window.location.hash = '#/skill-profile';
+        showToast('Switched to Student Candidate Portal (Ananya Sharma)', 'school');
+      }
+    }
+
+    function signOut() {
+      authLocked = true;
+      currentAuthRole = null;
+      const menu = document.getElementById('personaMenu');
+      if (menu) menu.classList.add('hidden');
+      window.location.hash = '#/login';
+      showToast('Session securely terminated and locked.', 'logout');
+    }
+
+    // Login Portal Action Handlers
+    function switchRole(role) {
+      currentLoginTabRole = role;
+      const tabStudent = document.getElementById('tab-student');
+      const tabTpo = document.getElementById('tab-tpo');
+      const roleTitle = document.getElementById('role-title-text');
+      const roleDesc = document.getElementById('role-desc-text');
+      const roleBadge = document.getElementById('role-badge-tag');
+      const identityLabel = document.getElementById('identity-label');
+      const userIdentity = document.getElementById('user-identity');
+      const mfaSection = document.getElementById('mfa-section');
+      const submitBtnText = document.getElementById('btn-text');
+
+      if (role === 'student') {
+        if (tabStudent) {
+          tabStudent.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-slate-900 shadow-sm flex items-center gap-1.5';
+          tabStudent.setAttribute('aria-selected', 'true');
+        }
+        if (tabTpo) {
+          tabTpo.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
+          tabTpo.setAttribute('aria-selected', 'false');
+        }
+        if (roleTitle) roleTitle.textContent = 'Candidate Workspace Access';
+        if (roleDesc) roleDesc.textContent = 'Encrypted personal skill vault, mock drive diagnostics & private consent tokens';
+        if (roleBadge) {
+          roleBadge.textContent = 'STUDENT SCOPE';
+          roleBadge.className = 'px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200';
+        }
+        if (identityLabel) identityLabel.textContent = 'VESIT Student Roll Number or University Email';
+        if (userIdentity) {
+          userIdentity.placeholder = 'ananya.sharma@ves.ac.in';
+          userIdentity.value = 'ananya.sharma@ves.ac.in';
+        }
+        if (mfaSection) mfaSection.classList.add('hidden');
+        if (submitBtnText) submitBtnText.textContent = 'Authenticate & Enter Student Workspace';
+      } else {
+        if (tabTpo) {
+          tabTpo.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-slate-900 shadow-sm flex items-center gap-1.5';
+          tabTpo.setAttribute('aria-selected', 'true');
+        }
+        if (tabStudent) {
+          tabStudent.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5';
+          tabStudent.setAttribute('aria-selected', 'false');
+        }
+        if (roleTitle) roleTitle.textContent = 'Institutional & TPO Administration';
+        if (roleDesc) roleDesc.textContent = 'Campus recruitment orchestrator, NAAC/NIRF compliance & AST cohort intelligence';
+        if (roleBadge) {
+          roleBadge.textContent = 'TPO GOVERNANCE';
+          roleBadge.className = 'px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-blue-100 text-blue-800 border border-blue-200';
+        }
+        if (identityLabel) identityLabel.textContent = 'VESIT Institutional Administrator ID or Dean Email';
+        if (userIdentity) {
+          userIdentity.placeholder = 'aris.vance@ves.ac.in';
+          userIdentity.value = 'aris.vance@ves.ac.in';
+        }
+        if (mfaSection) mfaSection.classList.remove('hidden');
+        if (submitBtnText) submitBtnText.textContent = 'Authenticate & Enter TPO Admin Operations';
+      }
+    }
+
+    function handleLogin(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const submitBtn = document.getElementById('submit-login-btn');
+      const origContent = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Verifying Cryptographic Tokens...</span>';
+      }
+
+      setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = origContent;
+        }
+        authLocked = true;
+        if (currentLoginTabRole === 'student') {
+          currentAuthRole = 'student';
+          updatePerspectiveUI('student');
+          window.location.hash = '#/skill-profile';
+          showToast('Authenticated: Ananya Sharma (Student Workspace)', 'verified');
+        } else {
+          currentAuthRole = 'admin';
+          updatePerspectiveUI('admin');
+          window.location.hash = '#/cohort-skills';
+          showToast('Authenticated: Dr. Aris Vance (TPO Governance)', 'admin_panel_settings');
+        }
+      }, 500);
+    }
+
+    function handleGoogleSSO() {
+      authLocked = true;
+      if (currentLoginTabRole === 'student') {
+        currentAuthRole = 'student';
+        updatePerspectiveUI('student');
+        window.location.hash = '#/skill-profile';
+        showToast('Google Workspace SSO: ananya.sharma@ves.ac.in verified!', 'verified');
+      } else {
+        currentAuthRole = 'admin';
+        updatePerspectiveUI('admin');
+        window.location.hash = '#/cohort-skills';
+        showToast('Google Workspace SSO: aris.vance@ves.ac.in verified!', 'admin_panel_settings');
+      }
+    }
+
+    function handleSamlSSO() {
+      authLocked = true;
+      if (currentLoginTabRole === 'student') {
+        currentAuthRole = 'student';
+        updatePerspectiveUI('student');
+        window.location.hash = '#/skill-profile';
+        showToast('VESIT Shibboleth SAML 2.0 Verified (Student: Ananya Sharma)', 'verified');
+      } else {
+        currentAuthRole = 'admin';
+        updatePerspectiveUI('admin');
+        window.location.hash = '#/cohort-skills';
+        showToast('VESIT Shibboleth SAML 2.0 Verified (TPO Dean: Dr. Aris Vance)', 'admin_panel_settings');
+      }
+    }
+
+    function handleForgotPassword() {
+      showToast('VESIT Self-Service Password Reset link dispatched to registered institutional contact.', 'mark_email_read');
+    }
+
+    function verifyFidoToken() {
+      showToast('FIDO2 WebAuthn / Hardware Key cryptographically verified (mum-in-vesit-prod-01).', 'security');
+    }
+
+    function togglePasswordVisibility() {
+      const pwd = document.getElementById('user-password');
+      if (pwd) {
+        pwd.type = pwd.type === 'password' ? 'text' : 'password';
+      }
+    }
+
+    function openLoginHelpDesk() {
+      openModal('modal-helpdesk');
+    }
+
+    function openCandidateDossier() {
+      openCandidateDrawer('Ananya Sharma', 'B.Tech CMPN', '8.84', 'TPO Verified');
     }
 
     // Close persona dropdown when clicking outside

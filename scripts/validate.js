@@ -19,6 +19,7 @@ scripts.forEach((s, idx) => {
 
 // Check if all view IDs exist
 const viewIds = [
+  'view-login',
   'view-cohort-skills',
   'view-drive-management',
   'view-talent-discovery',
@@ -52,6 +53,7 @@ const modalIds = [
   'modal-code-review',
   'modal-dpdp-erase',
   'modal-whitepaper',
+  'modal-helpdesk',
   'toastNotification'
 ];
 
