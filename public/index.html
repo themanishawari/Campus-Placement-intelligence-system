@@ -3552,14 +3552,17 @@
 </div>
 <!-- Header Primary Action & Agentic Sync Indicator -->
 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm">
-<div class="flex items-center gap-1.5 px-space-sm py-1.5 rounded bg-surface-container-low border border-slate-200 text-on-surface-variant">
-<span class="w-2 h-2 rounded-full bg-status-verified animate-ping"></span>
-<span class="font-label-code text-label-code text-slate-700 font-medium">Continuous Ingestion Live</span>
-</div>
+
+<button class="flex items-center justify-center gap-2 px-space-lg py-2.5 rounded bg-brand-navy hover:bg-slate-900 text-on-primary font-semibold shadow-sm shadow-blue-950/25 transition-all active:scale-[0.98] text-base" id="certificate-up-btn">
+<span class="material-symbols-outlined text-base">description</span>
+<span>Add Certificate</span>
+</button>
+
 <button class="flex items-center justify-center gap-2 px-space-lg py-2.5 rounded bg-brand-navy hover:bg-slate-900 text-on-primary font-semibold shadow-sm shadow-blue-950/25 transition-all active:scale-[0.98] text-base" id="resume-gen-btn">
 <span class="material-symbols-outlined text-base">description</span>
 <span>Generate Resume</span>
 </button>
+
 </div>
 </div>
 <!-- Integrations Stream Banner -->
@@ -4017,6 +4020,17 @@
     this.disabled = true;
     const originalContent = this.innerHTML;
     this.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Synthesizing Tailored Resume...</span>';
+    setTimeout(() => {
+      this.disabled = false;
+      this.innerHTML = originalContent;
+      showToast('⚡ Tailored resume generated with verified SHA metadata! Ready in Documents.');
+    }, 1400);
+  });
+
+  document.getElementById('certificate-up-btn')?.addEventListener('click', function() {
+    this.disabled = true;
+    const originalContent = this.innerHTML;
+    this.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Uploading Cerificate...</span>';
     setTimeout(() => {
       this.disabled = false;
       this.innerHTML = originalContent;
