@@ -2002,33 +2002,15 @@ const masterHtml = `<!DOCTYPE html>
     // 1. AST Rescan
     function triggerAstRescan() {
       const icon = document.getElementById('rescanIcon');
-      const text = document.getElementById('rescanText');
       const btn = document.getElementById('rescanTriggerBtn');
       if (icon) icon.classList.add('animate-spin');
-      if (text) text.textContent = 'Scanning AST Nodes...';
       if (btn) btn.disabled = true;
 
       setTimeout(() => {
         if (icon) icon.classList.remove('animate-spin');
-        if (text) text.textContent = 'Trigger AST Rescan';
         if (btn) btn.disabled = false;
         showToast('AST Rescan Complete: 807 Student Repositories Synchronized.', 'cloud_done');
-
-        const auditLog = document.getElementById('agentAuditLog');
-        if (auditLog) {
-          const entry = document.createElement('div');
-          entry.className = 'flex items-center justify-between text-on-surface-variant p-1.5 rounded hover:bg-slate-50';
-          entry.innerHTML = \`
-            <div class="flex items-center gap-2">
-              <span class="text-on-surface-variant font-semibold">Just Now</span>
-              <span class="px-1 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">MANUAL_AST_RESCAN</span>
-              <span>Manual re-trigger executed by Dr. Aris Vance. Zero discrepancies flagged in 807 profiles.</span>
-            </div>
-            <span class="text-emerald-700 font-semibold">[AUDIT PASS]</span>
-          \`;
-          auditLog.prepend(entry);
-        }
-      }, 1200);
+      }, 1000);
     }
 
     // 2. Heatmap cell selection
