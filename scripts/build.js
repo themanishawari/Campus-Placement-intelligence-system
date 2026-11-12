@@ -73,65 +73,21 @@ const masterHeader = `
 
   <!-- Header Right Controls & User Profile -->
   <div class="flex items-center gap-2 lg:gap-3 shrink-0">
-    <!-- Active AST Node Pill -->
-    <div class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-code text-[11px] font-semibold">
-      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-      <span>AST Node: mum-in-vesit-prod-01</span>
+    <!-- Active Persona Identifier (Read-Only) -->
+    <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low border border-slate-200 text-on-surface text-xs font-medium shadow-sm">
+      <span class="material-symbols-outlined text-sm text-brand-navy" id="personaIcon">manage_accounts</span>
+      <span class="font-semibold text-slate-900" id="personaLabel">TPO Dean View</span>
     </div>
 
-    <!-- Role / Persona Switcher Toggle -->
-    <div class="relative">
-      <button 
-        id="personaToggleBtn"
-        onclick="togglePersonaDropdown()"
-        class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-slate-200/80 border border-slate-200 text-on-surface text-xs font-medium transition-all shadow-sm"
-        title="Switch between Placement Dean and Student Persona"
-      >
-        <span class="material-symbols-outlined text-sm text-brand-navy" id="personaIcon">manage_accounts</span>
-        <span class="font-semibold text-slate-900" id="personaLabel">TPO Dean View</span>
-        <span class="material-symbols-outlined text-xs text-slate-400">expand_more</span>
-      </button>
-
-      <!-- Dropdown Menu -->
-      <div id="personaMenu" class="hidden absolute right-0 mt-1.5 w-72 bg-white rounded-xl shadow-xl border border-slate-200 p-2.5 z-50">
-        <!-- Active User Info Card -->
-        <div id="personaActiveCard" class="p-2.5 rounded-lg bg-slate-50 border border-slate-100 mb-2">
-          <div class="flex items-center gap-2.5">
-            <div id="personaAvatar" class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs shrink-0">DV</div>
-            <div class="flex flex-col min-w-0">
-              <span id="personaName" class="text-xs font-bold text-slate-900 truncate">Dr. Aris Vance</span>
-              <span id="personaRoleDesc" class="text-[11px] text-slate-500 truncate">Head of Career Placements & TPO</span>
-            </div>
-          </div>
-          <div class="mt-2 pt-2 border-t border-slate-200/60 flex items-center justify-between text-[10px]">
-            <span class="font-mono text-slate-500">Security Guard:</span>
-            <span id="personaSecurityTag" class="px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-800 font-mono font-semibold">TPO GOVERNANCE</span>
-          </div>
-        </div>
-
-        <!-- Switch Portal / Account -->
-        <button 
-          id="btnSwitchPortal"
-          onclick="switchToOppositeRole()" 
-          class="w-full flex items-center justify-between px-2.5 py-2 rounded-lg text-left hover:bg-slate-50 text-slate-700 hover:text-slate-900 transition-colors text-xs font-medium group"
-        >
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-[16px] text-indigo-600">swap_horiz</span>
-            <span id="btnSwitchPortalText">Switch to Student Portal</span>
-          </div>
-          <span class="material-symbols-outlined text-xs text-slate-400 group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
-        </button>
-
-        <!-- Sign Out / Lock Session -->
-        <button 
-          onclick="signOut()" 
-          class="w-full flex items-center gap-2 px-2.5 py-2 mt-1 rounded-lg text-left hover:bg-rose-50 text-rose-700 transition-colors text-xs font-medium"
-        >
-          <span class="material-symbols-outlined text-[16px] text-rose-600">logout</span>
-          <span>Sign Out / Lock Session</span>
-        </button>
-      </div>
-    </div>
+    <!-- Sign Out Button -->
+    <button 
+      onclick="signOut()" 
+      class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-rose-50 text-slate-700 hover:text-rose-700 border border-slate-200 text-xs font-medium transition-all shadow-sm"
+      title="Sign Out / Lock Session"
+    >
+      <span class="material-symbols-outlined text-[16px] text-rose-600">logout</span>
+      <span class="hidden sm:inline font-semibold">Sign Out</span>
+    </button>
 
     <!-- Quick Action "+ New Drive" Button (Institutional & Ops only) -->
     <button 
@@ -176,39 +132,26 @@ const masterSidebar = `
     <div id="section-institutional" class="flex flex-col gap-1.5 institutional-element">
       <div class="px-2.5 flex items-center justify-between">
         <span class="font-label-caps text-[10px] font-bold text-slate-500 uppercase tracking-wider">Institutional & Ops</span>
-        <span class="px-1.5 py-0.2 rounded bg-blue-50 text-blue-800 text-[10px] font-mono font-semibold">TPO</span>
       </div>
       <nav class="flex flex-col gap-0.5">
-        <a href="#/cohort-skills" data-route="cohort-skills" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500 group-hover:text-brand-navy">grid_view</span>
-            <span>Cohort Skill Dashboard</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">81.4%</span>
+        <a href="#/cohort-skills" data-route="cohort-skills" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500 group-hover:text-brand-navy">grid_view</span>
+          <span>Cohort Skill Dashboard</span>
         </a>
 
-        <a href="#/drive-management" data-route="drive-management" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">calendar_month</span>
-            <span>Campus Drive Management</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-blue-50 text-blue-800 font-bold">3 Active</span>
+        <a href="#/drive-management" data-route="drive-management" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">calendar_month</span>
+          <span>Campus Drive Management</span>
         </a>
 
-        <a href="#/talent-discovery" data-route="talent-discovery" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">person_search</span>
-            <span>Talent Discovery & Rules</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-100 text-slate-700 font-bold">142 Pool</span>
+        <a href="#/talent-discovery" data-route="talent-discovery" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">person_search</span>
+          <span>Talent Discovery & Rules</span>
         </a>
 
-        <a href="#/fairness-accreditation" data-route="fairness-accreditation" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">balance</span>
-            <span>Fairness & Accreditation</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-amber-50 text-amber-800 font-bold">NAAC 5.2</span>
+        <a href="#/fairness-accreditation" data-route="fairness-accreditation" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">balance</span>
+          <span>Fairness & Accreditation</span>
         </a>
       </nav>
     </div>
@@ -220,55 +163,36 @@ const masterSidebar = `
     <div id="section-student" class="flex flex-col gap-1.5">
       <div class="px-2.5 flex items-center justify-between">
         <span class="font-label-caps text-[10px] font-bold text-slate-500 uppercase tracking-wider">Student Candidate View</span>
-        <span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] font-mono font-semibold">Ananya S.</span>
       </div>
       <nav class="flex flex-col gap-0.5">
-        <a href="#/skill-profile" data-route="skill-profile" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">psychology</span>
-            <span>Student Skill Profile</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">Verified</span>
+        <a href="#/skill-profile" data-route="skill-profile" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">psychology</span>
+          <span>Student Skill Profile</span>
         </a>
 
-        <a href="#/target-gaps" data-route="target-gaps" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">stacked_bar_chart</span>
-            <span>Target Companies & Gaps</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-100 text-slate-700 font-bold">4 Targets</span>
+        <a href="#/target-gaps" data-route="target-gaps" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">stacked_bar_chart</span>
+          <span>Target Companies & Gaps</span>
         </a>
 
-        <a href="#/mock-reports" data-route="mock-reports" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">assignment_turned_in</span>
-            <span>Mock Drive Reports</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">92% High</span>
+        <a href="#/mock-reports" data-route="mock-reports" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">assignment_turned_in</span>
+          <span>Mock Drive Reports</span>
         </a>
 
-        <a href="#/learning-path" data-route="learning-path" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">alt_route</span>
-            <span>Learning Roadmap</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-blue-50 text-blue-800 font-bold">Sprint 2</span>
+        <a href="#/learning-path" data-route="learning-path" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">alt_route</span>
+          <span>Learning Roadmap</span>
         </a>
 
-        <a href="#/my-drives" data-route="my-drives" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">verified_user</span>
-            <span>My Drives & Eligibility</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">4 Applied</span>
+        <a href="#/my-drives" data-route="my-drives" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">verified_user</span>
+          <span>My Drives & Eligibility</span>
         </a>
 
-        <a href="#/privacy-consent" data-route="privacy-consent" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">shield</span>
-            <span>Privacy & DPDP Policy</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">DPDP ✓</span>
+        <a href="#/privacy-consent" data-route="privacy-consent" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">shield</span>
+          <span>Privacy & DPDP Policy</span>
         </a>
       </nav>
     </div>
@@ -2002,33 +1926,15 @@ const masterHtml = `<!DOCTYPE html>
     // 1. AST Rescan
     function triggerAstRescan() {
       const icon = document.getElementById('rescanIcon');
-      const text = document.getElementById('rescanText');
       const btn = document.getElementById('rescanTriggerBtn');
       if (icon) icon.classList.add('animate-spin');
-      if (text) text.textContent = 'Scanning AST Nodes...';
       if (btn) btn.disabled = true;
 
       setTimeout(() => {
         if (icon) icon.classList.remove('animate-spin');
-        if (text) text.textContent = 'Trigger AST Rescan';
         if (btn) btn.disabled = false;
         showToast('AST Rescan Complete: 807 Student Repositories Synchronized.', 'cloud_done');
-
-        const auditLog = document.getElementById('agentAuditLog');
-        if (auditLog) {
-          const entry = document.createElement('div');
-          entry.className = 'flex items-center justify-between text-on-surface-variant p-1.5 rounded hover:bg-slate-50';
-          entry.innerHTML = \`
-            <div class="flex items-center gap-2">
-              <span class="text-on-surface-variant font-semibold">Just Now</span>
-              <span class="px-1 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">MANUAL_AST_RESCAN</span>
-              <span>Manual re-trigger executed by Dr. Aris Vance. Zero discrepancies flagged in 807 profiles.</span>
-            </div>
-            <span class="text-emerald-700 font-semibold">[AUDIT PASS]</span>
-          \`;
-          auditLog.prepend(entry);
-        }
-      }, 1200);
+      }, 1000);
     }
 
     // 2. Heatmap cell selection

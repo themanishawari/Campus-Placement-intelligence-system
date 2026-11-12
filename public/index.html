@@ -454,60 +454,21 @@
 
   <!-- Header Right Controls & User Profile -->
   <div class="flex items-center gap-2 lg:gap-3 shrink-0">
-
-    <!-- Role / Persona Switcher Toggle -->
-    <div class="relative">
-      <button 
-        id="personaToggleBtn"
-        onclick="togglePersonaDropdown()"
-        class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-slate-200/80 border border-slate-200 text-on-surface text-xs font-medium transition-all shadow-sm"
-        title="Switch between Placement Dean and Student Persona"
-      >
-        <span class="material-symbols-outlined text-sm text-brand-navy" id="personaIcon">manage_accounts</span>
-        <span class="font-semibold text-slate-900" id="personaLabel">TPO Dean View</span>
-        <span class="material-symbols-outlined text-xs text-slate-400">expand_more</span>
-      </button>
-
-      <!-- Dropdown Menu -->
-      <div id="personaMenu" class="hidden absolute right-0 mt-1.5 w-72 bg-white rounded-xl shadow-xl border border-slate-200 p-2.5 z-50">
-        <!-- Active User Info Card -->
-        <div id="personaActiveCard" class="p-2.5 rounded-lg bg-slate-50 border border-slate-100 mb-2">
-          <div class="flex items-center gap-2.5">
-            <div id="personaAvatar" class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs shrink-0">DV</div>
-            <div class="flex flex-col min-w-0">
-              <span id="personaName" class="text-xs font-bold text-slate-900 truncate">Dr. Aris Vance</span>
-              <span id="personaRoleDesc" class="text-[11px] text-slate-500 truncate">Head of Career Placements & TPO</span>
-            </div>
-          </div>
-          <div class="mt-2 pt-2 border-t border-slate-200/60 flex items-center justify-between text-[10px]">
-            <span class="font-mono text-slate-500">Security Guard:</span>
-            <span id="personaSecurityTag" class="px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-800 font-mono font-semibold">TPO GOVERNANCE</span>
-          </div>
-        </div>
-
-        <!-- Switch Portal / Account -->
-        <button 
-          id="btnSwitchPortal"
-          onclick="switchToOppositeRole()" 
-          class="w-full flex items-center justify-between px-2.5 py-2 rounded-lg text-left hover:bg-slate-50 text-slate-700 hover:text-slate-900 transition-colors text-xs font-medium group"
-        >
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-[16px] text-indigo-600">swap_horiz</span>
-            <span id="btnSwitchPortalText">Switch to Student Portal</span>
-          </div>
-          <span class="material-symbols-outlined text-xs text-slate-400 group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
-        </button>
-
-        <!-- Sign Out / Lock Session -->
-        <button 
-          onclick="signOut()" 
-          class="w-full flex items-center gap-2 px-2.5 py-2 mt-1 rounded-lg text-left hover:bg-rose-50 text-rose-700 transition-colors text-xs font-medium"
-        >
-          <span class="material-symbols-outlined text-[16px] text-rose-600">logout</span>
-          <span>Sign Out / Lock Session</span>
-        </button>
-      </div>
+    <!-- Active Persona Identifier (Read-Only) -->
+    <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low border border-slate-200 text-on-surface text-xs font-medium shadow-sm">
+      <span class="material-symbols-outlined text-sm text-brand-navy" id="personaIcon">manage_accounts</span>
+      <span class="font-semibold text-slate-900" id="personaLabel">TPO Dean View</span>
     </div>
+
+    <!-- Sign Out Button -->
+    <button 
+      onclick="signOut()" 
+      class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-rose-50 text-slate-700 hover:text-rose-700 border border-slate-200 text-xs font-medium transition-all shadow-sm"
+      title="Sign Out / Lock Session"
+    >
+      <span class="material-symbols-outlined text-[16px] text-rose-600">logout</span>
+      <span class="hidden sm:inline font-semibold">Sign Out</span>
+    </button>
 
     <!-- Quick Action "+ New Drive" Button (Institutional & Ops only) -->
     <button 
@@ -552,39 +513,26 @@
     <div id="section-institutional" class="flex flex-col gap-1.5 institutional-element">
       <div class="px-2.5 flex items-center justify-between">
         <span class="font-label-caps text-[10px] font-bold text-slate-500 uppercase tracking-wider">Institutional & Ops</span>
-        <span class="px-1.5 py-0.2 rounded bg-blue-50 text-blue-800 text-[10px] font-mono font-semibold">TPO</span>
       </div>
       <nav class="flex flex-col gap-0.5">
-        <a href="#/cohort-skills" data-route="cohort-skills" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500 group-hover:text-brand-navy">grid_view</span>
-            <span>Cohort Skill Dashboard</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">81.4%</span>
+        <a href="#/cohort-skills" data-route="cohort-skills" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500 group-hover:text-brand-navy">grid_view</span>
+          <span>Cohort Skill Dashboard</span>
         </a>
 
-        <a href="#/drive-management" data-route="drive-management" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">calendar_month</span>
-            <span>Campus Drive Management</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-blue-50 text-blue-800 font-bold">3 Active</span>
+        <a href="#/drive-management" data-route="drive-management" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">calendar_month</span>
+          <span>Campus Drive Management</span>
         </a>
 
-        <a href="#/talent-discovery" data-route="talent-discovery" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">person_search</span>
-            <span>Talent Discovery & Rules</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-100 text-slate-700 font-bold">142 Pool</span>
+        <a href="#/talent-discovery" data-route="talent-discovery" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">person_search</span>
+          <span>Talent Discovery & Rules</span>
         </a>
 
-        <a href="#/fairness-accreditation" data-route="fairness-accreditation" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">balance</span>
-            <span>Fairness & Accreditation</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-amber-50 text-amber-800 font-bold">NAAC 5.2</span>
+        <a href="#/fairness-accreditation" data-route="fairness-accreditation" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">balance</span>
+          <span>Fairness & Accreditation</span>
         </a>
       </nav>
     </div>
@@ -596,55 +544,36 @@
     <div id="section-student" class="flex flex-col gap-1.5">
       <div class="px-2.5 flex items-center justify-between">
         <span class="font-label-caps text-[10px] font-bold text-slate-500 uppercase tracking-wider">Student Candidate View</span>
-        <span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] font-mono font-semibold">Ananya S.</span>
       </div>
       <nav class="flex flex-col gap-0.5">
-        <a href="#/skill-profile" data-route="skill-profile" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">psychology</span>
-            <span>Student Skill Profile</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">Verified</span>
+        <a href="#/skill-profile" data-route="skill-profile" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">psychology</span>
+          <span>Student Skill Profile</span>
         </a>
 
-        <a href="#/target-gaps" data-route="target-gaps" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">stacked_bar_chart</span>
-            <span>Target Companies & Gaps</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-100 text-slate-700 font-bold">4 Targets</span>
+        <a href="#/target-gaps" data-route="target-gaps" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">stacked_bar_chart</span>
+          <span>Target Companies & Gaps</span>
         </a>
 
-        <a href="#/mock-reports" data-route="mock-reports" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">assignment_turned_in</span>
-            <span>Mock Drive Reports</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">92% High</span>
+        <a href="#/mock-reports" data-route="mock-reports" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">assignment_turned_in</span>
+          <span>Mock Drive Reports</span>
         </a>
 
-        <a href="#/learning-path" data-route="learning-path" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">alt_route</span>
-            <span>Learning Roadmap</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-blue-50 text-blue-800 font-bold">Sprint 2</span>
+        <a href="#/learning-path" data-route="learning-path" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">alt_route</span>
+          <span>Learning Roadmap</span>
         </a>
 
-        <a href="#/my-drives" data-route="my-drives" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">verified_user</span>
-            <span>My Drives & Eligibility</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">4 Applied</span>
+        <a href="#/my-drives" data-route="my-drives" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">verified_user</span>
+          <span>My Drives & Eligibility</span>
         </a>
 
-        <a href="#/privacy-consent" data-route="privacy-consent" class="nav-item flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-[18px] text-slate-500">shield</span>
-            <span>Privacy & DPDP Policy</span>
-          </div>
-          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 font-bold">DPDP ✓</span>
+        <a href="#/privacy-consent" data-route="privacy-consent" class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+          <span class="material-symbols-outlined text-[18px] text-slate-500">shield</span>
+          <span>Privacy & DPDP Policy</span>
         </a>
       </nav>
     </div>
@@ -710,10 +639,6 @@
 
     <!-- Active Tenant & Privacy Guard Telemetry -->
     <div class="flex items-center gap-3 text-xs">
-      <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 font-mono text-[11px]">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>VESIT Node: <strong class="text-slate-800 font-semibold">mum-in-vesit-prod-01</strong></span>
-      </div>
       <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 font-medium text-[11px]">
         <svg class="w-3.5 h-3.5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
@@ -757,6 +682,17 @@
             </div>
           </div>
 
+          <!-- Dynamic Role State Header Banner -->
+          <div id="role-context-banner" class="mb-6 p-3.5 rounded-xl bg-indigo-50/80 border border-indigo-100/90 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+              <div>
+                <span id="role-title-text" class="font-bold text-indigo-950">Candidate Workspace Access</span>
+                <p id="role-desc-text" class="text-[11px] text-indigo-700">Encrypted personal skill vault, mock drive diagnostics &amp; private consent tokens</p>
+              </div>
+            </div>
+            <span id="role-badge-tag" class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200">STUDENT SCOPE</span>
+          </div>
 
           <!-- Form Area -->
           <form onsubmit="handleLogin(event)" class="space-y-4">
@@ -884,6 +820,7 @@
   </footer>
 </div>
 
+
       </div>
 
       <!-- View 1: Cohort Skill Dashboard -->
@@ -902,12 +839,6 @@
 <div class="flex flex-wrap items-center gap-2 mt-1">
 <h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">VESIT Cohort Skill Intelligence</h1>
 <span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-secondary-container font-label-sm text-label-sm font-semibold">Batch 2024–25 (Class of 2025)</span>
-</div>
-<div class="flex items-center gap-2 mt-0.5">
-<span class="flex h-2 w-2 rounded-full bg-emerald-500"></span>
-<p class="font-label-sm text-label-sm text-on-surface-variant">
-          Tenant Isolation: <span class="font-semibold text-on-surface">Active (AES-256)</span> • DPDP Act 2023 &amp; NAAC Tier-1 Audit Node #mum-in-vesit-prod-01
-        </p>
 </div>
 </div>
 <!-- Quick Action Controls & Filters -->
@@ -931,9 +862,8 @@
 <option>Master of Computer App (MCA)</option>
 </select>
 </div>
-<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-medium hover:bg-inverse-surface transition-all active:scale-95 shadow-sm" id="rescanTriggerBtn" onclick="triggerAstRescan()" type="button">
-<span class="material-symbols-outlined text-[16px]" id="rescanIcon">sync</span>
-<span id="rescanText">Trigger AST Rescan</span>
+<button class="flex items-center justify-center p-2 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-medium hover:bg-inverse-surface transition-all active:scale-95 shadow-sm" id="rescanTriggerBtn" onclick="triggerAstRescan()" type="button" title="Trigger AST Rescan" aria-label="Trigger AST Rescan">
+<span class="material-symbols-outlined text-[18px]" id="rescanIcon">sync</span>
 </button>
 </div>
 </div>
@@ -943,9 +873,6 @@
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex items-start justify-between">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Batch Placement Rate</span>
-<span class="flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold">
-<span class="material-symbols-outlined text-[14px]">trending_up</span> +8.2%
-        </span>
 </div>
 <div class="my-2">
 <div class="flex items-baseline gap-2">
@@ -965,16 +892,12 @@
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex items-start justify-between">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Verified Skill Coverage</span>
-<span class="flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
-<span class="material-symbols-outlined text-[14px]">verified</span> Proof-Engine
-        </span>
 </div>
 <div class="my-2">
 <div class="flex items-baseline gap-2">
 <span class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight">84.1%</span>
 <span class="font-body-sm text-body-sm text-emerald-700 font-medium">High Trust</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Cryptographically attested via live GitHub AST, LeetCode, and Kaggle API pipelines.</p>
 </div>
 <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-2">
 <span>128 Unverified Self-Claims</span>
@@ -985,9 +908,6 @@
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex items-start justify-between">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Skill-Gap Closure Rate</span>
-<span class="flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold">
-<span class="material-symbols-outlined text-[14px]">bolt</span> +14.2% post-drill
-        </span>
 </div>
 <div class="my-2">
 <div class="flex items-baseline gap-2">
@@ -1011,16 +931,12 @@
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex items-start justify-between">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Time-To-Shortlist</span>
-<span class="flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">
-          Policy Engine
-        </span>
 </div>
 <div class="my-2">
 <div class="flex items-baseline gap-2">
 <span class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight">1.8 <span class="font-headline-sm text-headline-sm text-on-surface-variant font-normal">Days</span></span>
 <span class="font-body-sm text-body-sm text-emerald-700 font-medium">-75.6% vs '24</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Reduced from 7.4 avg days via institutional zero-hallucination allocation rules.</p>
 </div>
 <div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-2">
 <span>0 Manual Recounts</span>
@@ -1034,9 +950,7 @@
 <div class="flex flex-col">
 <div class="flex items-center gap-2">
 <h2 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Cohort Competency Heatmap &amp; Skill-Deficiency Matrix</h2>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase font-semibold">Live AST Audit</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Aggregated cross-departmental weakness mapping evaluated against Tier-1 Product Company hiring bars.</p>
 </div>
 <!-- Matrix Color Legend -->
 <div class="flex items-center gap-3 font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-3 py-1.5 rounded-lg">
@@ -1295,7 +1209,6 @@
 <span class="material-symbols-outlined text-secondary text-[24px]">troubleshoot</span>
 <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Predictive Placement Early Warning</h3>
 </div>
-<span class="px-2 py-0.5 rounded bg-amber-50 text-amber-900 font-label-sm text-label-sm font-semibold">T-minus 6 Months Early Alarm</span>
 </div>
 <!-- AI Forecast Range Banner -->
 <div class="p-space-sm bg-surface-container-low rounded-lg mb-space-md flex items-center justify-between">
@@ -1324,21 +1237,23 @@
 <tbody class="divide-y divide-surface-container-low font-body-sm text-body-sm" id="atRiskStudentsList">
 <!-- Student 1 -->
 <tr class="hover:bg-surface-container-low/40 transition-colors" id="row-student-1">
-<td class="py-2.5 px-3">
+<td class="py-2.5 px-3 align-middle">
 <div class="font-semibold text-on-surface">Ananya Sharma</div>
 <div class="font-label-sm text-label-sm text-on-surface-variant font-mono">CSE • #VESIT-21-084</div>
 </td>
-<td class="py-2.5 px-2 font-mono font-bold text-on-surface">7.14</td>
-<td class="py-2.5 px-3">
+<td class="py-2.5 px-2 font-mono font-bold text-on-surface align-middle">7.14</td>
+<td class="py-2.5 px-3 align-middle">
 <span class="inline-flex items-center px-2 py-0.5 rounded bg-rose-50 text-rose-800 font-label-sm text-label-sm font-medium">
                     0 Verified Cloud Proofs
                   </span>
 <span class="block text-[11px] text-on-surface-variant mt-0.5">Zero public repo commits in 90 days</span>
 </td>
-<td class="py-2.5 px-2 text-center">
-<span class="px-2 py-0.5 rounded bg-rose-100 text-rose-950 font-label-md text-label-md font-bold">34% (Day 90)</span>
+<td class="py-2.5 px-2 text-center align-middle">
+<div class="flex items-center justify-center">
+<span class="inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-rose-100 text-rose-950 font-label-md text-label-md font-bold text-center leading-normal">34% (Day 90)</span>
+</div>
 </td>
-<td class="py-2.5 px-3 text-right">
+<td class="py-2.5 px-3 text-right align-middle">
 <div class="flex items-center justify-end gap-1.5">
 <select class="bg-surface-container px-2 py-1 rounded text-body-sm font-medium focus:outline-none" id="mentor-select-1">
 <option value="Prof. Ramanathan">Assign: Prof. Ramanathan</option>
@@ -1356,21 +1271,23 @@
 </tr>
 <!-- Student 2 -->
 <tr class="hover:bg-surface-container-low/40 transition-colors" id="row-student-2">
-<td class="py-2.5 px-3">
+<td class="py-2.5 px-3 align-middle">
 <div class="font-semibold text-on-surface">Rohit Verma</div>
 <div class="font-label-sm text-label-sm text-on-surface-variant font-mono">EXTC • #VESIT-21-149</div>
 </td>
-<td class="py-2.5 px-2 font-mono font-bold text-on-surface">6.42</td>
-<td class="py-2.5 px-3">
+<td class="py-2.5 px-2 font-mono font-bold text-on-surface align-middle">6.42</td>
+<td class="py-2.5 px-3 align-middle">
 <span class="inline-flex items-center px-2 py-0.5 rounded bg-rose-50 text-rose-800 font-label-sm text-label-sm font-medium">
                     Backlog in 5th Sem Math
                   </span>
 <span class="block text-[11px] text-on-surface-variant mt-0.5">Fails Morgan Stanley CGPA threshold</span>
 </td>
-<td class="py-2.5 px-2 text-center">
-<span class="px-2 py-0.5 rounded bg-rose-100 text-rose-950 font-label-md text-label-md font-bold">28% (Day 90)</span>
+<td class="py-2.5 px-2 text-center align-middle">
+<div class="flex items-center justify-center">
+<span class="inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-rose-100 text-rose-950 font-label-md text-label-md font-bold text-center leading-normal">28% (Day 90)</span>
+</div>
 </td>
-<td class="py-2.5 px-3 text-right">
+<td class="py-2.5 px-3 text-right align-middle">
 <div class="flex items-center justify-end gap-1.5">
 <select class="bg-surface-container px-2 py-1 rounded text-body-sm font-medium focus:outline-none" id="mentor-select-2">
 <option value="Dr. Aris Vance">Assign: Dr. Vance</option>
@@ -1388,21 +1305,23 @@
 </tr>
 <!-- Student 3 -->
 <tr class="hover:bg-surface-container-low/40 transition-colors" id="row-student-3">
-<td class="py-2.5 px-3">
+<td class="py-2.5 px-3 align-middle">
 <div class="font-semibold text-on-surface">Priya Iyer</div>
 <div class="font-label-sm text-label-sm text-on-surface-variant font-mono">IT • #VESIT-21-092</div>
 </td>
-<td class="py-2.5 px-2 font-mono font-bold text-on-surface">7.89</td>
-<td class="py-2.5 px-3">
+<td class="py-2.5 px-2 font-mono font-bold text-on-surface align-middle">7.89</td>
+<td class="py-2.5 px-3 align-middle">
 <span class="inline-flex items-center px-2 py-0.5 rounded bg-amber-50 text-amber-800 font-label-sm text-label-sm font-medium">
                     Low Coding Velocity (&lt;150 Elo)
                   </span>
 <span class="block text-[11px] text-on-surface-variant mt-0.5">High DSA rejection probability</span>
 </td>
-<td class="py-2.5 px-2 text-center">
-<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-950 font-label-md text-label-md font-bold">42% (Day 90)</span>
+<td class="py-2.5 px-2 text-center align-middle">
+<div class="flex items-center justify-center">
+<span class="inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-amber-100 text-amber-950 font-label-md text-label-md font-bold text-center leading-normal">42% (Day 90)</span>
+</div>
 </td>
-<td class="py-2.5 px-3 text-right">
+<td class="py-2.5 px-3 text-right align-middle">
 <div class="flex items-center justify-end gap-1.5">
 <select class="bg-surface-container px-2 py-1 rounded text-body-sm font-medium focus:outline-none" id="mentor-select-3">
 <option value="Prof. Ramanathan">Assign: Prof. Ramanathan</option>
@@ -1420,21 +1339,23 @@
 </tr>
 <!-- Student 4 -->
 <tr class="hover:bg-surface-container-low/40 transition-colors" id="row-student-4">
-<td class="py-2.5 px-3">
+<td class="py-2.5 px-3 align-middle">
 <div class="font-semibold text-on-surface">Devendra K.</div>
 <div class="font-label-sm text-label-sm text-on-surface-variant font-mono">AI-DS • #VESIT-21-205</div>
 </td>
-<td class="py-2.5 px-2 font-mono font-bold text-on-surface">8.12</td>
-<td class="py-2.5 px-3">
+<td class="py-2.5 px-2 font-mono font-bold text-on-surface align-middle">8.12</td>
+<td class="py-2.5 px-3 align-middle">
 <span class="inline-flex items-center px-2 py-0.5 rounded bg-rose-50 text-rose-800 font-label-sm text-label-sm font-medium">
                     No System Design Proofs
                   </span>
 <span class="block text-[11px] text-on-surface-variant mt-0.5">Target tier requires distributed systems</span>
 </td>
-<td class="py-2.5 px-2 text-center">
-<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-950 font-label-md text-label-md font-bold">48% (Day 90)</span>
+<td class="py-2.5 px-2 text-center align-middle">
+<div class="flex items-center justify-center">
+<span class="inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-amber-100 text-amber-950 font-label-md text-label-md font-bold text-center leading-normal">48% (Day 90)</span>
+</div>
 </td>
-<td class="py-2.5 px-3 text-right">
+<td class="py-2.5 px-3 text-right align-middle">
 <div class="flex items-center justify-end gap-1.5">
 <select class="bg-surface-container px-2 py-1 rounded text-body-sm font-medium focus:outline-none" id="mentor-select-4">
 <option value="Dr. Aris Vance">Assign: Dr. Vance</option>
@@ -1467,14 +1388,10 @@
 <span class="material-symbols-outlined text-rose-600 text-[24px]">crisis_alert</span>
 <span class="font-label-sm text-label-sm uppercase font-bold text-rose-600 tracking-wider">Urgent Demand Shift</span>
 </div>
-<span class="px-2 py-0.5 rounded bg-rose-50 text-rose-900 font-label-sm text-label-sm font-bold">Q4 JDs Analyzed</span>
 </div>
 <h3 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight mt-2">
           Rising Market Demand: Docker &amp; Kubernetes Containerization Surge
         </h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
-          Automated parsing of newly registered recruitment requirements for the upcoming season reveals a sharp qualification pivot.
-        </p>
 <!-- Market vs Cohort Discrepancy Graphic -->
 <div class="my-space-md p-space-md bg-surface-container-low rounded-xl flex flex-col gap-3">
 <div class="flex items-center justify-between">
@@ -1511,7 +1428,6 @@
 </div>
 <!-- Human Decision Action Section -->
 <div class="mt-space-lg flex flex-col gap-2 pt-space-md border-t border-surface-container">
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">T&amp;P Officer Decision Gate ("AI Helps, Human Decides")</span>
 <button class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-inverse-surface transition-all shadow-sm" id="addBootcampBtn" onclick="applyBootcampDecision()" type="button">
 <span class="material-symbols-outlined text-[18px]">event_available</span>
 <span>⚡ Add 3-Day Docker Bootcamp to Academic Calendar</span>
@@ -1519,47 +1435,6 @@
 <button class="w-full py-2 rounded-lg bg-surface-container text-on-surface-variant font-body-sm text-body-sm font-medium hover:bg-surface-container-high transition-colors" onclick="ignoreDockerRecommendation()" type="button">
           Ignore Recommendation (Acknowledge Risk)
         </button>
-</div>
-</div>
-</div>
-<!-- Real-Time Supervised Agent Log (Zero-Black-Box Audit Drawer) -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface tracking-wider">Supervised AST Audit Stream (Zero-Black-Box Engine)</span>
-</div>
-<div class="flex items-center gap-3 font-label-sm text-label-sm text-on-surface-variant font-mono">
-<span>Deterministic Inference Confidence: <strong class="text-emerald-700">99.2%</strong></span>
-<span>•</span>
-<span>SHA256: <code class="text-secondary font-semibold">8f92a...c014e</code></span>
-</div>
-</div>
-<!-- Terminal-like High-Density Event Feed -->
-<div class="bg-surface-container-low p-space-sm rounded-lg font-mono text-label-sm flex flex-col gap-1.5 overflow-hidden" id="agentAuditLog">
-<div class="flex items-center justify-between text-on-surface-variant">
-<div class="flex items-center gap-2">
-<span class="text-on-surface-variant font-semibold">14:02:18 IST</span>
-<span class="px-1 py-0.2 rounded bg-surface-container text-on-surface font-semibold">RULE: AST_TREE_HASH</span>
-<span>Evaluated 807 student repos. 68.5% closure verified against AST unit test suite.</span>
-</div>
-<span class="text-emerald-700 font-semibold">[VERIFIED DETERMINISTIC]</span>
-</div>
-<div class="flex items-center justify-between text-on-surface-variant">
-<div class="flex items-center gap-2">
-<span class="text-on-surface-variant font-semibold">13:58:04 IST</span>
-<span class="px-1 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">JD_POLICY_SCAN</span>
-<span>Morgan Stanley 2025 Tier-1 JDs parsed. Added 'Docker/K8s' to high-weight eligibility tag list.</span>
-</div>
-<span class="text-on-surface font-semibold">[POLICY v5.4 AUTO-SYNC]</span>
-</div>
-<div class="flex items-center justify-between text-on-surface-variant">
-<div class="flex items-center gap-2">
-<span class="text-on-surface-variant font-semibold">13:45:22 IST</span>
-<span class="px-1 py-0.2 rounded bg-surface-container text-on-surface font-semibold">COMPLIANCE_DPDP</span>
-<span>DPDP 2023 Consent Audit verified for 807 candidates. Encrypted vault checksum passed.</span>
-</div>
-<span class="text-emerald-700 font-semibold">[ISO/IEC 27001 OK]</span>
 </div>
 </div>
 </div>
@@ -1589,35 +1464,16 @@
 
   function triggerAstRescan() {
     const icon = document.getElementById('rescanIcon');
-    const text = document.getElementById('rescanText');
     const btn = document.getElementById('rescanTriggerBtn');
     
     if (icon) icon.classList.add('animate-spin');
-    if (text) text.textContent = 'Scanning AST Nodes...';
     if (btn) btn.disabled = true;
 
     setTimeout(() => {
       if (icon) icon.classList.remove('animate-spin');
-      if (text) text.textContent = 'Trigger AST Rescan';
       if (btn) btn.disabled = false;
       showToast('AST Rescan Complete: 807 Student Repositories Synchronized.', 'cloud_done');
-
-      // Append to live log
-      const auditLog = document.getElementById('agentAuditLog');
-      if (auditLog) {
-        const newLogEntry = document.createElement('div');
-        newLogEntry.className = 'flex items-center justify-between text-on-surface-variant';
-        newLogEntry.innerHTML = `
-          <div class="flex items-center gap-2">
-            <span class="text-on-surface-variant font-semibold">Just Now</span>
-            <span class="px-1 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">MANUAL_AST_RESCAN</span>
-            <span>Manual re-trigger executed by Dr. Aris Vance. Zero discrepancies flagged in 807 profiles.</span>
-          </div>
-          <span class="text-emerald-700 font-semibold">[AUDIT PASS]</span>
-        `;
-        auditLog.prepend(newLogEntry);
-      }
-    }, 1500);
+    }, 1000);
   }
 
   function selectHeatmapCell(branch, topic, percent, vendor, syllabus, count) {
@@ -1692,52 +1548,21 @@
       <div id="view-drive-management" class="view-panel w-full p-4 lg:p-6 space-y-4 hidden">
         <div class="flex flex-col w-full gap-space-lg">
 <!-- Top Operational Banner & Controls -->
-<section class="flex flex-col gap-space-md bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<section class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
 <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
 <div class="flex flex-col gap-1 min-w-0">
-<div class="flex items-center gap-space-xs flex-wrap">
-<span class="px-2 py-0.5 rounded bg-primary-container text-primary-fixed font-label-sm text-label-sm uppercase tracking-wider font-semibold">Live Operational Engine</span>
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">VESIT Season 2024-25 • Cycle-1 Active</span>
-</div>
 <h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Campus Drive Management &amp; Intelligent Clash-Free Scheduling</h1>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
           VESIT Placement Season 2024-25 <span class="mx-1.5 opacity-40">•</span> <span class="font-semibold text-on-surface">48 Scheduled Drives</span> <span class="mx-1.5 opacity-40">•</span> <span class="font-semibold text-secondary">6 Clashes Resolved by AI</span> <span class="mx-1.5 opacity-40">•</span> <span class="font-semibold text-error">8 Pending Human Allocation</span>
 </p>
 </div>
 <div class="flex items-center gap-space-sm shrink-0 flex-wrap">
-<button class="group flex items-center gap-2 px-space-md py-2 rounded bg-primary text-on-primary hover:bg-inverse-surface transition-all shadow-sm" id="runEngineBtn" type="button">
+<button class="group flex items-center justify-center p-2 rounded bg-primary text-on-primary hover:bg-inverse-surface transition-all shadow-sm shrink-0" id="runEngineBtn" type="button" title="Run Clash Detection Engine" aria-label="Run Clash Detection Engine">
 <span class="material-symbols-outlined text-[18px] text-primary-fixed group-hover:rotate-180 transition-transform duration-500">sync</span>
-<span class="font-body-md text-body-md font-semibold tracking-tight">Run Clash Detection Engine</span>
 </button>
-<button class="flex items-center gap-1.5 px-space-md py-2 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-body-md text-body-md font-medium" type="button">
+<button class="flex items-center justify-center p-2 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-body-md text-body-md font-medium shrink-0" type="button" title="Export Master Roster" aria-label="Export Master Roster">
 <span class="material-symbols-outlined text-[18px]">file_download</span>
-<span>Export Master Roster</span>
 </button>
-</div>
-</div>
-<!-- Sub-bar: View Selector + Quick Analytics Strip -->
-<div class="pt-space-sm flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
-<!-- Tabs -->
-<div class="flex items-center p-1 rounded-lg bg-surface-container-low self-start">
-<button class="px-space-md py-1.5 rounded font-body-sm text-body-sm font-semibold bg-surface-container-lowest text-on-surface shadow-sm flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-[16px] text-secondary">event_available</span>
-<span>Unified Clash-Free Calendar</span>
-</button>
-<button class="px-space-md py-1.5 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-[16px]">view_timeline</span>
-<span>Drive List &amp; Pipeline</span>
-</button>
-<button class="px-space-md py-1.5 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-[16px]">grid_4x4</span>
-<span>Slot Optimization Matrix</span>
-</button>
-</div>
-<!-- Live Infrastructure Safeguard Status -->
-<div class="flex items-center gap-2 px-space-md py-1.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span class="font-semibold">Lab Capacity Guard:</span>
-<span class="text-on-surface-variant">8 Labs • 2 Auditoriums • 40 Interview Cabins Synchronized</span>
 </div>
 </div>
 </section>
@@ -2016,22 +1841,12 @@
 <div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-space-md">
 <!-- Split Panel Header Card -->
 <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-<div class="flex items-start justify-between gap-space-xs">
-<div class="flex flex-col">
+<div class="flex items-center justify-between gap-space-xs">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-[22px]">smart_toy</span>
 <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">AI Drive Ingestion &amp; Allocation</h2>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Autonomous NLP extraction • Human-In-The-Loop Approval</span>
-</div>
 <span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold shrink-0">8 Pending</span>
-</div>
-<!-- Explainability Note -->
-<div class="p-space-sm rounded-lg bg-surface-container text-on-surface flex items-start gap-2">
-<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">info</span>
-<p class="font-body-sm text-body-sm text-on-surface leading-snug">
-            AI parsed incoming recruiter MoUs, syllabus schedules, and semester internal test dates to propose optimal time slots without conflicts.
-          </p>
 </div>
 <!-- Inbound Drive Card 1: Barclays -->
 <div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-space-sm">
@@ -2164,14 +1979,9 @@
 <!-- Bottom Section: Recruiter Outreach & Bulk Invitation Suite -->
 <section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
-<div class="flex flex-col gap-1">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-[24px]">forward_to_inbox</span>
 <h2 class="font-headline-md text-headline-md font-bold text-on-surface">Recruiter Outreach &amp; Campaign Manager</h2>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">
-          Automated multi-tier corporate pipeline targeting 540+ vetted Tech, FinTech, and HFT campus partners for VESIT placement drives.
-        </p>
 </div>
 <div class="flex items-center gap-space-sm flex-wrap">
 <button class="px-space-md py-2 rounded bg-primary text-on-primary hover:bg-inverse-surface transition-colors font-body-md text-body-md font-semibold flex items-center gap-2 shadow-xs" type="button">
@@ -2246,19 +2056,17 @@
   const runBtn = document.getElementById('runEngineBtn');
   if (runBtn) {
     runBtn.addEventListener('click', function() {
-      const origText = runBtn.innerHTML;
+      const origHtml = runBtn.innerHTML;
       runBtn.innerHTML = `
         <span class="material-symbols-outlined text-[18px] animate-spin">rotate_right</span>
-        <span class="font-body-md text-body-md font-semibold tracking-tight">Analyzing 48 Drives...</span>
       `;
       runBtn.disabled = true;
       setTimeout(() => {
         runBtn.innerHTML = `
           <span class="material-symbols-outlined text-[18px] text-secondary">check</span>
-          <span class="font-body-md text-body-md font-semibold tracking-tight">Zero Conflicts Found!</span>
         `;
         setTimeout(() => {
-          runBtn.innerHTML = origText;
+          runBtn.innerHTML = origHtml;
           runBtn.disabled = false;
         }, 2200);
       }, 1000);
@@ -2301,13 +2109,13 @@
 <!-- Security & Isolation Attestation Micro-Bar -->
 
 </div>
-<!-- Primary Workspace Canvas (Dual Pane Split Grid 5:7) -->
-<div class="p-8">
+<!-- Primary Workspace Canvas (Dual Pane Split Grid 4:8) -->
+<div class="p-8 flex flex-col gap-8">
 <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start" id="workspaceGrid">
 <!-- ========================================================================= -->
-<!-- SECTION 1: LEFT PANE - DECLARATIVE ELIGIBILITY ENGINE (5 cols)           -->
+<!-- SECTION 1: LEFT PANE - DECLARATIVE ELIGIBILITY ENGINE (4 cols)           -->
 <!-- ========================================================================= -->
-<section class="xl:col-span-5 flex flex-col gap-6" id="paneLeft">
+<section class="xl:col-span-4 flex flex-col gap-6" id="paneLeft">
 <!-- Panel Header Card -->
 <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-6">
 <div class="flex items-center justify-between pb-4 bg-surface-container-low -mx-6 -mt-6 p-4 rounded-t-xl">
@@ -2315,15 +2123,8 @@
 <div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
 <span class="material-symbols-outlined text-[18px]">rule_settings</span>
 </div>
-<div class="flex flex-col">
 <span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Declarative Policy Gates</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Deterministic AST Ruleset Engine</span>
 </div>
-</div>
-<span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-secondary-container font-label-sm text-label-sm font-medium">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-              AST Engine: Online
-            </span>
 </div>
 <!-- Configuration Controls -->
 <div class="flex flex-col gap-5">
@@ -2517,82 +2318,13 @@
 </button>
 </div>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant text-center">Deterministic execution triggered across active cohort with instant immutable hash generation.</p>
-</div>
-</div>
-<!-- Tamper-Evident Rule Versioning Audit Table -->
-<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
-<div class="flex items-center justify-between pb-3 bg-surface-container-low -mx-6 -mt-6 p-4 rounded-t-xl">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary text-[20px]">history</span>
-<div class="flex flex-col">
-<span class="font-headline-sm text-[0.9375rem] text-on-surface font-semibold">Rule Version History</span>
-<span class="font-label-sm text-[0.6875rem] text-on-surface-variant font-mono">Tamper-Evident SHA-256 Chain</span>
-</div>
-</div>
-<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high text-on-secondary-container font-label-sm text-[0.625rem] font-semibold">
-<span class="material-symbols-outlined text-[13px]">shield</span>
-              Reproducible &amp; Appealable
-            </div>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left">
-<thead>
-<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-[0.6875rem] uppercase tracking-wider">
-<th class="py-2.5 px-3 rounded-l">Version</th>
-<th class="py-2.5 px-3">Timestamp</th>
-<th class="py-2.5 px-3">Authority</th>
-<th class="py-2.5 px-3">Rule Delta / Diff</th>
-<th class="py-2.5 px-3">SHA-256 Checksum</th>
-<th class="py-2.5 px-3 text-right rounded-r">Status</th>
-</tr>
-</thead>
-<tbody class="font-body-sm text-body-sm">
-<!-- Row 1: Active -->
-<tr class="bg-surface-container-low/50 hover:bg-surface-container-low transition-colors">
-<td class="py-3 px-3 font-label-sm font-semibold text-secondary">v1.2 (Active)</td>
-<td class="py-3 px-3 text-on-surface-variant whitespace-nowrap">Today, 11:20 IST</td>
-<td class="py-3 px-3 font-medium text-on-surface whitespace-nowrap">Dr. Aris Vance</td>
-<td class="py-3 px-3 text-on-surface max-w-xs">Raised CGPA to 7.75; added Verified Python &amp; SQL sandbox constraint</td>
-<td class="py-3 px-3 font-mono text-[0.6875rem] text-secondary">0x89f2c7a...</td>
-<td class="py-3 px-3 text-right">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-secondary-container font-label-sm text-[0.625rem] font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                      Enforced
-                    </span>
-</td>
-</tr>
-<!-- Row 2: Archived -->
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="py-3 px-3 font-label-sm font-semibold text-on-surface-variant">v1.1</td>
-<td class="py-3 px-3 text-on-surface-variant whitespace-nowrap">Oct 14, 2024</td>
-<td class="py-3 px-3 font-medium text-on-surface whitespace-nowrap">Dr. J. M. Nair</td>
-<td class="py-3 px-3 text-on-surface-variant max-w-xs">Added 0 live backlogs constraint for Tier-1 Marquee Drives</td>
-<td class="py-3 px-3 font-mono text-[0.6875rem] text-outline">0x42e19d3...</td>
-<td class="py-3 px-3 text-right">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[0.625rem]">Archived</span>
-</td>
-</tr>
-<!-- Row 3: Genesis -->
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="py-3 px-3 font-label-sm font-semibold text-on-surface-variant">v1.0 (Genesis)</td>
-<td class="py-3 px-3 text-on-surface-variant whitespace-nowrap">Aug 01, 2024</td>
-<td class="py-3 px-3 font-medium text-on-surface whitespace-nowrap">Academic Council</td>
-<td class="py-3 px-3 text-on-surface-variant max-w-xs">Baseline institutional placement criteria and GPA baselines</td>
-<td class="py-3 px-3 font-mono text-[0.6875rem] text-outline">0x11a0ef4...</td>
-<td class="py-3 px-3 text-right">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[0.625rem]">Archived</span>
-</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </section>
 <!-- ========================================================================= -->
-<!-- SECTION 2: RIGHT PANE - RECRUITER TALENT DISCOVERY (7 cols)               -->
+<!-- SECTION 2: RIGHT PANE - RECRUITER TALENT DISCOVERY (8 cols)               -->
 <!-- ========================================================================= -->
-<section class="xl:col-span-7 flex flex-col gap-6" id="paneRight">
+<section class="xl:col-span-8 flex flex-col gap-6" id="paneRight">
 <!-- Recruiter Search & Filter Master Module -->
 <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
 
@@ -2899,6 +2631,71 @@
 
 </section>
 </div>
+<!-- ========================================================================= -->
+<!-- SECTION 3: BOTTOM FULL-WIDTH PANE - RULE VERSION HISTORY TABLE            -->
+<!-- ========================================================================= -->
+<section class="w-full" id="ruleVersionHistorySection">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 bg-surface-container-low -mx-6 -mt-6 p-4 rounded-t-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">history</span>
+<span class="font-headline-sm text-[0.9375rem] text-on-surface font-semibold">Rule Version History</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-[0.6875rem] uppercase tracking-wider">
+<th class="py-2.5 px-4 rounded-l">Version</th>
+<th class="py-2.5 px-4">Timestamp</th>
+<th class="py-2.5 px-4">Authority</th>
+<th class="py-2.5 px-4">Rule Delta / Diff</th>
+<th class="py-2.5 px-4">SHA-256 Checksum</th>
+<th class="py-2.5 px-4 text-right rounded-r">Status</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm">
+<!-- Row 1: Active -->
+<tr class="bg-surface-container-low/50 hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-label-sm font-semibold text-secondary">v1.2 (Active)</td>
+<td class="py-3 px-4 text-on-surface-variant whitespace-nowrap">Today, 11:20 IST</td>
+<td class="py-3 px-4 font-medium text-on-surface whitespace-nowrap">Dr. Aris Vance</td>
+<td class="py-3 px-4 text-on-surface">Raised CGPA to 7.75; added Verified Python &amp; SQL sandbox constraint</td>
+<td class="py-3 px-4 font-mono text-[0.6875rem] text-secondary">0x89f2c7a...</td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-secondary-container font-label-sm text-[0.625rem] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                      Enforced
+                    </span>
+</td>
+</tr>
+<!-- Row 2: Archived -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-label-sm font-semibold text-on-surface-variant">v1.1</td>
+<td class="py-3 px-4 text-on-surface-variant whitespace-nowrap">Oct 14, 2024</td>
+<td class="py-3 px-4 font-medium text-on-surface whitespace-nowrap">Dr. J. M. Nair</td>
+<td class="py-3 px-4 text-on-surface-variant">Added 0 live backlogs constraint for Tier-1 Marquee Drives</td>
+<td class="py-3 px-4 font-mono text-[0.6875rem] text-outline">0x42e19d3...</td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[0.625rem]">Archived</span>
+</td>
+</tr>
+<!-- Row 3: Genesis -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-label-sm font-semibold text-on-surface-variant">v1.0 (Genesis)</td>
+<td class="py-3 px-4 text-on-surface-variant whitespace-nowrap">Aug 01, 2024</td>
+<td class="py-3 px-4 font-medium text-on-surface whitespace-nowrap">Academic Council</td>
+<td class="py-3 px-4 text-on-surface-variant">Baseline institutional placement criteria and GPA baselines</td>
+<td class="py-3 px-4 font-mono text-[0.6875rem] text-outline">0x11a0ef4...</td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[0.625rem]">Archived</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 </div>
 </div>
 <script>
@@ -2924,9 +2721,9 @@
   viewDualBtn.addEventListener('click', () => {
     setActiveButton(viewDualBtn);
     paneLeft.classList.remove('hidden');
-    paneLeft.className = "xl:col-span-5 flex flex-col gap-6";
+    paneLeft.className = "xl:col-span-4 flex flex-col gap-6";
     paneRight.classList.remove('hidden');
-    paneRight.className = "xl:col-span-7 flex flex-col gap-6";
+    paneRight.className = "xl:col-span-8 flex flex-col gap-6";
   });
 
   viewRuleBtn.addEventListener('click', () => {
@@ -2952,18 +2749,7 @@
 <!-- Top Command & Statutory Scope Header -->
 <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md mb-space-lg bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
 <div class="flex flex-col gap-1 min-w-0">
-<div class="flex flex-wrap items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-primary-container text-primary-fixed font-label-sm text-label-sm uppercase tracking-wider font-semibold">Statutory Compliance Core</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">VESIT Mumbai • Node ID: #IN-VESIT-2025-A1</span>
-<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm flex items-center gap-1 font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-          AI Policy v5.4 • Human-in-the-Loop Active
-        </span>
-</div>
-<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">Fairness Check &amp; Statutory Accreditation Suite</h1>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
-        Automated disparate-impact parity verification, real-time audit ledger for Equal Opportunity enforcement, and one-click regulatory data dispatch for NAAC Criterion 5.2, NIRF Metric 3A/3B, and NBA Tier-I SAR.
-      </p>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Fairness Check &amp; Statutory Accreditation Suite</h1>
 </div>
 <!-- Trust Protocol Badge -->
 <div class="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-lg shrink-0">
@@ -2977,7 +2763,7 @@
 </div>
 </div>
 </div>
-<!-- Primary Export Command Bar (NAAC & NIRF 1-Click Suite) -->
+<!-- Primary Export Command Bar (NAAC & NIRF Suite) -->
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm mb-space-lg">
 <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
 <div class="flex items-center gap-3">
@@ -2993,17 +2779,13 @@
 <div class="flex flex-wrap items-center gap-2.5">
 <button class="flex items-center gap-2 px-3.5 py-2 rounded bg-primary text-on-primary hover:bg-neutral-900 transition-colors font-body-sm text-body-sm font-semibold shadow-sm" id="btn-naac" onclick="triggerToast('NAAC Criterion 5.2.1 Bundle (Excel &amp; signed PDF) prepared with 584 student verification hashes.')">
 <span class="material-symbols-outlined text-[18px]">description</span>
-<span>1-Click NAAC 5.2.1 Data</span>
+<span>NAAC 5.2.1 Data</span>
 <span class="px-1.5 py-0.2 rounded bg-surface-container-lowest/20 font-label-sm text-label-sm font-mono text-on-primary">XLS+PDF</span>
 </button>
 <button class="flex items-center gap-2 px-3.5 py-2 rounded bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors font-body-sm text-body-sm font-semibold shadow-sm" id="btn-nirf" onclick="triggerToast('NIRF Metric 3A/3B table generated formatted for MHRD portal submission.')">
 <span class="material-symbols-outlined text-[18px]">bar_chart</span>
-<span>1-Click NIRF Metric 3A/3B Table</span>
+<span>NIRF Metric 3A/3B Table</span>
 <span class="px-1.5 py-0.2 rounded bg-surface-container-lowest/20 font-label-sm text-label-sm font-mono text-on-secondary">MHRD</span>
-</button>
-<button class="flex items-center gap-2 px-3.5 py-2 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-body-sm text-body-sm font-medium" id="btn-nba" onclick="triggerToast('NBA SAR Placement &amp; Progression Matrix generated for Tier-I review committee.')">
-<span class="material-symbols-outlined text-[18px]">lock_reset</span>
-<span>Export NBA Tier-I SAR Matrix</span>
 </button>
 </div>
 </div>
@@ -3031,7 +2813,6 @@
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex items-center justify-between mb-2">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Disparate Impact Ratio</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-low text-secondary font-label-sm text-label-sm font-mono font-semibold">EEOC std &gt;= 0.80</span>
 </div>
 <div class="flex items-baseline gap-2 mb-1">
 <span class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight leading-none">0.94</span>
@@ -3046,7 +2827,6 @@
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex items-center justify-between mb-2">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Aggregate Parity Score</span>
-<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-mono font-semibold">All 12 Drives</span>
 </div>
 <div class="flex items-baseline gap-2 mb-1">
 <span class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight leading-none">98.2%</span>
@@ -3060,7 +2840,6 @@
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex items-center justify-between mb-2">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Flagged Bottlenecks</span>
-<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-mono font-semibold">Requires Sign-off</span>
 </div>
 <div class="flex items-baseline gap-2 mb-1">
 <span class="font-display-lg text-display-lg font-bold text-error tracking-tight leading-none">01</span>
@@ -3075,7 +2854,6 @@
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex items-center justify-between mb-2">
 <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Affirmative Parity index</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm font-mono font-semibold">State Norms</span>
 </div>
 <div class="flex items-baseline gap-2 mb-1">
 <span class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight leading-none">1.02</span>
@@ -3089,15 +2867,14 @@
 </div>
 <!-- Granular Selection Ratio Breakdown Cards -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
-<!-- Card A: Gender Parity in Offers -->
+<!-- Gender Parity in Offers -->
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex flex-col gap-3">
 <div class="flex items-center justify-between pb-2">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-[20px]">group</span>
-<span class="font-headline-sm text-headline-sm text-on-surface">Card A: Gender Parity in Offers</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Gender Parity in Offers</span>
 </div>
-<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-mono font-semibold">Ratio: 0.95</span>
 </div>
 <div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
 <div class="flex justify-between items-center text-body-sm font-body-sm">
@@ -3144,15 +2921,14 @@
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">Verdict: Balanced / Pass</span>
 </div>
 </div>
-<!-- Card B: Branch / Department Parity (Core vs Non-Core) -->
+<!-- Branch / Department Parity (Core vs Non-Core) -->
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex flex-col gap-3">
 <div class="flex items-center justify-between pb-2">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-error text-[20px]">warning_amber</span>
-<span class="font-headline-sm text-headline-sm text-on-surface">Card B: Department Parity</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Department Parity</span>
 </div>
-<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-mono font-semibold">Flagged Alert</span>
 </div>
 <!-- Placement Rate comparison -->
 <div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
@@ -3198,15 +2974,14 @@
 </div>
 </div>
 </div>
-<!-- Card C: Category & Socio-Economic Representation -->
+<!-- Category & Socio-Economic Representation -->
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
 <div class="flex flex-col gap-3">
 <div class="flex items-center justify-between pb-2">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-[20px]">account_balance</span>
-<span class="font-headline-sm text-headline-sm text-on-surface">Card C: Category Parity Audit</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Category Parity Audit</span>
 </div>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-mono">Affirmative Norms</span>
 </div>
 <div class="overflow-x-auto">
 <table class="w-full text-left font-body-sm text-body-sm">
@@ -3251,12 +3026,6 @@
 </tbody>
 </table>
 </div>
-<div class="p-3 rounded-lg bg-surface-container-low flex items-center justify-between font-label-sm text-label-sm">
-<span class="text-on-surface-variant">Discriminatory Anomaly Flag</span>
-<span class="font-mono font-bold text-secondary flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> 0 Anomalies
-            </span>
-</div>
 </div>
 <div class="pt-3 mt-3 flex items-center justify-between font-label-sm text-label-sm">
 <span class="text-on-surface-variant font-mono">Standard Deviations: ±0.04</span>
@@ -3271,10 +3040,6 @@
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-[22px]">analytics</span>
 <h2 class="font-headline-md text-headline-md text-on-surface">NAAC &amp; NIRF Verified Performance Matrix (2024-2025 Graduating Class)</h2>
-</div>
-<div class="flex items-center gap-2">
-<span class="px-2.5 py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-mono">Cohort N = 807</span>
-<span class="px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Audit Status: Cryptographically Frozen</span>
 </div>
 </div>
 <!-- Career Outcome & Compensation Analytics Cards Grid -->
@@ -3351,7 +3116,6 @@
 <span class="material-symbols-outlined text-secondary text-[20px]">table_view</span>
 <div>
 <div class="font-headline-sm text-headline-sm text-on-surface">NAAC 5.2.1 Live Data Ledger Sample (First 5 of 584 Placed Candidates)</div>
-<div class="font-body-sm text-body-sm text-on-surface-variant">Export schema matches NAAC Portal XML/XLSX template.</div>
 </div>
 </div>
 <div class="flex items-center gap-2">
@@ -3457,10 +3221,6 @@
 <div class="flex flex-col">
 <span class="font-headline-sm text-headline-sm text-on-surface">Dr. Aris Vance</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Head, Training &amp; Placement Cell</span>
-<span class="font-label-sm text-label-sm text-secondary font-mono flex items-center gap-1 mt-0.5">
-<span class="material-symbols-outlined text-[14px]">check_circle</span>
-              Digitally Signed: 24-Feb-2025
-            </span>
 </div>
 </div>
 <div class="hidden sm:block h-10 w-px bg-surface-container-high"></div>
@@ -3472,10 +3232,6 @@
 <div class="flex flex-col">
 <span class="font-headline-sm text-headline-sm text-on-surface">Dr. J. M. Nair</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Principal, VESIT Mumbai</span>
-<span class="font-label-sm text-label-sm text-secondary font-mono flex items-center gap-1 mt-0.5">
-<span class="material-symbols-outlined text-[14px]">check_circle</span>
-              Institutional Endorsement: Approved
-            </span>
 </div>
 </div>
 </div>
@@ -3552,17 +3308,14 @@
 </div>
 <!-- Header Primary Action & Agentic Sync Indicator -->
 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm">
-
-<button class="flex items-center justify-center gap-2 px-space-lg py-2.5 rounded bg-brand-navy hover:bg-slate-900 text-on-primary font-semibold shadow-sm shadow-blue-950/25 transition-all active:scale-[0.98] text-base" id="certificate-up-btn">
-<span class="material-symbols-outlined text-base">description</span>
-<span>Add Certificate</span>
-</button>
-
+<div class="flex items-center gap-1.5 px-space-sm py-1.5 rounded bg-surface-container-low border border-slate-200 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-status-verified animate-ping"></span>
+<span class="font-label-code text-label-code text-slate-700 font-medium">Continuous Ingestion Live</span>
+</div>
 <button class="flex items-center justify-center gap-2 px-space-lg py-2.5 rounded bg-brand-navy hover:bg-slate-900 text-on-primary font-semibold shadow-sm shadow-blue-950/25 transition-all active:scale-[0.98] text-base" id="resume-gen-btn">
 <span class="material-symbols-outlined text-base">description</span>
 <span>Generate Resume</span>
 </button>
-
 </div>
 </div>
 <!-- Integrations Stream Banner -->
@@ -4017,17 +3770,6 @@
     this.disabled = true;
     const originalContent = this.innerHTML;
     this.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Synthesizing Tailored Resume...</span>';
-    setTimeout(() => {
-      this.disabled = false;
-      this.innerHTML = originalContent;
-      showToast('⚡ Tailored resume generated with verified SHA metadata! Ready in Documents.');
-    }, 1400);
-  });
-
-  document.getElementById('certificate-up-btn')?.addEventListener('click', function() {
-    this.disabled = true;
-    const originalContent = this.innerHTML;
-    this.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Uploading Cerificate...</span>';
     setTimeout(() => {
       this.disabled = false;
       this.innerHTML = originalContent;
@@ -8083,33 +7825,15 @@ FROM user_activity_log;</textarea>
     // 1. AST Rescan
     function triggerAstRescan() {
       const icon = document.getElementById('rescanIcon');
-      const text = document.getElementById('rescanText');
       const btn = document.getElementById('rescanTriggerBtn');
       if (icon) icon.classList.add('animate-spin');
-      if (text) text.textContent = 'Scanning AST Nodes...';
       if (btn) btn.disabled = true;
 
       setTimeout(() => {
         if (icon) icon.classList.remove('animate-spin');
-        if (text) text.textContent = 'Trigger AST Rescan';
         if (btn) btn.disabled = false;
         showToast('AST Rescan Complete: 807 Student Repositories Synchronized.', 'cloud_done');
-
-        const auditLog = document.getElementById('agentAuditLog');
-        if (auditLog) {
-          const entry = document.createElement('div');
-          entry.className = 'flex items-center justify-between text-on-surface-variant p-1.5 rounded hover:bg-slate-50';
-          entry.innerHTML = `
-            <div class="flex items-center gap-2">
-              <span class="text-on-surface-variant font-semibold">Just Now</span>
-              <span class="px-1 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">MANUAL_AST_RESCAN</span>
-              <span>Manual re-trigger executed by Dr. Aris Vance. Zero discrepancies flagged in 807 profiles.</span>
-            </div>
-            <span class="text-emerald-700 font-semibold">[AUDIT PASS]</span>
-          `;
-          auditLog.prepend(entry);
-        }
-      }, 1200);
+      }, 1000);
     }
 
     // 2. Heatmap cell selection

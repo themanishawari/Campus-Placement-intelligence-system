@@ -1,51 +1,20 @@
 <div class="flex flex-col w-full gap-space-lg">
 <!-- Top Operational Banner & Controls -->
-<section class="flex flex-col gap-space-md bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<section class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
 <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
 <div class="flex flex-col gap-1 min-w-0">
-<div class="flex items-center gap-space-xs flex-wrap">
-<span class="px-2 py-0.5 rounded bg-primary-container text-primary-fixed font-label-sm text-label-sm uppercase tracking-wider font-semibold">Live Operational Engine</span>
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">VESIT Season 2024-25 • Cycle-1 Active</span>
-</div>
 <h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Campus Drive Management &amp; Intelligent Clash-Free Scheduling</h1>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
           VESIT Placement Season 2024-25 <span class="mx-1.5 opacity-40">•</span> <span class="font-semibold text-on-surface">48 Scheduled Drives</span> <span class="mx-1.5 opacity-40">•</span> <span class="font-semibold text-secondary">6 Clashes Resolved by AI</span> <span class="mx-1.5 opacity-40">•</span> <span class="font-semibold text-error">8 Pending Human Allocation</span>
 </p>
 </div>
 <div class="flex items-center gap-space-sm shrink-0 flex-wrap">
-<button class="group flex items-center gap-2 px-space-md py-2 rounded bg-primary text-on-primary hover:bg-inverse-surface transition-all shadow-sm" id="runEngineBtn" type="button">
+<button class="group flex items-center justify-center p-2 rounded bg-primary text-on-primary hover:bg-inverse-surface transition-all shadow-sm shrink-0" id="runEngineBtn" type="button" title="Run Clash Detection Engine" aria-label="Run Clash Detection Engine">
 <span class="material-symbols-outlined text-[18px] text-primary-fixed group-hover:rotate-180 transition-transform duration-500">sync</span>
-<span class="font-body-md text-body-md font-semibold tracking-tight">Run Clash Detection Engine</span>
 </button>
-<button class="flex items-center gap-1.5 px-space-md py-2 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-body-md text-body-md font-medium" type="button">
+<button class="flex items-center justify-center p-2 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-body-md text-body-md font-medium shrink-0" type="button" title="Export Master Roster" aria-label="Export Master Roster">
 <span class="material-symbols-outlined text-[18px]">file_download</span>
-<span>Export Master Roster</span>
 </button>
-</div>
-</div>
-<!-- Sub-bar: View Selector + Quick Analytics Strip -->
-<div class="pt-space-sm flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
-<!-- Tabs -->
-<div class="flex items-center p-1 rounded-lg bg-surface-container-low self-start">
-<button class="px-space-md py-1.5 rounded font-body-sm text-body-sm font-semibold bg-surface-container-lowest text-on-surface shadow-sm flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-[16px] text-secondary">event_available</span>
-<span>Unified Clash-Free Calendar</span>
-</button>
-<button class="px-space-md py-1.5 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-[16px]">view_timeline</span>
-<span>Drive List &amp; Pipeline</span>
-</button>
-<button class="px-space-md py-1.5 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-[16px]">grid_4x4</span>
-<span>Slot Optimization Matrix</span>
-</button>
-</div>
-<!-- Live Infrastructure Safeguard Status -->
-<div class="flex items-center gap-2 px-space-md py-1.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">
-<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
-<span class="font-semibold">Lab Capacity Guard:</span>
-<span class="text-on-surface-variant">8 Labs • 2 Auditoriums • 40 Interview Cabins Synchronized</span>
 </div>
 </div>
 </section>
@@ -324,22 +293,12 @@
 <div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-space-md">
 <!-- Split Panel Header Card -->
 <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-<div class="flex items-start justify-between gap-space-xs">
-<div class="flex flex-col">
+<div class="flex items-center justify-between gap-space-xs">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-[22px]">smart_toy</span>
 <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">AI Drive Ingestion &amp; Allocation</h2>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Autonomous NLP extraction • Human-In-The-Loop Approval</span>
-</div>
 <span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold shrink-0">8 Pending</span>
-</div>
-<!-- Explainability Note -->
-<div class="p-space-sm rounded-lg bg-surface-container text-on-surface flex items-start gap-2">
-<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">info</span>
-<p class="font-body-sm text-body-sm text-on-surface leading-snug">
-            AI parsed incoming recruiter MoUs, syllabus schedules, and semester internal test dates to propose optimal time slots without conflicts.
-          </p>
 </div>
 <!-- Inbound Drive Card 1: Barclays -->
 <div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-space-sm">
@@ -472,14 +431,9 @@
 <!-- Bottom Section: Recruiter Outreach & Bulk Invitation Suite -->
 <section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
-<div class="flex flex-col gap-1">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-[24px]">forward_to_inbox</span>
 <h2 class="font-headline-md text-headline-md font-bold text-on-surface">Recruiter Outreach &amp; Campaign Manager</h2>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">
-          Automated multi-tier corporate pipeline targeting 540+ vetted Tech, FinTech, and HFT campus partners for VESIT placement drives.
-        </p>
 </div>
 <div class="flex items-center gap-space-sm flex-wrap">
 <button class="px-space-md py-2 rounded bg-primary text-on-primary hover:bg-inverse-surface transition-colors font-body-md text-body-md font-semibold flex items-center gap-2 shadow-xs" type="button">
@@ -554,19 +508,17 @@
   const runBtn = document.getElementById('runEngineBtn');
   if (runBtn) {
     runBtn.addEventListener('click', function() {
-      const origText = runBtn.innerHTML;
+      const origHtml = runBtn.innerHTML;
       runBtn.innerHTML = `
         <span class="material-symbols-outlined text-[18px] animate-spin">rotate_right</span>
-        <span class="font-body-md text-body-md font-semibold tracking-tight">Analyzing 48 Drives...</span>
       `;
       runBtn.disabled = true;
       setTimeout(() => {
         runBtn.innerHTML = `
           <span class="material-symbols-outlined text-[18px] text-secondary">check</span>
-          <span class="font-body-md text-body-md font-semibold tracking-tight">Zero Conflicts Found!</span>
         `;
         setTimeout(() => {
-          runBtn.innerHTML = origText;
+          runBtn.innerHTML = origHtml;
           runBtn.disabled = false;
         }, 2200);
       }, 1000);
