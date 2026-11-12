@@ -100,13 +100,13 @@ typography:
     fontWeight: '400'
     lineHeight: 1rem
   label-md:
-    fontFamily: JetBrains Mono
+    fontFamily: Arial
     fontSize: 0.75rem
     fontWeight: '500'
     lineHeight: 1rem
     letterSpacing: 0.025em
   label-sm:
-    fontFamily: JetBrains Mono
+    fontFamily: Arial
     fontSize: 0.6875rem
     fontWeight: '500'
     lineHeight: 0.875rem
@@ -159,7 +159,7 @@ The palette employs deep naval infrastructure tones paired with high-clarity ice
 The typographic hierarchy prioritizes rapid scanning, numerical readability, and structural efficiency.
 
 - **Primary UI & Headings:** `Hanken Grotesk` delivers geometric discipline without sacrificing legibility at small sizes. Headings are tight, dense, and assertive.
-- **Data & Intelligence Attributes:** `JetBrains Mono` is assigned to operational metadata, cryptographic hashes, timestamps, IP nodes, status codes, and table metrics. It enforces proportional tabular alignment across dense monitoring grids.
+- **Data & Intelligence Attributes:** `Arial` is assigned to operational metadata, cryptographic hashes, timestamps, IP nodes, status codes, and table metrics. It enforces proportional tabular alignment across dense monitoring grids.
 
 ## Layout & Spacing
 
@@ -191,13 +191,13 @@ This restrained curvature preserves a sharp, technical contour befitting high-re
 - **Destructive / High Alert:** Filled `#e11d48` or outlined `#e11d48` with matched focus rings.
 
 ### Status Chips & Badges
-Chips maintain a strict semantic identity using light tint fills, 1px high-contrast borders, and uppercase `JetBrains Mono` text:
+Chips maintain a strict semantic identity using light tint fills, 1px high-contrast borders, and uppercase `Arial` text:
 - **Verified:** Background `#ecfdf5`, border `#a7f3d0`, text `#065f46`. Includes a 6px solid emerald indicator dot.
 - **Claimed / Pending:** Background `#fffbeb`, border `#fde68a`, text `#92400e`. Includes a 6px solid amber indicator dot.
 - **Blocked / Expired:** Background `#fff1f2`, border `#fecdd3`, text `#9f1239`. Includes a 6px solid rose indicator dot.
 
 ### Data Tables & Lists
-- Table headers use `label-sm` in `JetBrains Mono`, `#475569`, tracking uppercase with a solid `#e2e8f0` bottom border.
+- Table headers use `label-sm` in `Arial`, `#475569`, tracking uppercase with a solid `#e2e8f0` bottom border.
 - Alternating rows employ subtle zebra striping (`#ffffff` to `#f8fafc`) with hover highlights in `#f1f5f9`.
 - Row height standard: `36px` (compact) or `48px` (default).
 

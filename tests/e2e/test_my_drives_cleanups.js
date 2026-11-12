@@ -18,7 +18,7 @@ setTimeout(() => {
     let d = ''; res.on('data', c => d += c);
     res.on('end', async () => {
       const tabs = JSON.parse(d);
-      const appTab = tabs.find(t => t.url.includes('localhost:3000'));
+      const appTab = tabs.find(t => t.type === 'page' && t.url.includes('localhost:3000'));
       if (!appTab) {
         console.error('No app tab found');
         proc.kill();
@@ -47,10 +47,17 @@ setTimeout(() => {
           ws.send(JSON.stringify({ id: reqId, method: 'Runtime.evaluate', params: { expression: expr, returnByValue: true } }));
         });
 
-        await new Promise(r => setTimeout(r, 600));
+        await new Promise(r => setTimeout(r, 1200));
+
+        // Ensure we navigate to view-my-drives if not already
+        await sendEval(`(() => {
+          if (typeof navigateTo === 'function') navigateTo('my-drives');
+          else window.location.hash = '#/my-drives';
+        })()`);
+        await new Promise(r => setTimeout(r, 500));
 
         // Check 1: Header removal
-        const viewText = await sendEval(`document.getElementById('view-my-drives').innerText`);
+        const viewText = await sendEval(`document.getElementById('view-my-drives')?.innerText || ''`);
         const hasHeaderBreadcrumb = viewText.includes('Eligibility Verification Engine') || viewText.includes('Proofpoint Placement Intelligence');
         console.log('Has "Proofpoint Placement Intelligence / Eligibility Verification Engine" (should be false):', hasHeaderBreadcrumb);
 

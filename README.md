@@ -142,7 +142,7 @@ Every button across all 10 screens is paired with an interactive popup, drawer, 
 ## 🎨 Design System
 
 Strictly aligned with [`docs/DESIGN.md`](docs/DESIGN.md):
-- **Typography**: `Hanken Grotesk` (UI & Headings) and `JetBrains Mono` (Metadata, Code, Hashes).
+- **Typography**: `Hanken Grotesk` (UI & Headings) and `Arial` (Metadata, Code, Hashes).
 - **Icons**: Google Material Symbols Outlined.
 - **Color Palette**:
   - Deep Navy Infrastructure (`#0f172a`, `#1e3a8a`, `#1e40af`)

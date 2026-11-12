@@ -79,8 +79,13 @@
         "margin-mobile": "1rem"
       },
       "fontFamily": {
+        "mono": [
+          "Arial",
+          "sans-serif"
+        ],
         "label-sm": [
-          "JetBrains Mono"
+          "Arial",
+          "sans-serif"
         ],
         "headline-md": [
           "Hanken Grotesk"
@@ -101,7 +106,8 @@
           "Hanken Grotesk"
         ],
         "label-md": [
-          "JetBrains Mono"
+          "Arial",
+          "sans-serif"
         ],
         "body-sm": [
           "Hanken Grotesk"
@@ -116,7 +122,8 @@
           "Hanken Grotesk"
         ],
         "label-code": [
-          "JetBrains Mono"
+          "Arial",
+          "sans-serif"
         ],
         "title-sm": [
           "Hanken Grotesk"

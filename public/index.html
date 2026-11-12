@@ -6,10 +6,10 @@
   <meta name="description" content="Proofpoint × VESIT Autonomous Quasar Placement Intelligence Platform v5.4">
   <title>Proofpoint × VESIT Quasar Placement Intelligence Platform</title>
 
-  <!-- Typography: Hanken Grotesk & JetBrains Mono -->
+  <!-- Typography: Hanken Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Google Material Symbols Outlined -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
@@ -99,8 +99,13 @@
         "margin-mobile": "1rem"
       },
       "fontFamily": {
+        "mono": [
+          "Arial",
+          "sans-serif"
+        ],
         "label-sm": [
-          "JetBrains Mono"
+          "Arial",
+          "sans-serif"
         ],
         "headline-md": [
           "Hanken Grotesk"
@@ -121,7 +126,8 @@
           "Hanken Grotesk"
         ],
         "label-md": [
-          "JetBrains Mono"
+          "Arial",
+          "sans-serif"
         ],
         "body-sm": [
           "Hanken Grotesk"
@@ -136,7 +142,8 @@
           "Hanken Grotesk"
         ],
         "label-code": [
-          "JetBrains Mono"
+          "Arial",
+          "sans-serif"
         ],
         "title-sm": [
           "Hanken Grotesk"
@@ -310,6 +317,13 @@
         margin: 0;
         padding: 0;
         font-family: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+      }
+      .font-mono,
+      .font-label-code,
+      .font-label-sm,
+      .font-label-md,
+      code, kbd, samp, pre {
+        font-family: Arial, Helvetica, sans-serif !important;
       }
       body {
         overscroll-behavior: none;
